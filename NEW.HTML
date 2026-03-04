@@ -1,0 +1,506 @@
+<div class="carousel">
+    <div class="carousel-slide" data bs ride="true">
+        <img src="https://i.pinimg.com/736x/1b/1b/73/1b1b73143d5c509c4c60089337bd507f.jpgi" alt="Image 1">
+
+    </div>
+    <div class="carousel-slide">
+        <img src="https://i.pinimg.com/736x/1b/1b/73/1b1b73143d5c509c4c60089337bd507f.jpg" alt="Image 1">
+
+    </div>
+    <div class="carousel-slide">
+        <img src="https://i.pinimg.com/736x/1b/1b/73/1b1b73143d5c509c4c60089337bd507f.jpg" alt="Image 1">
+
+    </div>
+    <!-- Add more slides as needed -->
+    
+   
+  </div>
+  <style>
+    .carousel {
+      position: relative;
+      width: 1500%;
+      max-width: 1595px;
+      margin: auto;
+      z-index: -1;
+      margin-top: 1%;
+      height: 50%;
+      margin-left: -1.9%;
+      
+  }
+  
+  .carousel-slide {
+      display: none;
+      text-align: center;
+  }
+  
+  .carousel-slide img {
+      width: 100%;
+      border-radius: 10px;
+      
+  }
+  
+  
+  </style>
+  <script>
+    
+  let slideIndex = 0;
+  function showSlides() {
+      let slides = document.querySelectorAll(".carousel-slide");
+      slides.forEach(slide => slide.style.display = "none");
+      slideIndex = (slideIndex + 1) % slides.length;
+      slides[slideIndex].style.display = "block";
+      setTimeout(showSlides, 3000); 
+  }
+  document.addEventListener("DOMContentLoaded", showSlides);
+
+
+  
+  </script>
+  
+  
+  <br>
+  <CENTER>
+    <H1><P style="font-family: 'Inter', sans-serif; font-size:110%; color: rgb(11, 76, 22);">OFFER CARDS
+<br></P></H1>
+    <br>
+    
+    <P style="font-family: 'Inter', sans-serif; color: #6c757d; font-size: medium;"> Offer Cards
+      A membership card program that rewards coders for their dedication, progress, and achievements on our platform</P>
+    <p  style="font-family: 'Inter', sans-serif; color: #6c757d; font-size: medium;" >By offering membership cards, we aim to motivate and reward our coders for their hard work and dedication to learning.</p></CENTER>
+<br><br>
+<br>
+<br>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>View More / View Less Example</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+    <div>
+  <!-- Container for the first row (always visible) -->
+  <div class="cardsr-container">
+    <div class="cardr">
+      <img src="c:\Users\sakth\OneDrive\Documents\WhatsApp Image 2025-01-05 at 20.00.35_fb5be1bc.jpg" alt="Card 1"/>
+      <div class="cardr-label">OFFER</div>
+      <h3 class="card-title" style="font-family: 'Inter', sans-serif; color: #000000;font-size:medium; text-align: center;">Building Restful Apis With Redis </h3>
+      
+      <i class="fa-solid fa-users" style="font-size:small;margin-left:3%;"><h7 style="font-family: 'Inter', sans-serif;font-size:small;margin-left:0%;color: #666; ">132 Enrolled</h7></i>
+      <i class="fa-solid fa-clock" style="font-size:small; margin-left: 37%; margin-top: 0%;"><h7 style="font-family: 'Inter', sans-serif; font-size:small; color:#666;"> 20 Days</h7></i><br>
+      <br>
+      <div class="price-section" style="font-family: 'Inter', sans-serif;">
+        <p class="old-price">₹2000</p>
+        <p class="new-price" style="margin-left:-5%;">₹1499</p>
+       
+    </div>
+      
+      <p class="discount " style="font-family: 'Inter', sans-serif; " >You save ₹ 501 (25% Off)</p>
+      <a href="buy page.html"> <button class="price-btn" style="margin-top: 1%;"> 100</button></a>
+      
+    </div>
+    <div class="cardr">
+      <img src="c:\Users\sakth\AppData\Local\Packages\5319275A.WhatsAppDesktop_cv1g1gvanyjgm\TempState\B5F1E8FB36CD7FBEB7988E8639AC79E9\WhatsApp Image 2025-01-29 at 21.16.12_7b9aca3c.jpg" alt="Card 2"/>
+      
+      <div class="cardr-label">OFFER</div>
+      <h3 class="card-title" style="font-family: 'Inter', sans-serif; color: #000000;font-size:medium; text-align: center;">Building Restful Apis With Redis </h3>
+      
+      <i class="fa-solid fa-users" style="font-size:small;margin-left:3%;"><h7 style="font-family: 'Inter', sans-serif;font-size:small;margin-left:0%;color: #666; ">132 Enrolled</h7></i>
+      <i class="fa-solid fa-clock" style="font-size:small; margin-left: 37%; margin-top: 0%;"><h7 style="font-family: 'Inter', sans-serif; font-size:small; color:#666;"> 20 Days</h7></i><br>
+      <br>
+      <div class="price-section" style="font-family: 'Inter', sans-serif;">
+        <p class="old-price">₹2000</p>
+        <p class="new-price" style="margin-left:-5%;">₹1499</p>
+       
+    </div>
+      
+      <p class="discount" style="font-family: 'Inter', sans-serif; ">You save ₹ 501 (25% Off)</p>
+      <a href="buy page.html"> <button class="price-btn" style="margin-top: 1%;"> 100</button></a>
+    </div>
+    <div class="cardr">
+      <img src="c:\Users\sakth\AppData\Local\Packages\5319275A.WhatsAppDesktop_cv1g1gvanyjgm\TempState\814A9C18F5ABFF398787C9CFCBF3D80C\WhatsApp Image 2025-01-29 at 21.16.13_b263b65f.jpg" alt="Card 3"/>
+      <div class="cardr-label">OFFER</div>
+      <h3 class="card-title" style="font-family: 'Inter', sans-serif; color: #000000;font-size:medium; text-align: center;">Building Restful Apis With Redis </h3>
+      
+      <i class="fa-solid fa-users" style="font-size:small;margin-left:3%;"><h7 style="font-family: 'Inter', sans-serif;font-size:small;margin-left:0%;color: #666; ">132 Enrolled</h7></i>
+      <i class="fa-solid fa-clock" style="font-size:small; margin-left: 37%; margin-top: 0%;"><h7 style="font-family: 'Inter', sans-serif; font-size:small; color:#666;"> 20 Days</h7></i><br>
+      <br>
+      <div class="price-section" style="font-family: 'Inter', sans-serif;">
+        <p class="old-price">₹2000</p>
+        <p class="new-price" style="margin-left:-5%;">₹1499</p>
+       
+    </div>
+      
+      <p class="discount" style="font-family: 'Inter', sans-serif; ">You save ₹ 501 (25% Off)</p>
+      <a href="buy page.html"> <button class="price-btn" style="margin-top: 1%;"> 100</button></a>
+      
+    </div>
+    <div class="cardr" >
+        <img src="c:\Users\sakth\OneDrive\Documents\WhatsApp Image 2025-01-05 at 19.57.40_d99a7792.jpg" alt="Card 3"/>
+        <div class="cardr-label">OFFER</div>
+        <h3 class="card-title" style="font-family: 'Inter', sans-serif; color: #000000;font-size:medium; text-align: center;">Building Restful Apis With Redis </h3>
+      
+        <i class="fa-solid fa-users" style="font-size:small;margin-left:3%;"><h7 style="font-family: 'Inter', sans-serif;font-size:small;margin-left:0%;color: #666; ">132 Enrolled</h7></i>
+        <i class="fa-solid fa-clock" style="font-size:small; margin-left: 37%; margin-top: 0%;"><h7 style="font-family: 'Inter', sans-serif; font-size:small; color:#666;"> 20 Days</h7></i><br>
+        <br>
+        <div class="price-section" style="font-family: 'Inter', sans-serif;">
+          <p class="old-price">₹2000</p>
+          <p class="new-price" style="margin-left:-5%;">₹1499</p>
+         
+      </div>
+        
+        <p class="discount" style="font-family: 'Inter', sans-serif; ">You save ₹ 501 (25% Off)</p>
+        <a href="buy page.html"> <button class="price-btn" style="margin-top: 1%;"> 100</button></a>
+        
+      </div>
+  </div>
+
+
+  <br>
+  <!-- Additional rows initially hidden -->
+  <div class="cardsr-container hidden" id="extraCards">
+    <div class="cardr">
+      <img src="c:\Users\sakth\AppData\Local\Packages\5319275A.WhatsAppDesktop_cv1g1gvanyjgm\TempState\B5F1E8FB36CD7FBEB7988E8639AC79E9\WhatsApp Image 2025-01-29 at 21.16.05_f92baac1.jpg" alt="Card 4"/>
+      <div class="cardr-label">OFFER</div>
+      <h3 class="card-title" style="font-family: 'Inter', sans-serif; color: #000000;font-size:medium; text-align: center;">Building Restful Apis With Redis </h3>
+      
+      <i class="fa-solid fa-users" style="font-size:small;margin-left:3%;"><h7 style="font-family: 'Inter', sans-serif;font-size:small;margin-left:0%;color: #666; ">132 Enrolled</h7></i>
+      <i class="fa-solid fa-clock" style="font-size:small; margin-left: 37%; margin-top: 0%;"><h7 style="font-family: 'Inter', sans-serif; font-size:small; color:#666;"> 20 Days</h7></i><br>
+      <br>
+      <div class="price-section" style="font-family: 'Inter', sans-serif;">
+        <p class="old-price">₹2000</p>
+        <p class="new-price" style="margin-left:-5%;">₹1499</p>
+       
+    </div>
+      
+      <p class="discount" style="font-family: 'Inter', sans-serif; ">You save ₹ 501 (25% Off)</p>
+      <a href="buy page.html"> <button class="price-btn" style="margin-top: 1%;"> 100</button></a>
+      
+    </div>
+    <div class="cardr">
+      <img src="c:\Users\sakth\AppData\Local\Packages\5319275A.WhatsAppDesktop_cv1g1gvanyjgm\TempState\F8BF09F5FCEAEA80E1F864A1B48938BF\WhatsApp Image 2025-01-29 at 21.16.11_993caf57.jpg" alt="Card 5"/>
+      <div class="cardr-label">OFFER</div>
+      <h3 class="card-title" style="font-family: 'Inter', sans-serif; color: #000000;font-size:medium; text-align: center;">Building Restful Apis With Redis </h3>
+      
+      <i class="fa-solid fa-users" style="font-size:small;margin-left:3%;"><h7 style="font-family: 'Inter', sans-serif;font-size:small;margin-left:0%;color: #666; ">132 Enrolled</h7></i>
+      <i class="fa-solid fa-clock" style="font-size:small; margin-left: 37%; margin-top: 0%;"><h7 style="font-family: 'Inter', sans-serif; font-size:small; color:#666;"> 20 Days</h7></i><br>
+      <br>
+      <div class="price-section" style="font-family: 'Inter', sans-serif;">
+        <p class="old-price">₹2000</p>
+        <p class="new-price" style="margin-left:-5%;">₹1499</p>
+       
+    </div>
+      
+      <p class="discount"style="font-family: 'Inter', sans-serif; ">You save ₹ 501 (25% Off)</p>
+      <a href="buy page.html"> <button class="price-btn" style="margin-top: 1%;"> 100</button></a>
+      
+    </div>
+    <div class="cardr">
+        <img src="c:\Users\sakth\AppData\Local\Packages\5319275A.WhatsAppDesktop_cv1g1gvanyjgm\TempState\16BA72172E6A4F1DE54D11AB6967E371\WhatsApp Image 2025-01-29 at 21.16.11_e3dc0be5.jpg "alt="Card 6"/>
+        <div class="cardr-label">OFFER</div>
+        <h3 class="card-title" style="font-family: 'Inter', sans-serif; color: #000000;font-size:medium; text-align: center;">Building Restful Apis With Redis </h3>
+      
+      <i class="fa-solid fa-users" style="font-size:small;margin-left:3%;"><h7 style="font-family: 'Inter', sans-serif;font-size:small;margin-left:0%;color: #666; ">132 Enrolled</h7></i>
+      <i class="fa-solid fa-clock" style="font-size:small; margin-left: 37%; margin-top: 0%;"><h7 style="font-family: 'Inter', sans-serif; font-size:small; color:#666;"> 20 Days</h7></i><br>
+      <br>
+      <div class="price-section" style="font-family: 'Inter', sans-serif;">
+        <p class="old-price">₹2000</p>
+        <p class="new-price" style="margin-left:-5%;">₹1499</p>
+       
+    </div>
+      
+        <p class="discount"style="font-family: 'Inter', sans-serif; ">You save ₹ 501 (25% Off)</p>
+        <a href="buy page.html"> <button class="price-btn" style="margin-top: 1%;"> 100</button></a>
+        
+    </div>
+    <div class="cardr" >
+      <img src="c:\Users\sakth\AppData\Local\Packages\5319275A.WhatsAppDesktop_cv1g1gvanyjgm\TempState\2D405B367158E3F12D7C1E31A96B3AF3\WhatsApp Image 2025-01-29 at 21.14.38_bbaf8dea.jpg" alt="Card 7"/>
+      <div class="cardr-label">OFFER</div>
+      <h3 class="card-title" style="font-family: 'Inter', sans-serif; color: #000000;font-size:medium; text-align: center;">Building Restful Apis With Redis </h3>
+      
+      <i class="fa-solid fa-users" style="font-size:small;margin-left:3%;"><h7 style="font-family: 'Inter', sans-serif;font-size:small;margin-left:0%;color: #666; ">132 Enrolled</h7></i>
+      <i class="fa-solid fa-clock" style="font-size:small; margin-left: 37%; margin-top: 0%;"><h7 style="font-family: 'Inter', sans-serif; font-size:small; color:#666;"> 20 Days</h7></i><br>
+      <br>
+      <div class="price-section" style="font-family: 'Inter', sans-serif;">
+        <p class="old-price">₹2000</p>
+        <p class="new-price" style="margin-left:-5%;">₹1499</p>
+       
+    </div>
+      
+      <p class="discount"style="font-family: 'Inter', sans-serif; ">You save ₹ 501 (25% Off)</p>
+      <a href="buy page.html"> <button class="price-btn" style="margin-top: 1%;"> 100</button></a>
+      
+    </div>
+    
+    <div class="cardr">
+      <img src="c:\Users\sakth\AppData\Local\Packages\5319275A.WhatsAppDesktop_cv1g1gvanyjgm\TempState\52DBB0686F8BD0C0C757ACF716E28EC0\WhatsApp Image 2025-01-29 at 21.14.37_d973e0d1.jpg" alt="Card 8"/>
+      <div class="cardr-label">OFFER</div>
+      <h3 class="card-title" style="font-family: 'Inter', sans-serif; color: #000000;font-size:medium; text-align: center;">Building Restful Apis With Redis </h3>
+      
+      <i class="fa-solid fa-users" style="font-size:small;margin-left:3%;"><h7 style="font-family: 'Inter', sans-serif;font-size:small;margin-left:0%;color: #666; ">132 Enrolled</h7></i>
+      <i class="fa-solid fa-clock" style="font-size:small; margin-left: 37%; margin-top: 0%;"><h7 style="font-family: 'Inter', sans-serif; font-size:small; color:#666;"> 20 Days</h7></i><br>
+      <br>
+      <div class="price-section" style="font-family: 'Inter', sans-serif;">
+        <p class="old-price">₹2000</p>
+        <p class="new-price" style="margin-left:-5%;">₹1499</p>
+       
+    </div>
+      
+      <p class="discount"style="font-family: 'Inter', sans-serif; ">You save ₹ 501 (25% Off)</p>
+      <a href="buy page.html"> <button class="price-btn" style="margin-top: 1%;"> 100</button></a>
+      
+    </div>
+    <div class="cardr">
+      <img src="c:\Users\sakth\AppData\Local\Packages\5319275A.WhatsAppDesktop_cv1g1gvanyjgm\TempState\F8C0C968632845CD133308B1A494967F\WhatsApp Image 2025-01-29 at 21.14.37_0fa27abb.jpg" alt="Card 9"/>
+      <div class="cardr-label">OFFER</div>
+      <h3 class="card-title" style="font-family: 'Inter', sans-serif; color: #000000;font-size:medium; text-align: center;">Building Restful Apis With Redis </h3>
+      
+      <i class="fa-solid fa-users" style="font-size:small;margin-left:3%;"><h7 style="font-family: 'Inter', sans-serif;font-size:small;margin-left:0%;color: #666; ">132 Enrolled</h7></i>
+      <i class="fa-solid fa-clock" style="font-size:small; margin-left: 37%; margin-top: 0%;"><h7 style="font-family: 'Inter', sans-serif; font-size:small; color:#666;"> 20 Days</h7></i><br>
+      <br>
+      <div class="price-section" style="font-family: 'Inter', sans-serif;">
+        <p class="old-price">₹2000</p>
+        <p class="new-price" style="margin-left:-5%;">₹1499</p>
+       
+    </div>
+      
+      <p class="discount"style="font-family: 'Inter', sans-serif; ">You save ₹ 501 (25% Off)</p>
+      <a href="buy page.html"> <button class="price-btn" style="margin-top: 1%;"> 100</button></a>
+      
+    </div>
+    <div class="cardr">
+        <img src="c:\Users\sakth\AppData\Local\Packages\5319275A.WhatsAppDesktop_cv1g1gvanyjgm\TempState\DF4FE8A8BCD5C95CDB640AA9793BB32B\WhatsApp Image 2025-01-29 at 21.14.36_a10785fb.jpg" alt="Card 8"/>
+        <div class="cardr-label">OFFER</div>
+        <h3 class="card-title" style="font-family: 'Inter', sans-serif; color: #000000;font-size:medium; text-align: center;">Building Restful Apis With Redis </h3>
+      
+        <i class="fa-solid fa-users" style="font-size:small;margin-left:3%;"><h7 style="font-family: 'Inter', sans-serif;font-size:small;margin-left:0%;color: #666; ">132 Enrolled</h7></i>
+        <i class="fa-solid fa-clock" style="font-size:small; margin-left: 37%; margin-top: 0%;"><h7 style="font-family: 'Inter', sans-serif; font-size:small; color:#666;"> 20 Days</h7></i><br>
+        <br>
+        <div class="price-section" style="font-family: 'Inter', sans-serif;">
+          <p class="old-price">₹2000</p>
+          <p class="new-price" style="margin-left:-5%;">₹1499</p>
+         
+      </div>
+        
+        <p class="discount"style="font-family: 'Inter', sans-serif; ">You save ₹ 501 (25% Off)</p>
+        <a href="buy page.html"> <button class="price-btn" style="margin-top: 1%;"> 100</button></a>
+        
+      </div>
+      <div class="cardr">
+        <img src="c:\Users\sakth\AppData\Local\Packages\5319275A.WhatsAppDesktop_cv1g1gvanyjgm\TempState\1359AA933B48B754A2F54ADB688BFA77\WhatsApp Image 2025-01-29 at 21.14.37_39390bff.jpg" alt="Card 9"/>
+        <div class="cardr-label">OFFER</div>
+        <h3 class="card-title" style="font-family: 'Inter', sans-serif; color: #000000;font-size:medium; text-align: center;">Building Restful Apis With Redis </h3>
+      
+      <i class="fa-solid fa-users" style="font-size:small;margin-left:3%;"><h7 style="font-family: 'Inter', sans-serif;font-size:small;margin-left:0%;color: #666; ">132 Enrolled</h7></i>
+      <i class="fa-solid fa-clock" style="font-size:small; margin-left: 37%; margin-top: 0%;"><h7 style="font-family: 'Inter', sans-serif; font-size:small; color:#666;"> 20 Days</h7></i><br>
+      <br>
+      <div class="price-section" style="font-family: 'Inter', sans-serif;">
+        <p class="old-price">₹2000</p>
+        <p class="new-price" style="margin-left:-5%;">₹1499</p>
+       
+    </div>
+      
+        <p class="discount"style="font-family: 'Inter', sans-serif; " >You save ₹ 501 (25% Off)</p>
+        <a href="buy page.html"> <button class="price-btn" style="margin-top: 1%;"> 100</button></a>
+      
+    </div> 
+      </div>
+      
+    
+  </div>
+</div>
+
+
+  <!-- "View More" button -->
+  <div class="button-container">
+    <button id="viewMoreBtn">View More</button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
+<style>
+    
+/* Basic reset and box-sizing */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body styling */
+body {
+  font-family: 'Inter', sans-serif;
+  padding: 20px;
+  background-color: #f9f9f9;
+}
+
+/* Cards container */
+.cardsr-container {
+  display: grid;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-bottom: 20px;
+  grid-template-columns: repeat(4,1fr);
+}
+.price-section {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .old-price {
+            text-decoration: line-through;
+            color: red;
+            font-size: small;
+        }
+        .new-price {
+            font-size: medium;
+            font-weight: bold;
+        }
+
+.discount{
+  background-color: rgb(235, 203, 27);
+  border-radius: 5%;
+  font-size: small;
+  text-align: center;
+  color: #f4f4f4;
+}
+/* Individual card styling */
+.cardr {
+    margin-left:4%;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  width: 300px;
+  border-radius: 5px;
+  overflow: hidden;
+ box-shadow: 0px 4px 25px rgba(0, 0, 0, 0.3);
+}
+
+.cardr img {
+  width: 100%;
+  height: 50%;
+  display: block;
+}
+
+.cardr h3 {
+  font-size: 1.1rem;
+  margin: 10px;
+}
+
+.cardr p {
+  margin: 0 10px 10px 10px;
+  color: #666;
+}
+.cardr-label {
+    background-color: #e22a2a;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    display: inline-block;
+    margin-top: -20px;
+    margin-left:35%;
+    font-size: 0.9rem;
+    position: relative;
+  }
+  
+  
+
+/* Hidden class to toggle extra rows */
+.hidden {
+
+  display: none;
+}
+
+/* Button container styling */
+
+
+#viewMoreBtn {
+  padding: 10px 15px;
+  margin-top: 3%;
+  font-size: 1rem;
+  cursor: pointer;
+  border: none;
+  background-color:  rgb(58, 134, 204);
+  color: #fff;
+  margin-left: 48%;
+  border-radius: 15px;
+  transition: background-color 0.3s ease;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+#viewMoreBtn:hover {
+  background-color: #ffffff;
+  color:  rgb(58, 134, 204);
+}
+.price-btn {
+   
+   position: relative;
+   text-decoration: none;
+   font-size: 17px;
+   font-weight: 600;
+   margin-bottom: -12%;
+   text-transform: uppercase;
+   justify-content: space-between;
+   background-color: rgb(58, 134, 204);
+  padding:1% 5%;
+   cursor: pointer;
+   border: none;
+   border-radius: 10px;
+   overflow: hidden;
+   transition: all 0.4s ease;
+   width:25%;
+   margin-left:37%;
+   color: #ffffff;
+   text-align: center;
+   }
+   
+   .price-btn:before {
+   content: "";
+   position: absolute;
+   pointer-events: none;
+   width: 150%;
+   height: 20%;
+   background-color: rgb(58, 134, 204);
+   translate: -100% 0;
+   rotate: 45deg;
+   transition: all 0.4s ease;
+   color: #ffffff;
+   }
+   
+   .price-btn:hover {
+   color: rgb(58, 134, 204);
+   background-color: white;
+   box-shadow: 0 0 24px 8px rgba(158, 152, 152, 0.4);
+   }
+   
+   .price-btn:hover:before {
+   translate: 100%;
+   }
+   
+   .price-btn:active {
+   scale: 0.95;
+   box-shadow: 0 0 16px 4px rgba(0, 0, 0, 0.4);
+   }  
+   
+
+</style>
+<script>
+    // Grab references to the extra cards container and the button
+const extraCards = document.getElementById('extraCards');
+const viewMoreBtn = document.getElementById('viewMoreBtn');
+
+// Add a click event listener to the button
+viewMoreBtn.addEventListener('click', () => {
+  // If extraCards is hidden, show it; otherwise hide it
+  if (extraCards.classList.contains('hidden')) {
+    extraCards.classList.remove('hidden');
+    viewMoreBtn.textContent = 'View Less';
+  } else {
+    extraCards.classList.add('hidden');
+    viewMoreBtn.textContent = 'View More';
+  }
+});
+
+</script>

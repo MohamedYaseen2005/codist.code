@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CookDCode Navbar</title>
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="script.js"></script>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo-section">
+            <a href="home page.HTML"> <img src="logout.png" alt="Logo" class="logo"> </a>
+          <a href="home page.HTML"> <button class="brand-name">cookDcode</button></a>
+        </div>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    
+        <div class="nav-links">
+
+ 
+
+        <!-- Mobile Menu Button -->
+         
+        <div class="menu-icon" onclick="toggleMenu()">
+            ☰
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu">
+        <a href="#">CTC</a>
+        <a href="#">TryCTC</a>
+        <a href="#">Signin</a>
+        <button class="login-btn">Login</button>
+    </div>
+
+</body>
+</html>
+<style>
+    body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+}
+
+/* Navbar Styling */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(58, 134, 204); /* Blue background */
+    padding: 10px 20px;
+    color: white;
+}
+
+/* Logo Section */
+.logo-section {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 8px;
+}
+
+.brand-name {
+    font-size: 18px;
+    top: -16%;
+    font-weight: solid;
+    color: #ffffff;
+              background-color:  rgb(58, 134, 204);
+              border: #f4f4f4;
+    font-size:xx-large; font-family:'Times New Roman', Times, serif;
+}
+
+/* Desktop Navigation Links */
+.nav-links {
+    display: flex;
+    align-items: center;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    margin-right: 15px;
+    font-size: 16px;
+}
+
+/* Login Button */
+.login-btn {
+    background-color: white;
+    color: black;
+    border: none;
+    padding: 5px 10px;
+    font-size: 14px;
+    border-radius: 5px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+/* Toggle Circle */
+.toggle-circle {
+    width: 20px;
+    height: 20px;
+    background-color: white;
+    border-radius: 50%;
+}
+
+/* Mobile Menu Button */
+.menu-icon {
+    display: none;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+/* Mobile Menu (Hidden by Default) */
+.mobile-menu {
+    display: none;
+    flex-direction: column;
+    background-color: rgb(58, 134, 204);
+    position: absolute;
+    top: 60px;
+    right: 0;
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+}
+
+.mobile-menu a, .mobile-menu button {
+    padding: 10px;
+    text-decoration: none;
+    color: white;
+    border: none;
+    background: none;
+    font-size: 18px;
+    width: 100%;
+}
+
+.mobile-menu button {
+    background-color: white;
+    color: black;
+    border-radius: 5px;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .nav-links {
+        display: none; /* Hide Desktop Menu */
+    }
+
+    .menu-icon {
+        display: block; /* Show Mobile Menu Button */
+    }
+   
+    .user-pic{
+        margin-left: -20%;
+    }
+}
+</style>
+<script>
+    function toggleMenu() {
+    const mobileMenu = document.querySelector(".mobile-menu");
+    mobileMenu.style.display = mobileMenu.style.display === "flex" ? "none" : "flex";
+}
+</script>
+<br>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sidebar Navigation</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+    <style>
+
+        /* Header */
+      
+
+       
+
+      
+
+        /* Sidebar Menu */
+        .main-container {
+            display: flex;
+            flex: 1;
+        }
+
+        .main-menu {
+            background: rgb(255, 255, 255);
+            width: 33px;
+            height: 100vh;
+            position: fixed;
+            left: 0;
+            top: 60px;
+            transition: width 0.2s;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .main-menu:hover {
+            width: 200px;
+        }
+
+        .main-menu ul {
+            list-style: none;
+            padding: 10px 0;
+        }
+
+        .main-menu li {
+            padding: 10px;
+        }
+
+        .main-menu a {
+            display: flex;
+            align-items: center;
+            color: rgb(58, 134, 204);
+            text-decoration: none;
+            font-size: 16px;
+            margin-left: 0%;
+        }
+
+        .main-menu i {
+            margin-right: 10px;
+        }
+
+        /* Content Area */
+        .content {
+            margin-left: 60px;
+            width: calc(100% - 60px);
+            height: calc(100vh - 60px);
+        }
+
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        .but1{
+              padding: 5px 0px;
+              font-size: X-large;
+                
+              color: #ffffff;
+              background-color: rgb(58, 134, 204);
+              border: #f4f4f4;
+            }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    
+
+    <div class="main-container">
+        <!-- Sidebar -->
+        <nav class="main-menu">
+            <ul>
+                <li><a href="editprofile.html" onclick="loadPage(event, '10.html')" ><i class="fa fa-user"></i>   Home</a></li>
+                <li><a href="21.html" onclick="loadPage(event, '21.html')"><i class="fa fa-ranking-star"></i> Leaderboard</a></li>
+                <li><a href="12.html" onclick="loadPage(event, '12.html')"><i class="fa fa-person-running"></i> Ongoingbundle</a></li>
+                <li><a href="22.html" onclick="loadPage(event, '22.html')"><i class="fa fa-trophy"></i>Achievements</a></li>
+                <li><a href="w.html" onclick="loadPage(event, 'w.html')"><i class="fa fa-circle-check"></i>Completed</a></li>
+
+            </ul>
+        </nav>
+
+        <!-- Content Area -->
+        <div class="content">
+            <iframe id="contentFrame" src="10.html"></iframe>
+        </div>
+    </div>
+
+    <script>
+        function loadPage(event, url) {
+            event.preventDefault();
+            document.getElementById("contentFrame").src = url;
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Page</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+        .profile-container {
+            background: #fff;
+            width: 80%;
+            margin: 20px auto;
+            padding: 20px;
+            border-radius: 10px;
+           
+        }
+        .profile-pic {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+        }
+        .follow-btn {
+            background: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+        .follow-btn:hover {
+            background: #0056b3;
+        }
+        .skills, .bio, .badges {
+            margin-top: 20px;
+        }
+        .skill {
+            display: inline-block;
+            background: #ff9800;
+            color: #fff;
+            padding: 5px 10px;
+            margin: 5px;
+            border-radius: 5px;
+        }
+        .badge-list {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .badge {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: #f8f9fa;
+            padding: 10px;
+            margin: 10px;
+            border-radius: 5px;
+        
+        }
+        .badge img {
+            width: 50px;
+            height: 50px;
+            margin-bottom: 5px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="profile-container">
+        <div class="header">
+            <!DOCTYPE html>
+            <html lang="en">
+            <head>
+                <meta charset="UTF-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <title>Change Photo</title>
+                <style>
+                    body {
+                        font-family: Arial, sans-serif;
+                        text-align: center;
+                    }
+                    .button {
+                        padding: 5px 10px;
+                        font-size: 16px;
+                        margin-top: 1%;
+                        cursor: pointer;
+                    }
+                    .popup {
+                        display: none;
+                        position: fixed;
+                        top: 50%;
+                        left: 50%;
+                        transform: translate(-50%, -50%);
+                        background: white;
+                        padding: 20px;
+                        box-shadow: 0px 0px 10px rgba(0,0,0,0.3);
+                        text-align: center;
+                        z-index: 1000;
+                    }
+                    .overlay {
+                        display: none;
+                        position: fixed;
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+                        background: rgba(0,0,0,0.5);
+                        z-index: 999;
+                    }
+                    .avatar-container {
+                        display: none;
+                        margin-top: 10px;
+                    }
+                    .avatar {
+                        width: 80px;
+                        height: 80px;
+                        border-radius: 50%;
+                        cursor: pointer;
+                        margin: 5px;
+                        border: 2px solid transparent;
+                        transition: 0.3s;
+                    }
+                    .avatar:hover, .selected {
+                        border: 2px solid #007bff;
+                    }
+                    .profile-pic {
+                        width: 100px;
+                        height: 100px;
+                        border-radius: 50%;
+                        margin-top: 10px;
+                        border: 2px solid #ccc;
+                    }
+                    .yesbtn{
+            background: rgb(58, 134, 204);
+    color: white;
+    border: none;
+    padding: 10px 13px;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 13px;
+    
+        }
+        .yesbtn:hover{
+            background-color: #ffffff;
+            color:  rgb(58, 134, 204);
+
+        }
+        .nobtn{
+            background:red;
+    color: white;
+    border: none;
+    padding: 10px 13px;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 13px;
+    
+        }
+        .nobtn:hover{
+            background-color: #ffffff;
+            color: red;
+
+        }
+        
+        
+            
+                </style>
+            </head>
+            <body>
+            
+                <h2>Profile Picture</h2>
+                <img id="profilePic" class="profile-pic" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTGEZghB-stFaphAohNqDAhEaXOWQJ9XvHKJw&s" alt="Profile Picture">
+                <br>
+                <button class="yesbtn" onclick="openPopup()">Change Photo</button>
+            
+                <!-- Overlay for Popup -->
+                <div id="overlay" class="overlay"></div>
+            
+                <!-- Popup -->
+                <div id="popup" class="popup">
+                    <h3>Choose an option</h3>
+                    <button class="yesbtn" onclick="showAvatars()" style="margin-right: 30%;">Avatars</button>
+                    <button  class="yesbtn" onclick="openGallery()"  style="margin-left: 10%;">Gallery</button>
+            
+                    <div id="avatarContainer" class="avatar-container">
+                        <h4>Choose an Avatar</h4>
+                        <img class="avatar selected" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTGEZghB-stFaphAohNqDAhEaXOWQJ9XvHKJw&s" onclick="selectAvatar(this)">
+                        <img class="avatar" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSjv-LlSn3OR47vA5HF_uL2jN2ha-9ZymPMzA&s" onclick="selectAvatar(this)">
+                        <img class="avatar" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQGtsWfy6DN_Dx_R8KwZQvbfWrSJ4cdVI7_Pg&s" onclick="selectAvatar(this)">
+                        <img class="avatar" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQNL_ZnOTpXSvhf1UaK7beHey2BX42U6solRA&s" onclick="selectAvatar(this)">
+                    </div>
+                    <br>
+                    <br>
+                    <button class="nobtn" onclick="closePopup()">Cancel</button>
+                </div>
+            
+                <script>
+                    function openPopup() {
+                        document.getElementById("popup").style.display = "block";
+                        document.getElementById("overlay").style.display = "block";
+                    }
+            
+                    function closePopup() {
+                        document.getElementById("popup").style.display = "none";
+                        document.getElementById("overlay").style.display = "none";
+                        document.getElementById("avatarContainer").style.display = "none";
+                    }
+            
+                    function showAvatars() {
+                        document.getElementById("avatarContainer").style.display = "block";
+                    }
+            
+                    function selectAvatar(element) {
+                        // Remove the 'selected' class from all avatars
+                        document.querySelectorAll('.avatar').forEach(avatar => avatar.classList.remove('selected'));
+            
+                        // Highlight the selected avatar
+                        element.classList.add('selected');
+            
+                        // Set profile picture
+                        document.getElementById("profilePic").src = element.src;
+                        closePopup();
+                    }
+            
+                    function openGallery() {
+                        let input = document.createElement("input");
+                        input.type = "file";
+                        input.accept = "image/*";
+                        input.onchange = function (event) {
+                            let file = event.target.files[0];
+                            if (file) {
+                                let reader = new FileReader();
+                                reader.onload = function (e) {
+                                    document.getElementById("profilePic").src = e.target.result;
+                                };
+                                reader.readAsDataURL(file);
+                            }
+                            closePopup();
+                        };
+                        input.click();
+                    }
+                </script>
+            
+            </body>
+            </html>
+            
+            </body>
+            </html>
+            
+            
+            </body>
+            </html>
+            
+           
+            <div class="profile-info">
+                <h3>Personal Details</h3>
+                <p><strong>Name:</strong> <span id="name">John Doe</span></p>
+                <p><strong>Country:</strong> <span id="country">United States</span></p>
+                <p><strong>Email:</strong> <span id="email">example@mail.com</span></p>
+                <button onclick="openEditPopup()" class="yesbtn">Edit</button>
+            </div>
+              <!-- Edit Profile Info Popup -->
+        <div id="editPopup" class="popup7">
+            <h3>Edit Profile Info</h3>
+            <label>Name:</label>
+            <input type="text" id="nameInput" value="John Doe" >
+            <br>
+            <br>
+            <label>Country:</label>
+            <input type="text" id="countryInput" value="United States">
+            <br>
+            <br>
+            <label>Email:</label>
+            <input type="email" id="emailInput" value="example@mail.com " >
+            <br>
+            <br>
+            <button onclick="saveChanges()" class="yesbtn">Save</button>
+            <button onclick="closeEditPopup()" class="nobtn">Cancel</button>
+        </div>
+     
+        </div>
+        
+        <div class="skills">
+            <h3 style="font-family:'Inter', sans-serif; ">My Core Skills:</h3>
+            <span class="skill">Inbound Marketing ★★★</span>
+            <span class="skill">Entrepreneurship ★★</span>
+            <span class="skill">Growth Marketing ★★</span>
+        </div>
+        
+        <div class="bio" >
+            <h3>Professional Bio</h3>
+            <p style="font-family:'Inter', sans-serif; color:#666;">Career startup guy. Author of the book Inbound Marketing. Founder of HubSpot, a venture-backed software startup.</p>
+        </div>
+        
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Select Awards</title>
+            <style>
+        
+                .container1 {
+                    display: flex;
+                    gap: 20px;
+                    margin-left: 29%;
+                    
+                }
+                .popup7  {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            padding: 20px;
+            box-shadow: 0px 4px 15px rgba(0,0,0,0.3);
+            border-radius: 10px;
+            text-align: center;
+            z-index: 1000;
+        }
+                
+                .popup5 {
+                    display: none;
+                    position: fixed;
+                    top: 80%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    background: white;
+                    padding: 20px;
+                    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
+                    border-radius: 10px;
+                    text-align: center;
+                }
+                .popup5 img {
+                    width: 80px;
+                    height: 80px;
+                    margin: 10px;
+                    cursor: pointer;
+                }
+                .award-box {
+            width: 100px;
+            height: 100px;
+            background: white;
+            border: 2px dashed #666;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 30px;
+            cursor: pointer;
+            position: relative;
+        }
+        .award-box img {
+            width: 80px;
+            height: 80px;
+        }
+        @media (max-width: 768px) {
+            .container1 {
+                    display: flex;
+                    gap: 20px;
+                    margin-left: -5%;
+                    
+                }
+                .popup{
+                    max-width:70%;
+                }
+                .popup7{
+                    max-width:100%;
+                }
+            }
+
+            </style>
+        </head>
+        <body>
+        
+        <h2>Choose Your Awards</h2>
+        <div class="container1">
+            <div class="award-box" onclick="openPopup1(0)">+</div>
+            <div class="award-box" onclick="openPopup1(1)">+</div>
+            <div class="award-box" onclick="openPopup1(2)">+</div>
+            <div class="award-box" onclick="openPopup1(3)">+</div>
+        </div>
+        
+        <!-- Pop-up for selecting awards -->
+        <div class="popup5" id="awardPopup">
+            <h3>Select Your Award</h3>
+            <div id="awardsList"></div>
+            <button onclick="closePopup1()" class="yesbtn">Close</button>
+        </div>
+        
+        <script>
+        let selectedBox = null;
+        
+        // Open pop-up when a box is clicked
+        function openPopup1(boxIndex) {
+            selectedBox = boxIndex;
+            const awardsList = document.getElementById("awardsList");
+            awardsList.innerHTML = ""; // Clear previous awards
+        
+            let savedBadges = JSON.parse(localStorage.getItem("badges")) || [];
+            if (savedBadges.length === 0) {
+                awardsList.innerHTML = "<p>No awards available</p>";
+            } else {
+                savedBadges.forEach(name => {
+                    let img = document.createElement("img");
+                    img.src = getAwardImage(name);
+                    img.alt = name;
+                    img.onclick = () => selectAward(name);
+                    awardsList.appendChild(img);
+                });
+            }
+        
+            document.getElementById("awardPopup").style.display = "block";
+        }
+        
+        // Close the pop-up
+        function closePopup1() {
+            document.getElementById("awardPopup").style.display = "none";
+        }
+        
+        // Place selected award into the clicked container
+        function selectAward(name) {
+            let boxes = document.querySelectorAll(".award-box");
+            let img = document.createElement("img");
+            img.src = getAwardImage(name);
+            img.alt = name;
+        
+            boxes[selectedBox].innerHTML = ""; // Clear the plus symbol
+            boxes[selectedBox].appendChild(img); // Add award image
+        
+            closePopup1();
+        }
+        
+        // Helper function to get award images
+        function getAwardImage(name) {
+            const images = {
+                "Trophy": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRvnR_GSTPk-rSXJRkM6TcaUmDpTqSzGyPdjA&s",
+                "Certificate": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRvnR_GSTPk-rSXJRkM6TcaUmDpTqSzGyPdjA&s",
+                "Medal": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSKxVPskujODhRNXd1vxzNA3WVr_SdOh1M7w&s"
+            };
+            return images[name] || "https://via.placeholder.com/80";
+        }
+        function openEditPopup() {
+    document.getElementById("editPopup").style.display = "block";
+}
+
+function closeEditPopup() {
+    document.getElementById("editPopup").style.display = "none";
+}
+
+function saveChanges() {
+    document.getElementById("name").textContent = document.getElementById("nameInput").value;
+    document.getElementById("country").textContent = document.getElementById("countryInput").value;
+    document.getElementById("email").textContent = document.getElementById("emailInput").value;
+    closeEditPopup();
+}
+        </script>
+        
+        </body>
+        </html>
+        
+        
+
+    <script>
+        document.querySelector('.follow-btn').addEventListener('click', function() {
+            if (this.textContent === '+ Follow') {
+                this.textContent = 'Following';
+                this.style.backgroundColor = '#28a745';
+            } else {
+                this.textContent = '+ Follow';
+                this.style.backgroundColor = '#007bff';
+            }
+        });
+    </script>
+</body>
+</html>
+
+<hr>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Info</title>
+    <style>
+     
+        .user-pic{
+            width: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            margin-right: -0%;
+            border: 1px solid #ffffff;
+        }
+
+      
+        .profile-header {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        .profile-header img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+        }
+        .profile-info {
+            margin-top: 20px;
+        }
+        .info-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid #ddd;
+        }
+        .edit-btn {
+            text-align: right;
+            margin-top: 10px;
+        }
+        .popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            width: 500px;
+        }
+        .popup input {
+            width: 90%;
+            margin: 10px 0;
+            padding: 8px;
+        }
+        .popup button {
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="profile-header">
+         
+            <div>
+            
+                <button onclick="openPopup2()" class="yesbtn" >Edit  </button>
+            </div>
+        </div>
+        
+        <div class="profile-info">
+            <div class="info-row"><strong>First Name:</strong> <span id="dob" style="color:#666;">None</span></div>
+            <div class="info-row"><strong>Last Name:</strong> <span id="dob"  style="color:#666;">None</span></div>
+            <div class="info-row"><strong>Date of Birth:</strong> <span id="dob"  style="color:#666;">10/04/2005</span></div>
+            <div class="info-row"><strong>Country/Region:</strong> <span id="country"  style="color:#666;">India</span></div>
+            <div class="info-row"><strong>Language:</strong> <span id="language"  style="color:#666;">English</span></div>
+            <div class="info-row"><strong>Email:</strong> <span id="email"  style="color:#666;">example@gmail.com</span></div>
+            <div class="info-row"><strong>Phone Number:</strong> <span id="phone"  style="color:#666;">None</span></div>
+        </div>
+    </div>
+    
+    <div class="popup" id="popup2">
+        <h3 style="font-size: larger;">Edit Profile Info</h3>
+        <label style="color:#666; margin-right: 77%;" >Full Name:</label>
+        <input type="text" id="nameInput" value="None">
+        <label style="margin-right: 77%; color:#666">DateofBirth:</label>
+      
+        <input type="text" id="dobInput" value="10/04/2005">
+        <label style="margin-right: 71%; color:#666">Country/Region:</label>
+        <input type="text" id="countryInput" value="India">
+        <label style="margin-right: 77%; color:#666">Language:</label>
+        <input type="text" id="languageInput" value="English">
+        <label style="margin-right: 85%; color:#666">Email:</label>
+        <input type="text" id="emailInput" value="example@gmail.com">
+        <label style="margin-right: 72%; color:#666">Phone Number:</label>
+        <input type="text" id="phoneInput" value="None">
+        <button onclick="saveChanges2()" class="yesbtn">Save</button>
+        <button onclick="closePopup2()" class="yesbtn" style="background-color: red;">Cancel</button>
+    </div>
+    
+    <script>
+        function openPopup2() {
+            document.getElementById('popup2').style.display = 'block';
+        }
+        function closePopup2() {
+            document.getElementById('popup2').style.display = 'none';
+        }
+        function saveChanges2() {
+            document.getElementById('fullName').textContent = document.getElementById('nameInput').value;
+            document.getElementById('dob').textContent = document.getElementById('dobInput').value;
+            document.getElementById('country').textContent = document.getElementById('countryInput').value;
+            document.getElementById('language').textContent = document.getElementById('languageInput').value;
+            document.getElementById('email').textContent = document.getElementById('emailInput').value;
+            document.getElementById('phone').textContent = document.getElementById('phoneInput').value;
+            closePopup2();
+        }
+    </script>
+</body>
+</html>
+<br>
+
+</script>

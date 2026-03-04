@@ -1,0 +1,125 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Card Design with Timer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <h2 style="color:  rgb(58, 134, 204); font-family: 'Inter', sans-serif;">ON GOING BUNDLES</h2> 
+    <br>
+    <p>
+        <h4 style="justify-content: center; font-family: 'Inter', sans-serif;color: #6c757d; font-size:small; ">
+            Our Completed Bundles offer a collection of thoughtfully designed programs to help you reach your goals efficiently and effectively. Each bundle includes several programs, each crafted with a clear purpose and strategy, guiding you on why and how it works.
+  
+            You’ll find step-by-step instructions and a detailed list of resources needed, making it easy to follow and implement. 
+           
+            Whether you’re pursuing fitness, skill mastery, or other ambitions, our Completed Bundles provide everything you need in one convenient package.
+        </h4>
+    </p>
+    <style>
+     
+        .card {
+            width: 300px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            text-align: center;
+        }
+        .card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+        .progress-bar {
+            width: 90%;
+            height: 10px;
+            background: #ddd;
+            border-radius: 5px;
+            margin: 10px auto;
+            position: relative;
+        }
+        .progress-value {
+            width: 70%; /* Change percentage dynamically */
+            height: 100%;
+            background: #4caf50;
+            border-radius: 5px;
+        }
+        .details {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 15px;
+            font-size: 14px;
+        }
+        .details span {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        .timer {
+            font-size: 16px;
+            font-weight: bold;
+            color: #ff0000;
+            margin: 10px 0;
+        }
+        .view-btn {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background:  rgb(58, 134, 204);
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: bold;
+            border: none;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .view-btn:hover {
+            background: rgb(58, 134, 204);
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <img src="c:\Users\sakth\AppData\Local\Packages\5319275A.WhatsAppDesktop_cv1g1gvanyjgm\TempState\B030AFBB3A8AF8FB0759241C97466EE4\WhatsApp Image 2025-02-06 at 21.45.15_2c9969e4.jpg" alt="Card Image">
+        <div class="progress-bar">
+            <div class="progress-value"></div>
+        </div>
+        <div class="details">
+            <span><i class="fa fa-calendar-alt"></i> Buy: 2024-03-10</span>
+            <span><i class="fa fa-calendar-check"></i> End: 2025-03-10</span>
+        </div>
+        <div class="details">
+            <span><i class="fa fa-list"></i> Programs: 5</span>
+        </div>
+        <div class="timer" id="countdown">Loading...</div>
+        <button class="view-btn">View</button>
+    </div>
+    
+    
+    <script>
+        function startCountdown(endDate) {
+            function updateTimer() {
+                const now = new Date().getTime();
+                const distance = endDate - now;
+                if (distance < 0) {
+                    document.getElementById("countdown").innerHTML = "Expired";
+                    return;
+                }
+                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+                document.getElementById("countdown").innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+            }
+            updateTimer();
+            setInterval(updateTimer, 1000);
+        }
+        
+        const endDate = new Date("2025-03-10").getTime();
+        startCountdown(endDate);
+    </script>
+</body>
+</html>

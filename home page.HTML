@@ -1,0 +1,1800 @@
+<!DOCTYPE html><html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Header with Dropdown</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
+
+
+
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Inter', sans-serif;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background:  rgb(58, 134, 204);
+            color: white;
+            padding: 10px ;
+            width: 103%;
+            position: relative;
+            margin-left: -1.3%;
+           margin-top:  -1.5%;
+           
+        }
+     
+        .center-buttons {
+            display: flex;
+            gap: 10px;
+        }
+        .center-buttons button {
+            background:   rgb(58, 134, 204);
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .profile {
+            position: relative;
+            cursor: pointer;
+        }
+        .dropdown {
+            display: none;
+            position: absolute;
+            background: white;
+            color:   rgb(58, 134, 204); ;
+            top: 50px;
+            right: 0;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            width: 200px;
+            height: 1100%;
+            border-radius: 5px;
+           
+       
+       
+    
+      
+        }
+        .settings-dropdown {
+            display: none;
+            position: absolute;
+            background: white;
+        
+            top: 50px;
+            right: 0;
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
+            width: 250px;
+            height: 100%;
+            border-radius: 5px;
+           
+       
+       
+        color:#8d99ae; ;
+      
+        }
+        .dropdown.show {
+            display: block;
+        }
+        .settings-dropdown.show {
+            display: block;
+        }
+        .dropdown a, .settings-dropdown a {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            text-decoration: none;
+            color:   rgb(58, 134, 204); ;
+            border-bottom: 1px solid #ddd;
+        }
+        .dropdown a:last-child { border-bottom: none; }
+        .dropdown a i, .settings-dropdown a i {
+            margin-right: 10px;
+        }
+        .settings-dropdown {
+            right: 100%;
+            top: 80px;
+        }
+        .popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            text-align: center;
+            border-radius: 5px;
+        }
+        .popup button {
+            margin: 10px;
+            padding: 10px 15px;
+            border: none;
+            cursor: pointer;
+        }
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+        }
+        body.dark-mode {
+  background: #121212;
+  color: white;
+}
+  
+/* Options */
+
+
+.option2 {
+  display: flex;
+
+  align-items: center;
+  padding: 8px;
+  margin: 10px 0;
+  background: #f4f4f4;
+  cursor: pointer;
+  border-radius: 5px;
+
+  color:   rgb(58, 134, 204); ;
+}
+
+input:checked + .slider {
+  background: #007bff;
+}
+
+input:checked + .slider:before {
+  transform: translateX(20px);
+}
+.option2:hover {
+ background-color: #f3faff;
+}
+
+/* Dark Mode Toggle Switch */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 20px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: gray;
+  transition: 0.4s;
+  border-radius: 20px;
+ 
+}
+
+.slider:before {
+  content: "";
+  position: absolute;
+  height: 14px;
+  width: 14px;
+  left: 3px;
+  bottom: 3px;
+  background: white;
+  transition: 0.4s;
+  border-radius: 50%;
+ 
+}
+.logo{
+  background-color: rgb(58, 134, 204) ;
+  border-color:  rgb(58, 134, 204);
+  border-radius: 1%;
+  color: #ffffff;
+}
+input:checked + .slider {
+  background: #007bff;
+}
+
+input:checked + .slider:before {
+  transform: translateX(20px);
+}
+
+  .ad{
+    background-color:  rgb(58, 134, 204) ;
+    color: #ffffff;
+    padding: 2% 5%;
+    border-radius: 10%;
+  }
+  .ad:hover{
+    background-color: #ffffff;
+    color:   rgb(58, 134, 204);
+  }
+        .pic{
+            width: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            margin-right: 9%;
+        }
+      
+         
+        .sub-menu-wrap1{
+            position: absolute;
+          
+            top: 0%;
+            right: 83%;
+            width: 300px;
+            max-height: 0px;
+            overflow:hidden;
+            transition: max-height 0.5s;
+            
+        }
+        .sub-menu-wrap1.open-menu{
+            max-height: 400px;
+        }
+        .sub-menu1{
+            background: white;
+            padding: 10px;
+            margin: 40px;
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
+    
+        }
+        .user-info1{
+          display:flex;
+          align-items: center;
+      
+  
+      } 
+      .user-info1 h3{
+          font-weight:500;
+      }
+
+      .user-pic{
+            width: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            margin-right: -0%;
+            border: 1px solid #ffffff;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="header">
+      <a href="home page.HTML"> <img src="logout.png" alt="Logo" class="logo"> </a>
+      <a href="home page.HTML" style="color: #ffffff; "><button class="but1"  style=" font-size:xx-large; font-family:'Times New Roman', Times, serif;">    CookDcode</button></a>
+     
+        <a href="what cdc.html" style="margin-left: 60%;"><button class="but1" style="font-family: 'Inter', sans-serif; font-size: larger;" > CTC</button>
+        </a> 
+
+     
+            <a href="Try ctc.html" style="margin-left: 0%;"><button class="but1" style=" font-family: 'Inter', sans-serif; font-size: larger;"  >TryCTC </button>
+            </a>
+           <a href="sn.html"> <button class="but" style="font-family: 'Inter', sans-serif; margin-left: 2% ; font-size: larger; " > Signup</button></a>
+            <a href="login.html"><button  style="font-family: 'Inter', sans-serif;margin-left: 0%; font-size: larger; "  class="bum" > Login</button></a>
+          <style>
+            .bum{
+              padding: 5px 3px;
+              font-size: 150%;
+border-radius: 5%;
+              color: rgb(58, 134, 204);
+              background-color:  white;
+              border: #f4f4f4;
+            }
+            .logo {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: -15px;
+}
+            .bum:hover{
+              background-color:rgb(226, 219, 219) ;
+              color: rgb(58, 134, 204) ;
+            }
+            .but{
+              padding: 5px 0px;
+              font-size: 150%;
+              border: 1px solid #ffffff;
+              color: #ffffff;
+              background-color:  rgb(58, 134, 204);
+              border-radius: 5%;
+              border: #f4f4f4;
+            }
+            .but1{
+              padding: 5px 0px;
+    
+
+              color: #ffffff;
+              background-color:  rgb(58, 134, 204);
+              border: #f4f4f4;
+            }
+            .a{
+         
+              font-size: 1.1rem;
+              
+            }
+            .but:hover{
+              color:  rgb(58, 134, 204);
+              background-color: #ffffff;
+            }
+            .but1{
+              padding: 5px 0px;
+              font-size: X-large;
+                
+              color: #ffffff;
+              background-color: rgb(58, 134, 204);
+              border: #f4f4f4;
+            }
+            .a{
+             
+              font-size: 1.1rem;
+            }
+            
+
+
+
+          </style>
+           <img src="" class="user-pic"  onclick="toggleDropdown(event)">
+        <div class="profile" >
+            <i class="fa fa-user-cile" style="font-size: 24px;"></i>
+            <div class="dropdown" id="profileDropdown">
+                <a href="11.html" style="font-size: large;color: #666; font-family: 'Inter', sans-serif;"><i class="fa fa-user-edit" style="color: #000000;  margin-right: 4%; "></i>Edit </a>
+                <a href="#" onclick="toggleSettings(event)" style="font-size: large; font-family: 'Inter', sans-serif; color: #666"><i class="fa fa-cog"  style="color: #000000;"></i> Settings</a>
+                <div class="settings-dropdown" id="settingsDropdown">
+                 
+                      <div class="option2">
+                        <span style="margin-left: 5%; font-family: 'Inter', sans-serif; font-size: large;color: #666 "> Dark </span>
+                        <label class="switch" style="margin-left: 58%;">
+                            <input type="checkbox" id="darkModeToggle">
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+    
+                  
+                    
+                    
+                      <div class="option2">
+               <span style="margin-left: 5%;font-family: 'Inter', sans-serif; font-size: large;color: #666 "> Notification</span>
+                        <label class="switch" style="margin-left: 33%;">
+                            <input type="checkbox" id="notificatinToggle">
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+              
+                    <div class="option2">
+                      <a href="term.html"> <span style="margin-right: 0%; font-family: 'Inter', sans-serif; font-size: large; margin-top: -3%;color: #666 "> Terms and conditions</span></a>
+              
+                         
+                 
+                      </label>
+                  </div>  
+                  
+                  <!DOCTYPE html>
+                  <html lang="en">
+                  <head>
+                      <meta charset="UTF-8">
+                      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                      <title>Bug Report Chatbox</title>
+                      <style>
+                          body {
+                            font-family: 'Inter', sans-serif;
+                          }
+                  
+                          /* Styling for the report bug link */
+                          .report-bug {
+                              color: blue;
+                              cursor: pointer;
+                              text-decoration: underline;
+                              font-size: 16px;
+                          }
+                  
+                          /* Chatbox popup */
+                          .chat-popup {
+                              display: none;
+                              position: absolute;
+                              top: 180px;
+                              left:160px;
+                              width: 300px;
+                              background: white;
+                              border: 1px solid #ccc;
+                              border-radius: 10px;
+                              box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+                              padding: 15px;
+                              z-index: 1000;
+                              animation: fadeIn 0.3s ease-in-out;
+                          }
+                  
+                          /* Chatbox header */
+                          .chat-header {
+                              font-size: 18px;
+                              font-weight: bold;
+                              margin-bottom: 10px;
+                          }
+                  
+                          /* Chatbox text area */
+                          .chat-textarea {
+                              width: 100%;
+                              height: 80px;
+                              border: 1px solid #ddd;
+                              border-radius: 5px;
+                              padding: 5px;
+                              resize: none;
+                          }
+                  
+                          /* Send button */
+                          .send-btn {
+                              width: 100%;
+                              background: rgb(58, 134, 204); 
+                              color: white;
+                              padding: 8px;
+                              border: none;
+                              border-radius: 5px;
+                              cursor: pointer;
+                              margin-top: 10px;
+                          }
+                  
+                          .send-btn:hover {
+                            background-color: #ffffff;
+                            color:  rgb(58, 134, 204);  
+                          }
+                  
+                          /* Fade in animation */
+                          @keyframes fadeIn {
+                              from { opacity: 0; transform: translateY(-10px); }
+                              to { opacity: 1; transform: translateY(0); }
+                          }
+                      </style>
+                  </head>
+                  <body>
+                  
+                      <p><a class="report-bug" style="margin-left: 5%; font-family: 'Inter', sans-serif;font-size: large; margin-top: -2%;color: #666">Report Bug</a></p>
+                  
+                      <div class="chat-popup" id="chatPopup">
+                          <div class="chat-header">Bug Report</div>
+                          <textarea class="chat-textarea" id="bugReport" placeholder="Describe the issue..."></textarea>
+                          <button class="send-btn" id="sendReport">Send</button>
+                      </div>
+                  
+                      <script>
+                          const reportBugLink = document.querySelector('.report-bug');
+                          const chatPopup = document.getElementById('chatPopup');
+                          const sendButton = document.getElementById('sendReport');
+                          const bugReportTextarea = document.getElementById('bugReport');
+                  
+                          // Show popup when clicking the link
+                          reportBugLink.addEventListener('click', (event) => {
+                              event.stopPropagation();
+                              chatPopup.style.display = 'block';
+                          });
+                  
+                          // Close popup when clicking outside
+                          document.addEventListener('click', (event) => {
+                              if (!chatPopup.contains(event.target) && event.target !== reportBugLink) {
+                                  chatPopup.style.display = 'none';
+                              }
+                          });
+                  
+                          // Prevent popup from closing when clicking inside
+                          chatPopup.addEventListener('click', (event) => {
+                              event.stopPropagation();
+                          });
+                  
+                          // Send report and redirect to admin4.html
+                          sendButton.addEventListener('click', () => {
+                              const bugText = bugReportTextarea.value.trim();
+                              if (bugText) {
+                                  let bugReports = JSON.parse(localStorage.getItem('bugReports')) || [];
+                                  bugReports.push(bugText);
+                                  localStorage.setItem('bugReports', JSON.stringify(bugReports)); // Save all reports
+                                  window.location.href = 'home page.html'; // Redirect to Admin Panel
+                              } else {
+                                  alert('Please enter a bug report before sending.');
+                              }
+                          });
+                      </script>
+                  
+                  </body>
+                  </html>
+                    
+                </div>
+                <a href="help page.html" style="font-size: large; font-family: 'Inter', sans-serif;color: #666"><i class="fa-solid fa-circle-info"  style="color: #000000;"></i> Help & Support</a>
+               
+                <a href="1.html" style="font-size: large;font-family: 'Inter', sans-serif; margin-left: 3%;color: #666"><i class="fa-solid fa-question"  style="color: #000000;"></i>   FAQ</a>
+                <a href="#" onclick="showPopup(event)"style="font-size: large; font-family: 'Inter', sans-serif;color: #666"  style="color: #000000;"><i class="fa fa-sign-out-alt"  style="color: #000000;"></i> Logout</a>
+            </div>
+        </div>
+    </div><div class="overlay" id="overlay" onclick="hidePopup()"></div>
+<div class="popup" id="popup">
+    <p>Do you want to logout this account?</p>
+    <button onclick="logout()" class="ad">Yes</button>
+    <button onclick="hidePopup()" class="ad">No</button>
+</div>
+
+<script>
+    function toggleDropdown(event) {
+        event.stopPropagation();
+        document.getElementById('profileDropdown').classList.toggle('show');
+    }
+
+    function toggleSettings(event) {
+        event.stopPropagation();
+        document.getElementById('settingsDropdown').classList.toggle('show');
+    }
+
+    function showPopup(event) {
+        event.stopPropagation();
+        document.getElementById('popup').style.display = 'block';
+        document.getElementById('overlay').style.display = 'block';
+    }
+
+    function hidePopup() {
+        document.getElementById('popup').style.display = 'none';
+        document.getElementById('overlay').style.display = 'none';
+    }
+
+    function logout() {
+        window.location.href = 'login.html';
+    }
+
+    document.addEventListener('click', function(event) {
+        if (!document.querySelector('.profile').contains(event.target)) {
+            document.getElementById('profileDropdown').classList.remove('show');
+            document.getElementById('settingsDropdown').classList.remove('show');
+        }
+    });
+    function goBack() {
+        window.history.back();
+    }
+    
+    // Function to open new page
+    function openPage(url) {
+        window.location.href = url;
+    }
+    
+    // Dark Mode Toggle
+    const darkModeToggle = document.getElementById("darkModeToggle");
+    darkModeToggle.addEventListener("change", () => {
+        document.body.classList.toggle("dark-mode");
+        localStorage.setItem("darkMode", document.body.classList.contains("dark-mode"));
+    });
+    
+    // Preserve Dark Mode on Reload
+    window.onload = () => {
+        if (localStorage.getItem("darkMode") === "true") {
+            document.body.classList.add("dark-mode");
+            darkModeToggle.checked = true;
+        }
+    };
+</script>
+
+</body>
+</html>
+
+<div class="carousel">
+    <div class="carousel-slide" data bs ride="true">
+        <img src="https://i.pinimg.com/736x/1b/1b/73/1b1b73143d5c509c4c60089337bd507f.jpg"alt="Image 1">
+    </div>
+    <div class="carousel-slide">
+        <img src="c:\Users\sakth\Downloads\LinkedIn banner, Facebook cover, YouTube thumbnails, and Insta ads design.jpg" alt="Image 2">
+    </div>
+    <div class="carousel-slide">
+        <img src="c:\Users\sakth\Downloads\LinkedIn banner, Facebook cover, YouTube thumbnails, and Insta ads design (1).jpg" alt="Image 3">
+    </div>
+    <!-- Add more slides as needed -->
+    
+   
+  </div>
+  <style>
+    .carousel {
+      position: relative;
+      width: 1500%;
+      max-width: 1595px;
+      margin: auto;
+      z-index: -1;
+      margin-top: 1%;
+      height: 50%;
+      margin-left: -1.9%;
+      
+  }
+  
+  .carousel-slide {
+      display: none;
+      text-align: center;
+  }
+  
+  .carousel-slide img {
+      width: 100%;
+      border-radius: 10px;
+      
+  }
+  @media (max-width: 600px) {
+    .carousel-slide img {
+width:30%;
+
+margin-right: 80%;
+    }
+    .cardsr-container {
+      flex-direction: column;
+      align-items: center;
+     
+    }
+    #viewMoreBtn {
+    font-size: 0.9rem;
+    padding: 8px 12px;
+  }
+    .cardr {
+      width: 90%; /* Make it take full width */
+      max-width: 600px;
+      padding: 10px;
+   
+    
+    }
+    .price-btn {
+      width: 20%;
+      margin-left: 35%;
+     
+
+    }
+    .container {
+      flex-direction: column;
+      width: 100%;
+      margin: 0 auto;
+      padding-top: 10px;
+    }
+    .img1 {
+    max-width: 90%;
+   
+  }
+  .cardsE-container {
+   display: flex;
+   justify-content: space-around; /* Spread cards equally */
+   flex-wrap: wrap; /* Allow wrapping on small screens */
+   gap: 2px;
+ }
+
+  .cardE {
+    width: 100%; /* Take full width */
+    padding: 12px;
+  }
+
+  .cardE img {
+    width: 70px;
+    height: 70px;
+  }
+
+  .cardE h8, .cardE p {
+    font-size: 0.8rem;
+  }
+  .swiper {
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+  .swiper-slide {
+    width: 100%;
+  }
+
+  }
+
+  
+  
+  </style>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+  var swiper = new Swiper(".swiper", {
+    slidesPerView: 1, // Default for mobile
+    spaceBetween: 10,
+    loop: true,
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+    },
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+    breakpoints: {
+      768: { slidesPerView: 2, spaceBetween: 20 }, // Tablets
+      1024: { slidesPerView: 3, spaceBetween: 30 }, // Desktops
+    },
+  });
+});
+
+    let slideIndex = 0;
+  showSlides();
+  
+  function showSlides() {
+      let slides = document.getElementsByClassName("carousel-slide");
+      for (let i = 0; i < slides.length; i++) {
+          slides[i].style.display = "none";
+      }
+      slideIndex++;
+      if (slideIndex > slides.length) {
+          slideIndex = 1;
+      }
+      slides[slideIndex - 1].style.display = "block";
+      setTimeout(showSlides, 3000); // Change image every 3 seconds
+  }
+  
+  function prevSlide() {
+      slideIndex -= 2; // Move back by one
+      if (slideIndex < 0) slideIndex = document.getElementsByClassName("carousel-slide").length - 1;
+      showSlides();
+  }
+  
+  function nextSlide() {
+      showSlides();
+  }
+  
+  </script>
+  
+  
+  <br>
+  <CENTER>
+    <H1><P style="font-family: 'Inter', sans-serif; font-size:110%; color: rgb(11, 76, 22);">OFFER CARDS
+<br></P></H1>
+    <br>
+    
+    <P style="font-family: 'Inter', sans-serif; color: #6c757d; font-size: medium;"> Offer Cards
+      A membership card program that rewards coders for their dedication, progress, and achievements on our platform</P>
+    <p  style="font-family: 'Inter', sans-serif; color: #6c757d; font-size: medium;" >By offering membership cards, we aim to motivate and reward our coders for their hard work and dedication to learning.</p></CENTER>
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>All Bundles</title>
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
+    import { getDatabase, ref, get, child } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-database.js";
+
+  const firebaseConfig = {
+  apiKey: "AIzaSyBoAb7b3DJDMRmNwOSAHTnscM_-JuVnILI",
+  authDomain: "cookdcode-4ce23.firebaseapp.com",
+  databaseURL: "https://cookdcode-4ce23-default-rtdb.firebaseio.com",
+  projectId: "cookdcode-4ce23",
+  storageBucket: "cookdcode-4ce23.firebasestorage.app",
+  messagingSenderId: "419836764054",
+  appId: "1:419836764054:web:63e6752e821a79a29f07b7"
+};
+
+    const app = initializeApp(firebaseConfig);
+    const db = getDatabase(app);
+
+    document.addEventListener("DOMContentLoaded", async () => {
+      const container = document.getElementById("bundleContainer");
+
+      try {
+        const snapshot = await get(child(ref(db), "bundlecreation"));
+        if (snapshot.exists()) {
+          const bundles = snapshot.val();
+
+          for (const bundleId in bundles) {
+            const bundle = bundles[bundleId];
+
+            const card = document.createElement("div");
+            card.className = "card";
+            card.innerHTML = `
+              <img src="https://source.unsplash.com/400x200/?code" class="card-img">
+              <div class="offer-tag">OFFER</div>
+              <div class="card-body">
+                <h3>${bundle.name}</h3>
+                <p>👥 132 Enrolled &nbsp; ⏳ ${bundle.days} Days</p>
+                <p class="price"><span class="strike">₹2000</span> ₹1499</p>
+                <p class="save">You save ₹501 (25% Off)</p>
+                <button class="enroll-btn">100</button>
+              </div>
+            `;
+            container.appendChild(card);
+          }
+        } else {
+          container.innerHTML = "<p>No bundles found.</p>";
+        }
+      } catch (err) {
+        console.error(err);
+        container.innerHTML = "<p>Error loading bundles.</p>";
+      }
+    });
+  </script>
+
+  <style>
+  
+    #bundleContainer {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 20px;
+    }
+    .card {
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      overflow: hidden;
+      position: relative;
+    }
+    .card-img {
+      width: 100%;
+      height: 140px;
+      object-fit: cover;
+    }
+    .offer-tag {
+      background: red;
+      color: #fff;
+      font-size: 12px;
+      padding: 3px 8px;
+      border-radius: 4px;
+      position: absolute;
+      top: 10px;
+      left: 10px;
+    }
+    .card-body {
+      padding: 15px;
+    }
+    .card-body h3 {
+      font-size: 16px;
+      margin-bottom: 5px;
+    }
+    .card-body p {
+      margin: 4px 0;
+    }
+    .price .strike {
+      text-decoration: line-through;
+      color: gray;
+      margin-right: 6px;
+    }
+    .save {
+      background: gold;
+      padding: 5px;
+      border-radius: 4px;
+      font-size: 13px;
+    }
+    .enroll-btn {
+      margin-top: 10px;
+      background: #2b7dc1;
+      color: white;
+      padding: 6px 15px;
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h1 style="text-align:center;color:green;">All Bundles</h1>
+  <div id="bundleContainer"></div>
+</body>
+</html>
+
+  <!-- "View More" button -->
+  <div class="button-container">
+    <button id="viewMoreBtn">View More</button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
+<style>
+    
+/* Basic reset and box-sizing */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body styling */
+body {
+  font-family: 'Inter', sans-serif;
+  padding: 20px;
+  background-color: #f9f9f9;
+}
+
+/* Cards container */
+
+.price-section {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .old-price {
+            text-decoration: line-through;
+            color: red;
+            font-size: small;
+        }
+        .new-price {
+            font-size: medium;
+            font-weight: bold;
+        }
+
+.discount{
+  background-color: rgb(235, 203, 27);
+  border-radius: 5%;
+  font-size: small;
+  text-align: center;
+  color: #f4f4f4;
+}
+/* Individual card styling */
+.cardsr-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-top: 50px;
+  }
+  /* Individual card styling */
+  .cardr {
+    margin-left: 3%;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    width: 300px;
+
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0px 4px 25px rgba(0, 0, 0, 0.3);
+  }
+  .cardr img {
+    width: 100%;
+    height: 50%;
+    display: block;
+  }
+  .cardr h3 {
+    margin: 10px;
+  }
+  .cardr p {
+    margin: 0 10px 10px 10px;
+    color: #666;
+  }
+  .cardr-label {
+    background-color: #e22a2a;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    display: inline-block;
+    margin-top: -20px;
+    margin-left: 35%;
+    font-size: 0.9rem;
+    position: relative;
+  }
+  .price-btn {
+    position: relative;
+    text-decoration: none;
+    font-size: 17px;
+    font-weight: 600;
+  
+ 
+    text-transform: uppercase;
+    justify-content: space-between;
+    background-color: rgb(58, 134, 204);
+    padding: 1% 5%;
+    cursor: pointer;
+    border: none;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: all 0.4s ease;
+    width: 25%;
+    margin-left: 37%;
+    color: #ffffff;
+    text-align: center;
+  }
+  .price-btn:before {
+    content: "";
+    position: absolute;
+    pointer-events: none;
+    width: 150%;
+    height: 20%;
+    background-color: rgb(58, 134, 204);
+    translate: -100% 0;
+    rotate: 45deg;
+    transition: all 0.4s ease;
+    color: #ffffff;
+  }
+  .price-btn:hover {
+    color: rgb(58, 134, 204);
+    background-color: white;
+    box-shadow: 0 0 24px 8px rgba(158, 152, 152, 0.4);
+  }
+  .price-btn:hover:before {
+    translate: 100%;
+  }
+  .price-btn:active {
+    scale: 0.95;
+    box-shadow: 0 0 16px 4px rgba(0, 0, 0, 0.4);
+  }
+
+/* Hidden class to toggle extra rows */
+.hidden {
+
+  display: none;
+}
+
+/* Button container styling */
+
+
+#viewMoreBtn {
+  padding: 10px 15px;
+  margin-top: 3%;
+  font-size: 1rem;
+  cursor: pointer;
+  border: none;
+  background-color:  rgb(58, 134, 204);
+  color: #fff;
+  margin-left: 45%;
+  border-radius: 15px;
+  transition: background-color 0.3s ease;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+#viewMoreBtn:hover {
+  background-color: #ffffff;
+  color:  rgb(58, 134, 204);
+}
+.price-btn {
+   
+   position: relative;
+   text-decoration: none;
+   font-size: 17px;
+   font-weight: 600;
+   margin-bottom: -12%;
+   text-transform: uppercase;
+   justify-content: space-between;
+   background-color: rgb(58, 134, 204);
+  padding:1% 5%;
+   cursor: pointer;
+   border: none;
+   border-radius: 10px;
+   overflow: hidden;
+   transition: all 0.4s ease;
+   width:25%;
+   margin-left:37%;
+   color: #ffffff;
+   text-align: center;
+   }
+   
+   .price-btn:before {
+   content: "";
+   position: absolute;
+   pointer-events: none;
+   width: 150%;
+   height: 20%;
+   background-color: rgb(58, 134, 204);
+   translate: -100% 0;
+   rotate: 45deg;
+   transition: all 0.4s ease;
+   color: #ffffff;
+   }
+   
+   .price-btn:hover {
+   color: rgb(58, 134, 204);
+   background-color: white;
+   box-shadow: 0 0 24px 8px rgba(158, 152, 152, 0.4);
+   }
+   
+   .price-btn:hover:before {
+   translate: 100%;
+   }
+   
+   .price-btn:active {
+   scale: 0.95;
+   box-shadow: 0 0 16px 4px rgba(0, 0, 0, 0.4);
+   }  
+   
+
+</style>
+<script>
+    // Grab references to the extra cards container and the button
+const extraCards = document.getElementById('extraCards');
+const viewMoreBtn = document.getElementById('viewMoreBtn');
+
+// Add a click event listener to the button
+viewMoreBtn.addEventListener('click', () => {
+  // If extraCards is hidden, show it; otherwise hide it
+  if (extraCards.classList.contains('hidden')) {
+    extraCards.classList.remove('hidden');
+    viewMoreBtn.textContent = 'View Less';
+  } else {
+    extraCards.classList.add('hidden');
+    viewMoreBtn.textContent = 'View More';
+  }
+});
+
+</script>
+<br>
+<br>
+<br>
+<center>
+  <H1><P style="font-family: 'Inter', sans-serif; font-size:110%; color: rgb(11, 76, 22); margin-left:-5%;">STUDENT OF THE MONTH
+    <br></P></H1>
+
+<h4 style="color: #666; font-family: 'Inter', sans-serif; font-size: medium; margin-left:-5%;">mastering the javascript language</h4>
+</center>
+<br>
+<img src="Screenshot (50).png" class="img1">
+<br>
+
+<CENTER>
+  <h2 style="font-family: 'Inter', sans-serif; font-size: larger; color: rgb(11, 76, 22);margin-left:0%;">Achievements</h2>
+</CENTER>
+<br>
+<center>
+<p style="font-family: 'Inter', sans-serif; color: #666; font-size: medium;">
+
+         
+                The Student of the Month award recognizes outstanding students who demonstrate exceptional dedication, progress, and enthusiasm in learning coding skills within our app.
+  
+  Eligibility Criteria
+  To be eligible for the of the Month award, students must:
+  
+   Be an active user: Students must have a valid account and be actively using the app.
+   Show consistent progress: Students must demonstrate consistent progress in completing lessons, exercises, and projects.
+   Achieve milestones: Students must achieve specific milestones, such as completing a certain number of lessons or achieving a high score on a coding challenge.
+ Students must participate in online discussions, forums, or other community activities within the app.
+  
+  Selection Process
+  The Student of the Month will be selected by our team based on the following criteria: 
+  
+   Progress and achievement: Students who demonstrate significant progress and achievement in their coding skills.
+   Consistency and dedication: Students who consistently log in and engage with the app. 
+   Community involvement: Students who actively participate in online discussions and community activities.
+   Code quality and creativity: Students who demonstrate exceptional coding skills, creativity, and problem- solving abilities.
+  </p>
+</center>
+<br>
+
+<style>
+  .img1{
+    margin-top: -0%;
+    margin-left: 35%;
+  }
+  @media screen and (max-width: 768px) {
+    .img1{
+       margin-left: -1%;
+    }
+
+  } 
+</style>
+<br>
+<br>
+<br>
+<CENTER>
+  <H1><P style="font-family: 'Inter', sans-serif; font-size:110%; color: rgb(11, 76, 22);">OUR LEARNERS AND ACHIEVEMENTS
+    <br></P></H1><br>
+  
+ <p style="font-family: 'Inter', sans-serif;font-size:medium;color: #666;">
+    The Journey of Our Learners represents the transformative path our learners take as they progress through our coding learning app. <br>It highlights their growth, achievements, and milestones, from beginner to proficient coder.
+    </p>
+</CENTER>
+<br>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <title>Swiper demo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Swiper CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <style>
+   
+
+    .swiper1 {
+      width: 100%;
+      padding-top: 20px;
+      padding-bottom: 20px;
+    }
+
+    .swiper-slide1 {
+      background-position: center;
+      background-size: cover;
+      width: 180px;
+      height: auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .cardE {
+      background: #1B263B;
+      width: 150px;
+      padding: 20px;
+      border-radius: 12px;
+      text-align: center;
+    }
+
+    .cardE img {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 10px;
+    }
+
+    .cardE h6 {
+      color: #00A6FB;
+      margin: 5px 0;
+      font-size: 16px;
+    }
+
+    .cardE p {
+      color: #ffffff;
+      font-size: 14px;
+      margin: 5px 0;
+    }
+
+    
+  </style>
+</head>
+
+<body>
+  <!-- Swiper -->
+  <div class="swiper mySwiper">
+    <div class="swiper-wrapper">
+      <!-- Slide 1 -->
+      <div class="swiper-slide1">
+        <div class="cardE">
+          <img src="WhatsApp Image 2025-02-06 at 17.07.02_8e80d2fb.jpg" alt="Profile 1">
+          <h6>yaseen</h6>
+          <p>Associate <br><i class="fa-solid fa-arrow-down"></i><br>junior developer</p>
+        </div>
+      </div>
+
+      <!-- Slide 2 -->
+      <div class="swiper-slide1">
+        <div class="cardE">
+          <img src="WhatsApp Image 2025-02-06 at 17.04.50_74937d6e.jpg" alt="Profile 2">
+          <h6>Kell Dawx</h6>
+          <p>Associate <br><i class="fa-solid fa-arrow-down"></i><br>junior developer</p>
+        </div>
+      </div>
+
+      <!-- Slide 3 -->
+      <div class="swiper-slide1">
+        <div class="cardE">
+          <img src="WhatsApp Image 2025-02-06 at 17.04.38_d259ed55.jpg" alt="Profile 3">
+          <h6>prakash</h6>
+          <p>Associate <br><i class="fa-solid fa-arrow-down"></i><br>junior developer</p>
+        </div>
+      </div>
+
+      <!-- Slide 4 -->
+      <div class="swiper-slide1">
+        <div class="cardE">
+          <img src="WhatsApp Image 2025-02-06 at 17.02.47_fe4972b9.jpg" alt="Profile 4">
+          <h6>jagath</h6>
+          <p>Associate <br><i class="fa-solid fa-arrow-down"></i><br>junior developer</p>
+        </div>
+      </div>
+
+      <!-- Slide 5 -->
+      <div class="swiper-slide1">
+        <div class="cardE">
+          <img src="WhatsApp Image 2025-02-06 at 17.02.23_33f6337c.jpg" alt="Profile 5">
+          <h6>vivin</h6>
+          <p>Associate <br><i class="fa-solid fa-arrow-down"></i><br>junior developer</p>
+        </div>
+      </div>
+
+      <!-- Slide 6 -->
+      <div class="swiper-slide1">
+        <div class="cardE">
+          <img src="WhatsApp Image 2025-02-06 at 17.01.50_0e7ff72a.jpg" alt="Profile 6">
+          <h6>seenu</h6>
+          <p>Associate <br><i class="fa-solid fa-arrow-down"></i><br>junior developer</p>
+        </div>
+      </div>
+
+      <!-- Slide 7 -->
+      <div class="swiper-slide1">
+        <div class="cardE">
+          <img src="WhatsApp Image 2025-02-06 at 16.52.26_af8d4e9f.jpg" alt="Profile 7">
+          <h6>saravanan</h6>
+          <p>Associate <br><i class="fa-solid fa-arrow-down"></i><br>junior developer</p>
+        </div>
+      </div>
+
+      <!-- Slide 8 -->
+      <div class="swiper-slide1">
+        <div class="cardE">
+          <img src="WhatsApp Image 2025-02-06 at 16.52.25_3dcdb40c.jpg" alt="Profile 8">
+          <h6>vinith</h6>
+          <p>Associate <br><i class="fa-solid fa-arrow-down"></i><br>junior developer</p>
+        </div>
+      </div>
+
+      <!-- Slide 9 -->
+      <div class="swiper-slide1">
+        <div class="cardE">
+          <img src="WhatsApp Image 2025-02-06 at 16.52.24_724edb54.jpg" alt="Profile 9">
+          <h6>santhosh</h6>
+          <p>Associate <br><i class="fa-solid fa-arrow-down"></i><br>junior developer</p>
+        </div>
+      </div>
+    </div>
+    <!-- Pagination (optional) -->
+   
+  </div>
+
+  <!-- Swiper JS -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script>
+    var swiper1 = new Swiper1(".mySwiper", {
+      slidesPerView: 'auto',
+      spaceBetween: 50, // Controls the gap between cards
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+      },
+    });
+  </script>
+</body>
+
+</html>
+<br>
+<BR><br>
+<center>
+  <H1><P style="font-family: 'Inter', sans-serif; font-size:110%; color: rgb(11, 76, 22);">EXTRA COURSES
+    <br></P></H1><BR>
+<p style="font-family: 'Inter', sans-serif; color:#666; font-size:medium;" > A collection of courses focused on a specific skill or technology, such as "Full-Stack Web Development" or "Data Science with Python".
+</p>
+</center>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>View More / View Less Example</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+    <div>
+  <!-- Container for the first row (always visible) -->
+  <div class="cardsW-container">
+    <div class="cardW">
+      <img src="WhatsApp Image 2025-01-05 at 19.57.40_d1ec438e.jpg" alt="Card 1"/>
+      <div class="cardW-label">Premium</div>
+      <h3 class="card-title" style="font-family: 'Inter', sans-serif; color: #000000;font-size:medium; text-align: center;">Building Restful Apis With Redis </h3>
+      <br>
+      
+      <i class="fa-solid fa-users" style="font-size:small;margin-left:3%;"><h7 style="font-family: 'Inter', sans-serif;font-size:small;margin-left:0%;color: #666; ">132 Enrolled</h7></i>
+      <i class="fa-solid fa-clock" style="font-size:small; margin-left: 37%; margin-top: 0%;"><h7 style="font-family: 'Inter', sans-serif; font-size:small; color:#666;"> 20 Days</h7></i><br>
+      
+      <a href="extra.html"> <button class="price-btn" style="margin-top: 4%;"> 100</button></a>
+      
+    </div>
+    <div class="cardW">
+      <img src="WhatsApp Image 2025-01-05 at 19.57.41_4baa12c7.jpg" alt="Card 2"/>
+      
+      <div class="cardW-label">Premium</div>
+      <h3 class="card-title" style="font-family: 'Inter', sans-serif; color: #000000;font-size:medium; text-align: center;">Building Restful Apis With Redis </h3>
+      <br>
+      
+      <i class="fa-solid fa-users" style="font-size:small;margin-left:3%;"><h7 style="font-family: 'Inter', sans-serif;font-size:small;margin-left:0%;color: #666; ">132 Enrolled</h7></i>
+      <i class="fa-solid fa-clock" style="font-size:small; margin-left: 37%; margin-top: 0%;"><h7 style="font-family: 'Inter', sans-serif; font-size:small; color:#666;"> 20 Days</h7></i><br>
+      <a href="extra.html"> <button class="price-btn" style="margin-top: 4%;"> 100</button></a>
+      
+    </div>
+    <div class="cardW">
+      <img src="WhatsApp Image 2025-01-05 at 19.57.41_7b8710b2.jpg" alt="Card 3"/>
+      <div class="cardW-label">Premium</div>
+      <h3 class="card-title" style="font-family: 'Inter', sans-serif; color: #000000;font-size:medium; text-align: center;">Building Restful Apis With Redis </h3>
+      <br>
+      
+      <i class="fa-solid fa-users" style="font-size:small;margin-left:3%;"><h7 style="font-family: 'Inter', sans-serif;font-size:small;margin-left:0%;color: #666; ">132 Enrolled</h7></i>
+      <i class="fa-solid fa-clock" style="font-size:small; margin-left: 37%; margin-top: 0%;"><h7 style="font-family: 'Inter', sans-serif; font-size:small; color:#666;"> 20 Days</h7></i><br>
+      <a href="extra.html"> <button class="price-btn" style="margin-top: 4%;"> 100</button></a>
+      
+    </div>
+    <div class="cardW">
+        <img src="WhatsApp Image 2025-01-05 at 19.57.41_b695d3af.jpg" alt="Card 3"/>
+        <div class="cardW-label">Premium</div>
+        <h3 class="card-title" style="font-family: 'Inter', sans-serif; color: #000000;font-size:medium; text-align: center;">Building Restful Apis With Redis </h3>
+        <br>
+        
+        <i class="fa-solid fa-users" style="font-size:small;margin-left:3%;"><h7 style="font-family: 'Inter', sans-serif;font-size:small;margin-left:0%;color: #666; ">132 Enrolled</h7></i>
+        <i class="fa-solid fa-clock" style="font-size:small; margin-left: 37%; margin-top: 0%;"><h7 style="font-family: 'Inter', sans-serif; font-size:small; color:#666;"> 20 Days</h7></i><br>
+        <a href="extra.html"> <button class="price-btn" style="margin-top: 4%;"> 100</button></a>
+        
+      </div>
+  </div>
+
+
+  <br>
+  <!-- Additional rows initially hidden -->
+  <div class="cardsW-container hidden" id="extraCard">
+    <div class="cardW">
+      <img src="WhatsApp Image 2025-01-05 at 20.03.31_cca7eb4e.jpg" alt="Card 4"/>
+      <div class="cardW-label">Premium</div>
+      <h3 class="card-title" style="font-family: 'Inter', sans-serif; color: #000000;font-size:medium; text-align: center;">Building Restful Apis With Redis </h3>
+      <br>
+      
+      <i class="fa-solid fa-users" style="font-size:small;margin-left:3%;"><h7 style="font-family: 'Inter', sans-serif;font-size:small;margin-left:0%;color: #666; ">132 Enrolled</h7></i>
+      <i class="fa-solid fa-clock" style="font-size:small; margin-left: 37%; margin-top: 0%;"><h7 style="font-family: 'Inter', sans-serif; font-size:small; color:#666;"> 20 Days</h7></i><br>
+      <a href="extra.html"> <button class="price-btn" style="margin-top: 4%;"> 100</button></a>
+    </div>
+    <div class="cardW">
+      <img src="WhatsApp Image 2025-01-29 at 21.14.34_b6a12a54.jpg" alt="Card 5"/>
+      <div class="cardW-label">Premium</div>
+      <h3 class="card-title" style="font-family: 'Inter', sans-serif; color: #000000;font-size:medium; text-align: center;">Building Restful Apis With Redis </h3>
+      <br>
+      
+      <i class="fa-solid fa-users" style="font-size:small;margin-left:3%;"><h7 style="font-family: 'Inter', sans-serif;font-size:small;margin-left:0%;color: #666; ">132 Enrolled</h7></i>
+      <i class="fa-solid fa-clock" style="font-size:small; margin-left: 37%; margin-top: 0%;"><h7 style="font-family: 'Inter', sans-serif; font-size:small; color:#666;"> 20 Days</h7></i><br>
+      <a href="extra.html"> <button class="price-btn" style="margin-top: 4%;"> 100</button></a>
+      
+    </div>
+    <div class="cardW">
+        <img src="WhatsApp Image 2025-01-29 at 21.16.08_090eddf0.jpg"alt="Card 6"/>
+        <div class="cardW-label">Premium</div>
+        <h3 class="card-title" style="font-family: 'Inter', sans-serif; color: #000000;font-size:medium; text-align: center;">Building Restful Apis With Redis </h3>
+        <br>
+        
+        <i class="fa-solid fa-users" style="font-size:small;margin-left:3%;"><h7 style="font-family: 'Inter', sans-serif;font-size:small;margin-left:0%;color: #666; ">132 Enrolled</h7></i>
+        <i class="fa-solid fa-clock" style="font-size:small; margin-left: 37%; margin-top: 0%;"><h7 style="font-family: 'Inter', sans-serif; font-size:small; color:#666;"> 20 Days</h7></i><br>
+        <a href="extra.html"> <button class="price-btn" style="margin-top: 4%;"> 100</button></a>
+    </div>
+    <div class="cardW">
+      <img src="WhatsApp Image 2025-01-29 at 21.16.09_ac6b45a5.jpg" alt="Card 7"/>
+      <div class="cardW-label">Premium</div>
+      <h3 class="card-title" style="font-family: 'Inter', sans-serif; color: #000000;font-size:medium; text-align: center;">Building Restful Apis With Redis </h3>
+      <br>
+      
+      <i class="fa-solid fa-users" style="font-size:small;margin-left:3%;"><h7 style="font-family: 'Inter', sans-serif;font-size:small;margin-left:0%;color: #666; ">132 Enrolled</h7></i>
+      <i class="fa-solid fa-clock" style="font-size:small; margin-left: 37%; margin-top: 0%;"><h7 style="font-family: 'Inter', sans-serif; font-size:small; color:#666;"> 20 Days</h7></i><br>
+      <a href="extra.html"> <button class="price-btn" style="margin-top: 4%;"> 100</button></a>
+    </div>
+    
+    <div class="cardW">
+      <img src="WhatsApp Image 2025-02-06 at 21.45.14_f4448d89.jpg" alt="Card 8"/>
+      <div class="cardW-label">Premium</div>
+      <h3 class="card-title" style="font-family: 'Inter', sans-serif; color: #000000;font-size:medium; text-align: center;">Building Restful Apis With Redis </h3>
+      <br>
+      
+      <i class="fa-solid fa-users" style="font-size:small;margin-left:3%;"><h7 style="font-family: 'Inter', sans-serif;font-size:small;margin-left:0%;color: #666; ">132 Enrolled</h7></i>
+      <i class="fa-solid fa-clock" style="font-size:small; margin-left: 37%; margin-top: 0%;"><h7 style="font-family: 'Inter', sans-serif; font-size:small; color:#666;"> 20 Days</h7></i><br>
+      <a href="extra.html"> <button class="price-btn" style="margin-top: 4%;"> 100</button></a>
+      
+    </div>
+    <div class="cardW">
+      <img src="WhatsApp Image 2025-02-06 at 21.45.13_8eaa66dc.jpg" alt="Card 9"/>
+      <div class="cardW-label">Premium</div>
+      <h3 class="card-title" style="font-family: 'Inter', sans-serif; color: #000000;font-size:medium; text-align: center;">Building Restful Apis With Redis </h3>
+      <br>
+      
+      <i class="fa-solid fa-users" style="font-size:small;margin-left:3%;"><h7 style="font-family: 'Inter', sans-serif;font-size:small;margin-left:0%;color: #666; ">132 Enrolled</h7></i>
+      <i class="fa-solid fa-clock" style="font-size:small; margin-left: 37%; margin-top: 0%;"><h7 style="font-family: 'Inter', sans-serif; font-size:small; color:#666;"> 20 Days</h7></i><br>
+      <a href="extra.html"> <button class="price-btn" style="margin-top: 4%;"> 100</button></a>
+    </div>
+    <div class="cardW">
+        <img src="WhatsApp Image 2025-02-06 at 21.45.15_360cf86c.jpg" alt="Card 8"/>
+        <div class="cardW-label">Premium</div>
+        <h3 class="card-title" style="font-family: 'Inter', sans-serif; color: #000000;font-size:medium; text-align: center;">Building Restful Apis With Redis </h3>
+        <br>
+        
+        <i class="fa-solid fa-users" style="font-size:small;margin-left:3%;"><h7 style="font-family: 'Inter', sans-serif;font-size:small;margin-left:0%;color: #666; ">132 Enrolled</h7></i>
+        <i class="fa-solid fa-clock" style="font-size:small; margin-left: 37%; margin-top: 0%;"><h7 style="font-family: 'Inter', sans-serif; font-size:small; color:#666;"> 20 Days</h7></i><br>
+        <a href="extra.html"> <button class="price-btn" style="margin-top: 4%;"> 100</button></a>
+        
+      </div>
+      <div class="cardW">
+        <img src="WhatsApp Image 2025-02-06 at 21.45.14_f4448d89.jpg" alt="Card 9"/>
+        <div class="cardW-label">Premium</div>
+        <h3 class="card-title" style="font-family: 'Inter', sans-serif; color: #000000;font-size:medium; text-align: center;">Building Restful Apis With Redis </h3>
+        <br>
+        
+        <i class="fa-solid fa-users" style="font-size:small;margin-left:3%;"><h7 style="font-family: 'Inter', sans-serif;font-size:small;margin-left:0%;color: #666; ">132 Enrolled</h7></i>
+        <i class="fa-solid fa-clock" style="font-size:small; margin-left: 37%; margin-top: 0%;"><h7 style="font-family: 'Inter', sans-serif; font-size:small; color:#666;"> 20 Days</h7></i><br>
+      <a href="extra.html"> <button class="price-btn" style="margin-top: 4%;"> 100</button></a>
+      
+    </div> 
+      </div>
+      
+    
+  </div>
+</div>
+
+
+  <!-- "View More" button -->
+ <div class="button-container">
+    <button id="viewMoreBt">View More</button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
+<style>
+    
+/* Basic reset and box-sizing */
+
+
+/* Cards container */
+.cardsW-container {
+  display: grid;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-top: 40px;
+  grid-template-columns: repeat(4,1fr);
+}
+
+/* Individual card styling */
+.cardW {
+    margin-left:4%;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  width: 300px;
+  border-radius: 5px;
+  overflow: hidden;
+box-shadow: 0px 4px 25px rgba(0, 0, 0, 0.3);
+
+}
+
+.cardW img {
+  width: 100%;
+  height: 50%;
+  display: block;
+}
+
+.cardW h3 {
+  font-size: 1.1rem;
+  margin: 10px;
+}
+
+.cardW p {
+  margin: 0 10px 10px 10px;
+  color: #666;
+}
+.cardW-label {
+    background-color:  #e22a2a;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    display: inline-block;
+    margin-top: -20px;
+    margin-left:35%;
+    font-size: 0.9rem;
+    position: relative;
+  }
+  
+
+/* Hidden class to toggle extra rows */
+.hidden {
+
+  display: none;
+}
+
+/* Button container styling */
+
+
+#viewMoreBt {
+  padding: 10px 15px;
+  margin-top: 2%;
+  font-size: 1rem;
+  cursor: pointer;
+  border: none;
+  background-color:  rgb(58, 134, 204);;
+  color: #fff;
+  margin-left: 45%;
+  border-radius: 15px;
+  transition: background-color 0.3s ease;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+#viewMoreBt:hover {
+  background-color: #ffffff;
+  color:  rgb(58, 134, 204);
+}
+.priceW-btn {
+   
+   position: relative;
+   text-decoration: none;
+   font-size: 17px;
+   font-weight: 600;
+   margin-bottom: -12%;
+   text-transform: uppercase;
+   justify-content: space-between;
+   background-color: rgb(58, 134, 204);;
+  padding:1% 5%;
+   cursor: pointer;
+   border: none;
+   border-radius: 10px;
+   overflow: hidden;
+   transition: all 0.4s ease;
+   width:25%;
+   margin-left:37%;
+   color: #ffffff;
+   text-align: center;
+   }
+   
+   .priceW-btn:before {
+   content: "";
+   position: absolute;
+   pointer-events: none;
+   width: 150%;
+   height: 20%;
+   background-color:  rgb(58, 134, 204);
+   translate: -100% 0;
+   rotate: 45deg;
+   transition: all 0.4s ease;
+   color: #ffffff;
+   }
+   
+   .priceW-btn:hover {
+   color: rgb(58, 134, 204);
+   background-color: white;
+   box-shadow: 0 0 24px 8px rgba(158, 152, 152, 0.4);
+   }
+   
+   .priceW-btn:hover:before {
+   translate: 100%;
+   }
+   
+   .priceW-btn:active {
+   scale: 0.95;
+   box-shadow: 0 0 16px 4px rgba(0, 0, 0, 0.4);
+   } 
+   @media screen and (max-width: 768px) { 
+
+   .cardsW-container{
+      flex-direction: column;
+      align-items: center;
+     
+    }
+    #viewMoreBt  {
+    font-size: 0.9rem;
+    padding: 8px 12px;
+  }
+  .cardW {
+      width: 90%; /* Make it take full width */
+      max-width: 600px;
+      padding: 10px;
+   
+    
+    }
+    .priceW-btn{
+      width: 20%;
+      margin-left: 35%;
+     
+
+    }
+  }
+   
+
+</style>
+<script>
+  // Grab references to the extra cards container and the button
+const extraCard = document.getElementById('extraCard');
+const viewMoreBt = document.getElementById('viewMoreBt');
+
+// Add a click event listener to the button
+viewMoreBt.addEventListener('click', () => {
+// If extraCards is hidden, show it; otherwise hide it
+if (extraCard.classList.contains('hidden')) {
+  extraCard.classList.remove('hidden');
+  viewMoreBt.textContent = 'View Less';
+} else {
+  extraCard.classList.add('hidden');
+  viewMoreBt.textContent = 'View More';
+}
+});
+
+</script>
+<br>
+<br>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Footer Design</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body >
+
+    <footer>
+        <div class="social-icons">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-google"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+        </div><br>
+        
+        <nav class="footer-nav">
+            <a href="#">Home</a>
+            <a href="privacy.html">Privacy policy</a>
+            <a href="7.html">About</a>
+            <a href="9.html">Feedback</a>
+            
+        </nav><br>
+
+        <p class="copyright">Copyright ©2025 <span class="designer"></span></p>
+    </footer>
+
+</body>
+</html>
+<style>
+   
+footer {
+    background: rgb(58, 134, 204);
+    text-align: center;
+    padding: 20px 0;
+    margin-top: auto; /* Pushes footer to the bottom */
+    width: 100%;
+}
+
+    
+
+
+.social-icons {
+    margin-bottom: 10px;
+}
+
+.social-icons a {
+    display: inline-block;
+    margin: 0 10px;
+    font-size: larger;
+    color: white;
+    transition: 0.3s;
+    font-family: 'Inter', sans-serif;
+}
+
+.social-icons a:hover {
+    color: #f39c12;
+    transform: scale(1.1);
+}
+
+.footer-nav {
+    margin-bottom: 10px;
+}
+
+.footer-nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 18px;
+    transition: 0.3s;
+    padding:2%;
+}
+
+.footer-nav a:hover {
+    color: #f39c12;
+}
+
+.copyright {
+    font-size: 14px;
+    
+    color:white;
+}
+
+.designer {
+    color: #f39c12;
+    font-weight: bold;
+}
+
+</style>
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+    const footer = document.querySelector("footer");
+    footer.style.opacity = "0";
+    footer.style.transition = "opacity 1s ease-in-out";
+
+    setTimeout(() => {
+        footer.style.opacity = "1";
+    }, 500);
+});
+
+</script>

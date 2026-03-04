@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Achievement Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e6eaf8;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 120vh;
+            flex-direction: column;
+        }
+        .container {
+            display: flex;
+            gap: 10px;
+        }
+        .card {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 250px;
+        }
+        .card img {
+            width: 80px;
+            height: 80px;
+        }
+        .button {
+            background: #4a90e2;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        .button:hover {
+            background: #357ab7;
+        }
+        #awarded-container {
+            margin-top: 20px;
+            padding: 10px;
+            border: 2px dashed #4a90e2;
+            min-height: 50px;
+            width: 80%;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Achievements</h1>
+    
+    <div class="container">
+        <div class="card">
+            <img src="data:image/png;base64,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" alt="Trophy">
+            <h3>Trophy</h3>
+            <p>Achievement description</p>
+            <button class="button" onclick="awardBadge('Trophy', this)">Get Award</button>
+        </div>
+        
+        <div class="card">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRvnR_GSTPk-rSXJRkM6TcaUmDpTqSzGyPdjA&s" alt="Certificate">
+            <h3>Certificate</h3>
+            <p>Achievement description</p>
+            <button class="button" onclick="awardBadge('Certificate', this)">Get Award</button>
+        </div>
+
+        <div class="card">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSKxVPskujODhRNXd1vxzNA3WVr_SdOh1M7w&s" alt="Medal">
+            <h3>Medal</h3>
+            <p>Achievement description</p>
+            <button class="button" onclick="awardBadge('Medal', this)">Get Award</button>
+        </div>
+    </div><br>
+    <div class="container">
+        <div class="card">
+            <img src="data:image/png;base64,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" alt="Trophy">
+            <h3>Trophy</h3>
+            <p>Achievement description</p>
+            <button class="button" onclick="awardBadge('Trophy', this)">Get Award</button>
+        </div>
+        
+        <div class="card">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRvnR_GSTPk-rSXJRkM6TcaUmDpTqSzGyPdjA&s" alt="Certificate">
+            <h3>Certificate</h3>
+            <p>Achievement description</p>
+            <button class="button" onclick="awardBadge('Certificate', this)">Get Award</button>
+        </div>
+
+        <div class="card">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSKxVPskujODhRNXd1vxzNA3WVr_SdOh1M7w&s" alt="Medal">
+            <h3>Medal</h3>
+            <p>Achievement description</p>
+            <button class="button" onclick="awardBadge('Medal', this)">Get Award</button>
+        </div>
+    </div>
+
+    <h2>Collected Achievements</h2>
+    <div id="awarded-container">
+        <p>No achievements yet.</p>
+    </div>
+
+    <script>
+        function awardBadge(name, button) {
+            let container = document.getElementById("awarded-container");
+
+            // Check if the achievement already exists
+            if (document.getElementById(name)) {
+                alert(name + " is already collected!");
+                return;
+            }
+
+            // Create new badge
+            let badge = document.createElement("div");
+            badge.id = name;
+            badge.style.display = "inline-block";
+            badge.style.margin = "10px";
+            badge.innerHTML = `
+                <img src="${button.parentElement.querySelector("img").src}" width="60" height="60">
+                <p>${name}</p>
+            `;
+
+            // Remove default text if adding the first achievement
+            if (container.textContent.includes("No achievements yet.")) {
+                container.innerHTML = "";
+            }
+
+            // Append the new badge
+            container.appendChild(badge);
+        }
+    </script>
+
+</body>
+</html>

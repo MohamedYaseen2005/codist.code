@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            display: flex;
+            width: 60%;
+            background: white;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        .left-section {
+            width: 40%;
+            background: #337ab7;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        .right-section {
+            width: 60%;
+            padding: 40px;
+            text-align: center;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        input {
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .forgot-password {
+  display: block;
+
+ 
+  font-size: 12px;
+  color: #ffffff;
+  text-decoration: none;
+  text-align: center;
+}
+        button {
+            background: #337ab7;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+           
+        }
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+        }
+        .social-btn {
+            margin: 5px;
+            padding: 10px;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            width: 40px;
+            height: 40px;
+            text-align: center;
+            font-weight: bold;
+        }
+        @media screen and (max-width: 480px) {
+  .container {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  .container .forms-container {
+    order: 2;
+    width: 100%;
+    height: 50vh;
+  }
+  .container .forms-container .form-control {
+    position: absolute;
+    height: 50vh;
+  }
+  .container .intros-container {
+    order: 1;
+    width: 100%;
+    left: 0%;
+    height: 40vh;
+  }
+  .container .intros-container .intro-control {
+    position: absolute;
+    height: 40vh;
+  }
+
+  .change .forms-container .form-control.signup-form {
+    transform: translateX(0%);
+  }
+  .change .forms-container .form-control.signin-form {
+    transform: translateX(0%);
+  }
+  .change .intros-container .intro-control {
+    transform: translateX(0%);
+  }
+}
+@media screen and (max-width: 768px) {
+            .container {
+                width: 90%;
+                flex-direction: row;
+            }
+            .left-section {
+                width: 100%;
+                padding: 30px;
+            }
+            .right-section {
+                width: 100%;
+                padding: 20px;
+            }
+        }
+
+        .google { background: red; color: white; }
+        .facebook { background: blue; color: white; }
+        .linkedin { background: #0077b5; color: white; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="left-section">
+            <h2 style="font-family:'Inter', sans-serif;  margin-top: 30%;">Come join us!</h2>
+            <p style="font-family:'Inter', sans-serif; margin-top: 15%;">We are so excited to have you here. If you haven't already, create an account to get access to exclusive offers, rewards, and discounts.</p>
+            <a href="home.html"><button>Already have an account? Login</button></a>
+        </div>
+        <div class="right-section">
+            <h2>Signup</h2>
+            <form id="signup-form">
+                <input type="text" id="username" placeholder="Username" required>
+                <input type="email" id="email" placeholder="Email" required>
+                <input type="password" id="password" placeholder="Password" required>
+                <input type="password" id="confirm-password" placeholder="Confirm password" required>
+                <div style="background-color: rgb(58, 134, 204) ; padding: 4% 10%;"><a href="home page.HTML" class="forgot-password">confirm</a></div>
+            </form>
+            <p>or signup with</p>
+            <div class="social-icons">
+                <button class="social-btn google">G+</button>
+                <button class="social-btn facebook">F</button>
+                <button class="social-btn linkedin">in</button>
+            </div>
+        </div>
+    </div>
+    <script>
+document.getElementById("signup-form").addEventListener("submit", function(event) {
+    event.preventDefault();
+    let username = document.getElementById("username").value;
+    let email = document.getElementById("email").value;
+    let password = document.getElementById("password").value;
+    let confirmPassword = document.getElementById("confirm-password").value;
+
+    if (password !== confirmPassword) {
+        alert("Passwords do not match!");
+        return;
+    }
+
+    fetch("http://localhost:5000/api/user", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ username, email, password })
+    })
+    .then(res => res.json())
+    .then(data => {
+        alert(data.message);
+    })
+    .catch(error => {
+        console.error("Error:", error);
+    });
+});
+</script>
+</body>
+</html>

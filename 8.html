@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Achievements</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            text-align: center;
+            padding: 20px;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            display: inline-block;
+        }
+        .achievement {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #e3e3e3;
+            padding: 10px;
+            border-radius: 5px;
+            margin: 10px 0;
+        }
+        .claim-btn {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .claimed {
+            background-color: #ccc;
+            cursor: not-allowed;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Achievements</h2>
+        <div id="achievements-list"></div>
+    </div>
+
+    <script>
+        const achievements = [
+            { name: "Galaxy Brain", completed: true },
+            { name: "Bio-computer", completed: true },
+            { name: "Poet Laureate", completed: false },
+            { name: "Science Professor", completed: true }
+        ];
+
+        function loadAchievements() {
+            const list = document.getElementById("achievements-list");
+            list.innerHTML = "";
+
+            achievements.forEach((ach, index) => {
+                const div = document.createElement("div");
+                div.className = "achievement";
+                const isClaimed = localStorage.getItem(ach.name) === "claimed";
+
+                div.innerHTML = `
+                    <span>${ach.name}</span>
+                    <button class="claim-btn" id="btn-${index}" ${ach.completed && !isClaimed ? "" : "disabled"}>
+                        ${isClaimed ? "Claimed" : ach.completed ? "Claim" : "In Progress"}
+                    </button>
+                `;
+                list.appendChild(div);
+
+                if (ach.completed && !isClaimed) {
+                    document.getElementById(`btn-${index}`).addEventListener("click", function() {
+                        this.innerText = "Claimed";
+                        this.disabled = true;
+                        this.classList.add("claimed");
+
+                        // Store the claimed reward
+                        localStorage.setItem(ach.name, "claimed");
+
+                        // Open the popup to show the claimed reward
+                      
+                    });
+                }
+            });
+        }
+
+        loadAchievements();
+    </script>
+</body>
+</html>

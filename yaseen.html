@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CookDCode Navbar</title>
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="script.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo-section">
+            <a href="home page.HTML"><img src="logout.png" alt="Logo" class="logo"></a>
+            <a href="home page.HTML"><button class="brand-name">cookDcode</button></a>
+        </div>
+        
+        <div class="menu-icon" onclick="toggleMenu()">☰</div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu">
+        <a href="#">CTC</a>
+        <a href="#">TryCTC</a>
+        <a href="#">Signin</a>
+        <button class="login-btn">Login</button>
+    </div>
+
+    <div class="container1">
+        <h1 style="font-family: 'Inter', sans-serif;">Write a program to sum of n natural numbers.</h1>
+        <div class="concept-box">
+            <h2>Concept:</h2>
+            <p style="color: #666;font-family: 'Inter', sans-serif;font-size:medium;">
+                Write a program to calculate the sum of the first n natural numbers.
+                The program should take an integer input n from the user.
+                The sum should be calculated using a loop or a formula.
+            </p>
+        </div>
+    </div>
+
+    <section class="content">
+        <!-- Sections: Logic, Recipe, Ingredients, Sample Code -->
+        <div class="container">
+            <h2>Logic</h2>
+            <button class="help-button" onclick="openBox('logicBox')">Get Help</button>
+            <div id="logicBox" >
+              <div class="header">
+                  <span>Logic Help</span>
+                  <span class="audio-icon" onclick="playHelpAudio('logic')">🔊</span>
+                  <span class="close-btn" onclick="closeBox('logicBox')">&times;</span>
+              </div>
+              <p>This is the logic help content. It is read-only and cannot be edited.</p>
+          </div>
+            <button class="write-btn" onclick="toggleWrite('textarea-container1')">Write</button>
+            <div id="textarea-container1" class="textarea-container">
+                <textarea placeholder="Write something here..."></textarea>
+            </div>
+        </div>
+
+
+        <div class="container">
+            <h2>Recipe</h2>
+            <button class="help-button" onclick="openBox('recipeBox')">Get Help</button>
+            <div id="recipeBox">
+                <div class="header">
+                    <span>Recipe Help</span>
+                    <span class="audio-icon" onclick="playHelpAudio('recipe')">🔊</span>
+                    <span class="close-btn" onclick="closeBox('recipeBox')">&times;</span>
+                </div>
+                <p>This is the recipe help content. It is read-only and cannot be edited.</p>
+            </div>
+            <button class="write-btn" onclick="toggleWrite('textarea-container1')">Write</button>
+            <div id="textarea-container2" class="textarea-container">
+                <textarea placeholder="Write something here..."></textarea>
+            </div>
+        </div>
+        <div class="container">
+          <h2>Ingredients</h2>
+          <button class="help-button" onclick="openBox('ingredientsBox')">Get Help</button>
+          <div id="ingredientsBox">
+              <div class="header">
+                  <span>Logic Help</span>
+                  <span class="audio-icon" onclick="playHelpAudio('ingredients')">🔊</span>
+                  <span class="close-btn" onclick="closeBox('ingredientsBox')">&times;</span>
+              </div>
+              <p>This is the logic help content. It is read-only and cannot be edited.</p>
+          </div>
+          <button class="write-btn" onclick="toggleWrite('textarea-container1')">Write</button>
+          <div id="textarea-container1" class="textarea-container">
+              <textarea placeholder="Write something here..."></textarea>
+          </div>
+      </div>
+       <div class="container">
+            <h2>Sample Code</h2>
+            <button class="help-button" onclick="openBox('sampleCodeBox')">Get Help</button>
+            <div id="sampleCodeBox" >
+                <div class="header">
+                    <span>Logic Help</span>
+                    <span class="audio-icon" onclick="playHelpAudio('logic')">🔊</span>
+                    <span class="close-btn" onclick="closeBox('sampleCodeBox')">&times;</span>
+                </div>
+                <p>This is the logic help content. It is read-only and cannot be edited.</p>
+            </div>
+            <button class="write-btn" onclick="toggleWrite('textarea-container1')">Write</button>
+            <div id="textarea-container1" class="textarea-container">
+                <textarea placeholder="Write something here..."></textarea>
+            </div>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
+<style>
+  /* General Reset */
+  body {
+        font-family: 'Inter', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f4f8;
+    color: #333;
+    margin-left: 0%;
+  }
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(58, 134, 204);
+    padding: 10px 20px;
+    color: white;
+}
+
+/* Logo Section */
+.logo-section {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 8px;
+}
+
+.brand-name {
+    font-size: 22px;
+    font-weight: bold;
+    color: white;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+/* Mobile Menu */
+.menu-icon {
+    display: none;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.mobile-menu {
+    display: none;
+    flex-direction: column;
+    background-color: rgb(58, 134, 204);
+    position: absolute;
+    top: 60px;
+    right: 0;
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+}
+
+.mobile-menu a, .mobile-menu button {
+    padding: 10px;
+    color: white;
+    background: none;
+    font-size: 18px;
+    width: 100%;
+}
+
+/* Content Section */
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Help Section */
+.content-box {
+    display: none;
+    background-color: #eaf7ff;
+    padding: 20px;
+    border-radius: 8px;
+    border-left: 5px solid #3498db;
+}
+
+/* Write Section */
+.textarea-container {
+    display: none;
+    margin-top: 10px;
+}
+
+.textarea-container textarea {
+    width: 100%;
+    height: 100px;
+    padding: 10px;
+    border-radius: 5px;
+}
+.help-button{
+  background-color: rgb(58, 134, 204);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 10px;
+  font-size: 16px;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.write-btn{
+  margin-left: 0%;
+  background-color: rgb(58, 134, 204);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 10px;
+  font-size: 16px;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
+}
+.write-btn:hover {
+  background-color: #ffffff;
+  color:  rgb(58, 134, 204);
+}
+
+.concept-box {
+    background-color: #eaf7ff;
+    padding: 20px;
+    border-radius: 8px;
+    border-left: 5px solid #3498db;
+  }
+
+  .container1 {
+
+max-width: 1790px;
+margin-top: 2%;
+padding: 20px;
+background-color: #ffffff;
+border-radius: 10px;
+align-items: center;
+box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
+margin-left: 30px;
+}
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .menu-icon {
+        display: block;
+    }
+}
+  </style>
+  <script>
+// Toggle Mobile Menu
+function toggleMenu() {
+    const mobileMenu = document.querySelector(".mobile-menu");
+    mobileMenu.style.display = mobileMenu.style.display === "flex" ? "none" : "flex";
+}
+
+// Open and Close Help Sections
+function openBox(id) {
+    document.getElementById(id).style.display = "block";
+}
+function closeBox(id) {
+    document.getElementById(id).style.display = "none";
+}
+
+// Text-to-Speech Function
+function playHelpAudio(section) {
+    let text = This is the ${section} help content. It is read-only and cannot be edited.;
+    let speech = new SpeechSynthesisUtterance(text);
+    speech.lang = "en-US";
+    window.speechSynthesis.speak(speech);
+}
+
+// Toggle Write Section
+function toggleWrite(id) {
+    const textareaContainer = document.getElementById(id);
+    textareaContainer.style.display = textareaContainer.style.display === "block" ? "none" : "block";
+}
+
+  </script>

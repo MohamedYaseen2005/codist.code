@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <title>Swiper demo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Swiper CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <style>
+   
+
+    .swiper {
+      width: 100%;
+      padding-top: 20px;
+      padding-bottom: 20px;
+    }
+
+    .swiper-slide {
+      background-position: center;
+      background-size: cover;
+      width: 180px;
+      height: auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .cardE {
+      background: #1B263B;
+      width: 150px;
+      padding: 20px;
+      border-radius: 12px;
+      text-align: center;
+    }
+
+    .cardE img {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 10px;
+    }
+
+    .cardE h6 {
+      color: #00A6FB;
+      margin: 5px 0;
+      font-size: 16px;
+    }
+
+    .cardE p {
+      color: #ffffff;
+      font-size: 14px;
+      margin: 5px 0;
+    }
+
+    .swiper-pagination {
+      margin-top: -55%;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Swiper -->
+  <div class="swiper mySwiper">
+    <div class="swiper-wrapper">
+      <!-- Slide 1 -->
+      <div class="swiper-slide">
+        <div class="cardE">
+          <img src="WhatsApp Image 2025-02-06 at 17.07.02_8e80d2fb.jpg" alt="Profile 1">
+          <h6>yaseen</h6>
+          <p>Associate <br><i class="fa-solid fa-arrow-down"></i><br>junior developer</p>
+        </div>
+      </div>
+
+      <!-- Slide 2 -->
+      <div class="swiper-slide">
+        <div class="cardE">
+          <img src="WhatsApp Image 2025-02-06 at 17.04.50_74937d6e.jpg" alt="Profile 2">
+          <h6>Kell Dawx</h6>
+          <p>Associate <br><i class="fa-solid fa-arrow-down"></i><br>junior developer</p>
+        </div>
+      </div>
+
+      <!-- Slide 3 -->
+      <div class="swiper-slide">
+        <div class="cardE">
+          <img src="WhatsApp Image 2025-02-06 at 17.04.38_d259ed55.jpg" alt="Profile 3">
+          <h6>prakash</h6>
+          <p>Associate <br><i class="fa-solid fa-arrow-down"></i><br>junior developer</p>
+        </div>
+      </div>
+
+      <!-- Slide 4 -->
+      <div class="swiper-slide">
+        <div class="cardE">
+          <img src="WhatsApp Image 2025-02-06 at 17.02.47_fe4972b9.jpg" alt="Profile 4">
+          <h6>jagath</h6>
+          <p>Associate <br><i class="fa-solid fa-arrow-down"></i><br>junior developer</p>
+        </div>
+      </div>
+
+      <!-- Slide 5 -->
+      <div class="swiper-slide">
+        <div class="cardE">
+          <img src="WhatsApp Image 2025-02-06 at 17.02.23_33f6337c.jpg" alt="Profile 5">
+          <h6>vivin</h6>
+          <p>Associate <br><i class="fa-solid fa-arrow-down"></i><br>junior developer</p>
+        </div>
+      </div>
+
+      <!-- Slide 6 -->
+      <div class="swiper-slide">
+        <div class="cardE">
+          <img src="WhatsApp Image 2025-02-06 at 17.01.50_0e7ff72a.jpg" alt="Profile 6">
+          <h6>seenu</h6>
+          <p>Associate <br><i class="fa-solid fa-arrow-down"></i><br>junior developer</p>
+        </div>
+      </div>
+
+      <!-- Slide 7 -->
+      <div class="swiper-slide">
+        <div class="cardE">
+          <img src="WhatsApp Image 2025-02-06 at 16.52.26_af8d4e9f.jpg" alt="Profile 7">
+          <h6>saravanan</h6>
+          <p>Associate <br><i class="fa-solid fa-arrow-down"></i><br>junior developer</p>
+        </div>
+      </div>
+
+      <!-- Slide 8 -->
+      <div class="swiper-slide">
+        <div class="cardE">
+          <img src="WhatsApp Image 2025-02-06 at 16.52.25_3dcdb40c.jpg" alt="Profile 8">
+          <h6>vinith</h6>
+          <p>Associate <br><i class="fa-solid fa-arrow-down"></i><br>junior developer</p>
+        </div>
+      </div>
+
+      <!-- Slide 9 -->
+      <div class="swiper-slide">
+        <div class="cardE">
+          <img src="WhatsApp Image 2025-02-06 at 16.52.24_724edb54.jpg" alt="Profile 9">
+          <h6>santhosh</h6>
+          <p>Associate <br><i class="fa-solid fa-arrow-down"></i><br>junior developer</p>
+        </div>
+      </div>
+    </div>
+    <!-- Pagination (optional) -->
+    <div class="swiper-pagination"></div>
+  </div>
+
+  <!-- Swiper JS -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script>
+    var swiper = new Swiper(".mySwiper", {
+      slidesPerView: 'auto',
+      spaceBetween: 50, // Controls the gap between cards
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+      },
+    });
+  </script>
+</body>
+
+</html>

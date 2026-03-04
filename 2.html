@@ -1,0 +1,1148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+   
+    .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background:  rgb(58, 134, 204);
+        color: white;
+        padding: 5px ;
+        width: 103%;
+        position: relative;
+        margin-left: -1.3%;
+       margin-top:  -0.5%;
+       
+    }
+ 
+    .center-buttons {
+        display: flex;
+        gap: 10px;
+    }
+    .center-buttons button {
+        background:   rgb(58, 134, 204);
+        border: none;
+        padding: 10px 15px;
+        cursor: pointer;
+        font-size: 16px;
+    }
+    .profile {
+        position: relative;
+        cursor: pointer;
+    }
+    .dropdown {
+        display: none;
+        position: absolute;
+        background: white;
+        color:   rgb(58, 134, 204); ;
+        top: 50px;
+        right: 0;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        width: 200px;
+        height: 1200%;
+        border-radius: 5px;
+       
+   
+   
+    color:#8d99ae; ;
+  
+    }
+    .settings-dropdown {
+        display: none;
+        position: absolute;
+        background: white;
+    
+        top: 50px;
+        right: 0;
+        box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
+        width: 250px;
+        height: 110%;
+        border-radius: 5px;
+       
+   
+   
+    color:#8d99ae; ;
+  
+    }
+    .dropdown.show {
+        display: block;
+    }
+    .settings-dropdown.show {
+        display: block;
+    }
+    .dropdown a, .settings-dropdown a {
+        display: flex;
+        align-items: center;
+        padding: 10px;
+        text-decoration: none;
+        color:   rgb(58, 134, 204); ;
+        border-bottom: 1px solid #ddd;
+    }
+    .dropdown a:last-child { border-bottom: none; }
+    .dropdown a i, .settings-dropdown a i {
+        margin-right: 10px;
+    }
+    .settings-dropdown {
+        right: 100%;
+        top: 80px;
+    }
+    .popup {
+        display: none;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: white;
+        padding: 20px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        text-align: center;
+        border-radius: 5px;
+    }
+    .popup button {
+        margin: 10px;
+        padding: 10px 15px;
+        border: none;
+        cursor: pointer;
+    }
+    .overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0,0,0,0.5);
+    }
+    body.dark-mode {
+background: #121212;
+color: white;
+}
+
+/* Options */
+
+
+.option2 {
+display: flex;
+
+align-items: center;
+padding: 8px;
+margin: 10px 0;
+background: #f4f4f4;
+cursor: pointer;
+border-radius: 5px;
+
+color:   rgb(58, 134, 204); ;
+}
+
+input:checked + .slider {
+background: rgb(58, 134, 204);;
+}
+
+input:checked + .slider:before {
+transform: translateX(20px);
+}
+.option2:hover {
+background-color: #f3faff;
+}
+
+/* Dark Mode Toggle Switch */
+.switch {
+position: relative;
+display: inline-block;
+width: 40px;
+height: 20px;
+}
+
+.switch input {
+opacity: 0;
+width: 0;
+height: 0;
+}
+.slider {
+position: absolute;
+cursor: pointer;
+top: 0;
+left: 0;
+right: 0;
+bottom: 0;
+background: gray;
+transition: 0.4s;
+border-radius: 20px;
+
+}
+
+.slider:before {
+content: "";
+position: absolute;
+height: 14px;
+width: 14px;
+left: 3px;
+bottom: 3px;
+background: white;
+transition: 0.4s;
+border-radius: 50%;
+
+}
+.logo{
+background-color: rgb(58, 134, 204) ;
+border-color:  rgb(58, 134, 204);
+border-radius: 1%;
+color: #ffffff;
+}
+input:checked + .slider {
+background: rgb(58, 134, 204);;
+}
+
+input:checked + .slider:before {
+transform: translateX(20px);
+}
+
+.ad{
+background-color:  rgb(58, 134, 204) ;
+color: #ffffff;
+padding: 2% 5%;
+}
+.ad:hover{
+background-color: #ffffff;
+color:   rgb(58, 134, 204);
+}
+    .pic{
+        width: 40px;
+        border-radius: 50%;
+        cursor: pointer;
+        margin-right: 9%;
+    }
+  
+     
+    .sub-menu-wrap1{
+        position: absolute;
+      
+        top: 0%;
+        right: 83%;
+        width: 300px;
+        max-height: 0px;
+        overflow:hidden;
+        transition: max-height 0.5s;
+        
+    }
+    .sub-menu-wrap1.open-menu{
+        max-height: 400px;
+    }
+    .sub-menu1{
+        background: white;
+        padding: 10px;
+        margin: 40px;
+        box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
+
+    }
+    .user-info1{
+      display:flex;
+      align-items: center;
+  
+
+  } 
+  .user-info1 h3{
+      font-weight:500;
+  }
+
+  .user-pic{
+        width: 40px;
+        border-radius: 50%;
+        cursor: pointer;
+        margin-right: -0%;
+    }
+
+</style>
+</head>
+<body>
+<div class="header">
+  <a href="admin3.html" style="color: #ffffff; "><button class="but1"  style=" font-size:xx-large; font-family:'Times New Roman', Times, serif;">    cookDcode</button></a>
+  <div style="margin-left: 80%; color: rgb(58, 134, 204); "><a href="admin4.html"   class="bot"><i class="fa-solid fa-envelope"></i></a></div>
+  <!DOCTYPE html>
+      <html lang="en">
+      <head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>Notification Popup</title>
+          <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+          <style>
+              .bot {
+                  background-color: rgb(58, 134, 204);
+                  color: white;
+                  padding: 10px;
+                  border-radius: 50%;
+                  display: inline-block;
+                  cursor: pointer;
+                  border: none;
+                  font-size: 20px;
+              }
+              .bot:hover {
+                  color: black;
+              }
+              .popup {
+                  position: absolute;
+                  top: 50px;
+                  left: 90%;
+                  transform: translateX(-50%);
+                  background: white;
+                  width: 250px;
+                  font-family: 'Inter', sans-serif;
+                  padding: 10px;
+                  border-radius: 8px;
+                  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+                  display: none;
+                  z-index: 100;
+              }
+              .popup h4 {
+                  text-align: center;
+                  font-size: 16px;
+                  border-bottom: 1px solid #ddd;
+                  color: #000000;
+                  font-family: 'Inter', sans-serif;
+                  padding-bottom: 5px;
+              }
+              .notification {
+                  display: flex;
+                  align-items: center;
+                  padding: 8px;
+                  border-bottom: 1px solid #eee;
+              }
+              .notification:last-child {
+                  border-bottom: none;
+              }
+              .profile-pic {
+                  width: 40px;
+                  height: 40px;
+                  border-radius: 50%;
+                  margin-right: 10px;
+              }
+              .notification p {
+                  margin: 0;
+                  font-family: 'Inter', sans-serif;
+                  color: #000000;
+                  font-size: 14px;
+              }
+          </style>
+      </head>
+      <body>
+      
+          <a id="bellIcon" class="bot"> <i class="fa-solid fa-bell"></i></a>
+          <div class="popup" id="notificationPopup">
+              <h4>Notifications</h4>
+              <div class="notification">
+                  <img src="c:\Users\sakth\AppData\Local\Packages\5319275A.WhatsAppDesktop_cv1g1gvanyjgm\TempState\B19AA25FF58940D974234B48391B9549\WhatsApp Image 2025-02-06 at 17.06.58_60fd2f3d.jpg" alt="User" class="profile-pic">
+                  <p><strong>John Doe</strong><br> bought an array bundle</p>
+              </div>
+              <div class="notification">
+                  <img src="c:\Users\sakth\AppData\Local\Packages\5319275A.WhatsAppDesktop_cv1g1gvanyjgm\TempState\FB3F76858CB38E5B7FD113E0BC1C0721\WhatsApp Image 2025-02-06 at 17.02.43_458ac0ce.jpg" alt="User" class="profile-pic">
+                  <p><strong>Jane Smith</strong><br> bought a string bundle</p>
+              </div>
+              <div class="notification">
+                  <img src="c:\Users\sakth\AppData\Local\Packages\5319275A.WhatsAppDesktop_cv1g1gvanyjgm\TempState\5BE278A9E02BED9248A4674FF62FEA2C\WhatsApp Image 2025-02-06 at 17.02.19_5d94f059.jpg" alt="User" class="profile-pic">
+                  <p><strong>Mark Taylor</strong><br> bought a number bundle</p>
+              </div>
+          </div>
+      
+          <script>
+              document.addEventListener("DOMContentLoaded", function () {
+                  const bellIcon = document.getElementById("bellIcon");
+                  const notificationPopup = document.getElementById("notificationPopup");
+      
+                  // Toggle popup visibility on bell icon click
+                  bellIcon.addEventListener("click", function (event) {
+                      event.stopPropagation(); // Prevent click from bubbling up
+                      notificationPopup.style.display = (notificationPopup.style.display === "block") ? "none" : "block";
+                  });
+      
+                  // Close popup when clicking outside of it
+                  document.addEventListener("click", function (event) {
+                      if (!notificationPopup.contains(event.target) && event.target !== bellIcon) {
+                          notificationPopup.style.display = "none";
+                      }
+                  });
+      
+                  // Log notification count
+                  console.log("Current Count: ", document.querySelectorAll('.notification').length);
+              });
+          </script>
+      
+   
+      <style>
+        .bum{
+          padding: 5px 3px;
+          font-size: large;
+border-radius: 5%;
+          color: rgb(58, 134, 204);
+          background-color:  white;
+          border: #f4f4f4;
+        }
+        .bum:hover{
+          background-color:rgb(226, 219, 219) ;
+          color: rgb(58, 134, 204) ;
+        }
+        .but{
+          padding: 5px 0px;
+          font-size: 130%;
+
+          color: #ffffff;
+          background-color:  rgb(58, 134, 204);
+          border: #f4f4f4;
+        }
+        .but1{
+          padding: 5px 0px;
+
+margin-left: 9%;
+          color: #ffffff;
+          background-color:  rgb(58, 134, 204);
+          border: #f4f4f4;
+        }
+        .a{
+     
+          font-size: 1.1rem;
+        }
+        .but:hover{
+          color: rgb(58, 134, 204);;
+        }
+        .but1{
+          padding: 5px 0px;
+          font-size: X-large;
+            
+          color: #ffffff;
+          background-color: rgb(58, 134, 204);
+          border: #f4f4f4;
+        }
+        .a{
+         
+          font-size: 1.1rem;
+        }
+        
+
+
+
+      </style>
+       
+    <div class="profile" >
+        <i class="fa fa-user-cile" style="font-size: 24px;"></i>
+        <div class="dropdown" id="profileDropdown">
+            <a href="#" style="font-size: larger; font-family: 'Inter', sans-serif;"><i class="fa fa-user-edit" style="color: #000000;"></i> Edit Profile</a>
+            <a href="#" onclick="toggleSettings(event)" style="font-size: larger; font-family: 'Inter', sans-serif;"><i class="fa fa-cog"  style="color: #000000;"></i> Settings</a>
+            <div class="settings-dropdown" id="settingsDropdown">
+             
+                  <div class="option2">
+                    <span style="margin-left: 5%; font-family: 'Inter', sans-serif; font-size: larger; "> Dark Mode</span>
+                    <label class="switch" style="margin-left: 38%;">
+                        <input type="checkbox" id="darkModeToggle">
+                        <span class="slider"></span>
+                    </label>
+                </div>
+
+              
+                
+                
+                  <div class="option2">
+           <span style="margin-left: 5%;font-family: 'Inter', sans-serif; font-size: larger; "> Notification</span>
+                    <label class="switch" style="margin-left: 37%;">
+                        <input type="checkbox" id="notificatinToggle">
+                        <span class="slider"></span>
+                    </label>
+                </div>
+               
+          
+                <div class="option2">
+                  <a href="term.html"> <span style="margin-right: 0%; font-family: 'Inter', sans-serif; font-size: larger; margin-top: -3%; "> Terms and conditions</span></a>
+          
+                     
+             
+                  </label>
+              </div>  
+              <!DOCTYPE html>
+              <html lang="en">
+              <head>
+                  <meta charset="UTF-8">
+                  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                  <title>Bug Report Chatbox</title>
+                  <style>
+                      body {
+                        font-family: 'Inter', sans-serif;
+                      }
+              
+                      /* Styling for the report bug link */
+                      .report-bug {
+                          color: blue;
+                          cursor: pointer;
+                          text-decoration: underline;
+                          font-size: 16px;
+                      }
+              
+                      /* Chatbox popup */
+                      .chat-popup {
+                          display: none;
+                          position: absolute;
+                          top: 180px;
+                          left:160px;
+                          width: 300px;
+                          background: white;
+                          border: 1px solid #ccc;
+                          border-radius: 10px;
+                          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+                          padding: 15px;
+                          z-index: 1000;
+                          animation: fadeIn 0.3s ease-in-out;
+                      }
+              
+                      /* Chatbox header */
+                      .chat-header {
+                          font-size: 18px;
+                          font-weight: bold;
+                          margin-bottom: 10px;
+                      }
+              
+                      /* Chatbox text area */
+                      .chat-textarea {
+                          width: 100%;
+                          height: 80px;
+                          border: 1px solid #ddd;
+                          border-radius: 5px;
+                          padding: 5px;
+                          resize: none;
+                      }
+              
+                      /* Send button */
+                      .send-btn {
+                          width: 100%;
+                          background: rgb(58, 134, 204); 
+                          color: white;
+                          padding: 8px;
+                          border: none;
+                          border-radius: 5px;
+                          cursor: pointer;
+                          margin-top: 10px;
+                      }
+              
+                      .send-btn:hover {
+                          background: #0056b3;
+                      }
+              
+                      /* Fade in animation */
+                      @keyframes fadeIn {
+                          from { opacity: 0; transform: translateY(-10px); }
+                          to { opacity: 1; transform: translateY(0); }
+                      }
+                  </style>
+              </head>
+              <body>
+              
+                  <p><a class="report-bug" style="margin-left: 5%; font-family: 'Inter', sans-serif;font-size: larger; margin-top: -2%;">Report Bug</a></p>
+              
+                  <div class="chat-popup" id="chatPopup">
+                      <div class="chat-header">Bug Report</div>
+                      <textarea class="chat-textarea" id="bugReport" placeholder="Describe the issue..."></textarea>
+                      <button class="send-btn" id="sendReport">Send</button>
+                  </div>
+              
+                  <script>
+                      const reportBugLink = document.querySelector('.report-bug');
+                      const chatPopup = document.getElementById('chatPopup');
+                      const sendButton = document.getElementById('sendReport');
+                      const bugReportTextarea = document.getElementById('bugReport');
+              
+                      // Show popup when clicking the link
+                      reportBugLink.addEventListener('click', (event) => {
+                          event.stopPropagation();
+                          chatPopup.style.display = 'block';
+                      });
+              
+                      // Close popup when clicking outside
+                      document.addEventListener('click', (event) => {
+                          if (!chatPopup.contains(event.target) && event.target !== reportBugLink) {
+                              chatPopup.style.display = 'none';
+                          }
+                      });
+              
+                      // Prevent popup from closing when clicking inside
+                      chatPopup.addEventListener('click', (event) => {
+                          event.stopPropagation();
+                      });
+              
+                      // Send report and redirect to admin4.html
+                      sendButton.addEventListener('click', () => {
+                          const bugText = bugReportTextarea.value.trim();
+                          if (bugText) {
+                              let bugReports = JSON.parse(localStorage.getItem('bugReports')) || [];
+                              bugReports.push(bugText);
+                              localStorage.setItem('bugReports', JSON.stringify(bugReports)); // Save all reports
+                              window.location.href = 'home page.html'; // Redirect to Admin Panel
+                          } else {
+                              alert('Please enter a bug report before sending.');
+                          }
+                      });
+                  </script>
+              
+              </body>
+              </html>
+                  <div class="option2">
+                    <a href="privacy.html"><span style="margin-right: 0%; font-family: 'Inter', sans-serif; font-size: larger; margin-top: -4%; ">privacy policy</span></a>
+            
+    
+            
+        
+                 
+    </div>
+            
+            </div>
+            <a href="help page.html" style="font-size: larger; font-family: 'Inter', sans-serif;"><i class="fa-solid fa-circle-info"  style="color: #000000;"></i> Help & Support</a>
+           
+            <a href="1.html" style="font-size: larger;font-family: 'Inter', sans-serif;"><i class="fa-solid fa-question"  style="color: #000000;"></i> FAQ</a>
+            <a href="#" onclick="showPopup(event)"style="font-size: larger; font-family: 'Inter', sans-serif;"  style="color: #000000;"><i class="fa fa-sign-out-alt"  style="color: #000000;"></i> Logout</a>
+        </div>
+    </div>
+</div><div class="overlay" id="overlay" onclick="hidePopup()"></div>
+<div class="popup" id="popup">
+<p>Do you want to logout this account?</p>
+<button onclick="logout()" class="ad">Yes</button>
+<button onclick="hidePopup()" class="ad">No</button>
+</div>
+
+<script>
+function toggleDropdown(event) {
+    event.stopPropagation();
+    document.getElementById('profileDropdown').classList.toggle('show');
+}
+
+function toggleSettings(event) {
+    event.stopPropagation();
+    document.getElementById('settingsDropdown').classList.toggle('show');
+}
+
+function showPopup(event) {
+    event.stopPropagation();
+    document.getElementById('popup').style.display = 'block';
+    document.getElementById('overlay').style.display = 'block';
+}
+
+function hidePopup() {
+    document.getElementById('popup').style.display = 'none';
+    document.getElementById('overlay').style.display = 'none';
+}
+
+function logout() {
+    window.location.href = 'login.html';
+}
+
+document.addEventListener('click', function(event) {
+    if (!document.querySelector('.profile').contains(event.target)) {
+        document.getElementById('profileDropdown').classList.remove('show');
+        document.getElementById('settingsDropdown').classList.remove('show');
+    }
+});
+function goBack() {
+    window.history.back();
+}
+
+// Function to open new page
+function openPage(url) {
+    window.location.href = url;
+}
+
+// Dark Mode Toggle
+const darkModeToggle = document.getElementById("darkModeToggle");
+darkModeToggle.addEventListener("change", () => {
+    document.body.classList.toggle("dark-mode");
+    localStorage.setItem("darkMode", document.body.classList.contains("dark-mode"));
+});
+
+// Preserve Dark Mode on Reload
+window.onload = () => {
+    if (localStorage.getItem("darkMode") === "true") {
+        document.body.classList.add("dark-mode");
+        darkModeToggle.checked = true;
+    }
+};
+</script>
+
+</body>
+</html>
+<body>
+    <div class="container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="profile">
+                <img src="c:\Users\sakth\AppData\Local\Packages\5319275A.WhatsAppDesktop_cv1g1gvanyjgm\TempState\2E0BFF759D057E28460EAA5B2CB118E5\WhatsApp Image 2025-02-06 at 17.04.40_ef36b8b3.jpg" alt="Profile Picture"  class="user-pic" >
+                <h3  style="font-family: 'Inter', sans-serif; " >Vũ Doãn Dũng</h3>
+            </div>
+            <ul id="menu"  style="font-family: 'Inter', sans-serif; " >
+                <li data-section="account" class="active" >Account</li>
+                <li data-section="password"  style="font-family: 'Inter', sans-serif; ">Password</li>
+                <li data-section="security"  style="font-family: 'Inter', sans-serif; ">Security</li>
+                <li data-section="application"  style="font-family: 'Inter', sans-serif; ">Application</li>
+                <li data-section="notification"  style="font-family: 'Inter', sans-serif; ">Notification</li>
+            </ul>
+        </div>
+
+        <!-- Content Sections -->
+        <div class="content">
+            <div id="account" class="section active">
+                <style>
+                   
+     
+                    .content {
+                        flex: 1;
+                        padding: 10px;
+                        width: 70%;
+                        background: #fff;
+                        margin-left: 0%;
+                    }
+                    form {
+                        display: flex;
+                        flex-direction: column;
+                        gap: 10px;
+                    }
+                    input, textarea {
+                        width: 100%;
+                        padding: 10px;
+                        border: 1px solid #ccc;
+                      font-family: 'Inter', sans-serif;
+                        border-radius: 5px;
+                    }
+                    button {
+                        padding: 10px;
+                        border: none;
+                        border-radius: 5px;
+                        cursor: pointer;
+                    }
+                    #updateBtn {
+                        background: rgb(58, 134, 204);;
+                        color: white;
+                        width:15%;
+                        margin-left:100%;
+                    }
+                    button[type="reset"] {
+                        background: #ccc;
+                        width:15%;
+                        margin-left:100%;
+                    }
+                </style>
+                 <div class="content">
+                    <h2  style="font-family: 'Inter', sans-serif; " >Account Settings</h2>
+                    <form id="account-form">
+                        <label  style="font-family: 'Inter', sans-serif; ">First Name <input type="text" id="firstName"></label>
+                        <label  style="font-family: 'Inter', sans-serif; ">Last Name <input type="text" id="lastName"></label>
+                        <label  style="font-family: 'Inter', sans-serif; ">Email <input type="email" id="email"></label>
+                        <label  style="font-family: 'Inter', sans-serif; ">Phone Number <input type="tel" id="phone"></label>
+                        <label  style="font-family: 'Inter', sans-serif; ">Company <input type="text" id="company"></label>
+                        <label  style="font-family: 'Inter', sans-serif; ">Designation <input type="text" id="designation"></label>
+                        <label  style="font-family: 'Inter', sans-serif; ">Bio <textarea id="bio"></textarea></label>
+                        <button type="button" id="updateBtn">Update</button>
+                        <button type="reset">Cancel</button>
+                    </form>
+                </div>
+            </div>
+            <script>
+                document.addEventListener("DOMContentLoaded", () => {
+                    const form = document.getElementById("account-form");
+                    
+                    function loadUserData() {
+                        document.getElementById("firstName").value = localStorage.getItem("firstName") || "";
+                        document.getElementById("lastName").value = localStorage.getItem("lastName") || "";
+                        document.getElementById("email").value = localStorage.getItem("email") || "";
+                        document.getElementById("phone").value = localStorage.getItem("phone") || "";
+                        document.getElementById("company").value = localStorage.getItem("company") || "";
+                        document.getElementById("designation").value = localStorage.getItem("designation") || "";
+                        document.getElementById("bio").value = localStorage.getItem("bio") || "";
+                    }
+                    
+                    document.getElementById("updateBtn").addEventListener("click", () => {
+                        localStorage.setItem("firstName", document.getElementById("firstName").value);
+                        localStorage.setItem("lastName", document.getElementById("lastName").value);
+                        localStorage.setItem("email", document.getElementById("email").value);
+                        localStorage.setItem("phone", document.getElementById("phone").value);
+                        localStorage.setItem("company", document.getElementById("company").value);
+                        localStorage.setItem("designation", document.getElementById("designation").value);
+                        localStorage.setItem("bio", document.getElementById("bio").value);
+                        alert("Account information updated successfully!");
+                    });
+                    
+                    loadUserData();
+                });
+            </script>
+        </body>
+        </html>
+        
+            </div>
+
+            <div id="password" class="section">
+                
+                 
+                     <div class="content1"  style="margin-left: -450%; margin-top: 30%;">
+                    <h2>Password Settings</h2>
+                    <form id="password-form">
+                        <label class="label1 "  style="font-family: 'Inter', sans-serif;margin-left:10%; ">Old Password <br><input type="password" id="oldPassword" class="label11 "></label>
+                        <label class="label1 " style="font-family: 'Inter', sans-serif;margin-left:10%; ">New Password<br> <input type="password" id="newPassword"class="label11 "></label>
+                        <label class="label1 "  style="font-family: 'Inter', sans-serif;margin-left:10%; ">Confirm Password <br><input type="password" id="confirmPassword"class="label11 "></label>
+                        <button type="button" id="updatePasswordBtn">Update</button>
+                        <button type="reset" style="margin-left:80%; width:10%">Cancel</button>
+                    </form>
+                </div>
+                <style>
+                   .user-pic{
+            width: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            margin-right: -0%;
+        }
+
+                    .content1 {
+              
+                    
+                    }
+                    form {
+                        display: flex;
+                        flex-direction: column;
+                    }
+                    .label1 {
+                        margin: 10px 0;
+                    }
+                    .label11 {
+                        width: 80%;
+                        padding: 8px;
+                        margin-top: 5px;
+                    }
+                    button {
+                        margin: 10px 5px 0 0;
+                        padding: 10px;
+                        cursor: pointer;
+                        
+                    }
+                    #updatePasswordBtn {
+                        background: rgb(58, 134, 204);;
+                        color: white;
+                        border: none;
+                        width:10%;
+                        margin-left:80%;
+                    }
+                   
+                </style>
+             
+            <script>
+                function navigateTo(page) {
+                    window.location.href = page;
+                }
+        
+                document.getElementById("updatePasswordBtn").addEventListener("click", function() {
+                    const oldPassword = document.getElementById("oldPassword").value;
+                    const newPassword = document.getElementById("newPassword").value;
+                    const confirmPassword = document.getElementById("confirmPassword").value;
+        
+                    if (newPassword !== confirmPassword) {
+                        alert("New password and confirmation do not match.");
+                        return;
+                    }
+        
+                    if (!oldPassword || !newPassword || !confirmPassword) {
+                        alert("All fields are required.");
+                        return;
+                    }
+        
+                    localStorage.setItem("password", newPassword);
+                    alert("Password updated successfully!");
+                });
+            </script>
+            </div>
+
+            <div id="security" class="section">
+                <style>
+                    
+                    
+                
+                    form {
+                        display: flex;
+                        flex-direction: column;
+                    }
+                    .label2 {
+                        margin: 10px 0;
+                    }
+                .label22 {
+                        width: 80%;
+                        padding: 8px;
+                        margin-top: 5px;
+                    }
+                    button {
+                        margin: 10px 5px 0 0;
+                        padding: 10px;
+                        cursor: pointer;
+
+                    }
+                    #updateSecurityBtn {
+                        background:  rgb(58, 134, 204);;
+                        color: white;
+                        border: none;
+                        width:60%;
+                        margin-left:0%;
+                    }
+                </style>
+              
+                <h2 style="margin-left: -480%; margin-top: 30%;" style="font-family: 'Inter', sans-serif; ">Security Settings</h2>
+                <form id="security-form">
+                    <label class="label2" style="margin-left: -480%;  font-family: 'Inter', sans-serif;">Login <br><input type="text" id="login" class="label22"></label>
+                    <label class="label2"  style="margin-left: -480%;"  style="font-family: 'Inter', sans-serif; ">Two-factor auth<br> <input type="text" id="twoFactor" class="label22"></label>
+                    <label class="label2"  ><input type="checkbox" id="recovery" class="label22"  style="margin-left: -480%;" style="font-family: 'Inter', sans-serif; "> Recovery</label>
+                    <button type="button" id="updateSecurityBtn"  >Update</button>
+                    <button type="reset"  style="margin-left: 0%;  width:60%;">Cancel</button>
+                </form>
+            </div>
+
+            </div>
+
+            <div id="application" class="section">
+                <style>
+                      .content3 {
+                        flex-grow: 1;
+                        padding: 20px;
+                    }
+                    form {
+                        display: flex;
+                        flex-direction: column;
+                    }
+                    .label3 {
+                        margin: 10px 0;
+                    }
+                .label33 {
+                        width: 80%;
+                        padding: 8px;
+                        margin-top: 5px;
+                        margin-right: -35%;
+                }
+                
+               
+                    button[type="reset"] {
+                        background: #ccc;
+                        width:15%;
+                        margin-left:100%;
+                    }
+                    #updateApplicationBtn {
+                        background: rgb(58, 134, 204);;
+                        color: white;
+                        border: none;
+                        width:8%;
+                        margin-left:60%;
+                    }
+                </style>
+            <h2  style="margin-left: 23%; margin-top: -49%;"  style="font-family: 'Inter', sans-serif; ">Application Settings</h2>
+            <form id="application-form">
+                <label class="label3"  style="margin-left: -28%;" ><input type="checkbox" id="appCheck" class="label33"  style="font-family: 'Inter', sans-serif; "> App check</label>
+                <label  class="label3"style="margin-left: -28%;"><input type="checkbox" id="loremCheck" class="label33" style="font-family: 'Inter', sans-serif; "> Lorem ipsum dolor sit.</label>
+                <button type="button" id="updateApplicationBtn">Update</button>
+                <button type="reset" style="width:8%; margin-left:60%;">Cancel</button>
+            </form>
+        </div>
+    </div>
+    <script>
+        function navigateTo(page) {
+            window.location.href = page;
+        }
+
+        document.getElementById("updateApplicationBtn").addEventListener("click", function() {
+            const appCheck = document.getElementById("appCheck").checked;
+            const loremCheck = document.getElementById("loremCheck").checked;
+
+            const applicationData = {
+                appCheck,
+                loremCheck
+            };
+            localStorage.setItem("applicationSettings", JSON.stringify(applicationData));
+            alert("Application settings updated successfully!");
+        });
+
+        window.onload = function () {
+            const savedData = localStorage.getItem("applicationSettings");
+            if (savedData) {
+                const applicationData = JSON.parse(savedData);
+                document.getElementById("appCheck").checked = applicationData.appCheck || false;
+                document.getElementById("loremCheck").checked = applicationData.loremCheck || false;
+            }
+        };
+    </script>
+
+            </div>
+
+            <div id="notification" class="section">
+                <style>
+                    .content3 {
+                      flex-grow: 1;
+                      padding: 20px;
+                  }
+                  form {
+                      display: flex;
+                      flex-direction: column;
+                  }
+                  .label4 {
+                      margin: 10px 0;
+                  }
+              .label44 {
+                      width: 80%;
+                      padding: 8px;
+                      margin-top: 5px;
+            margin-left: 25%;
+              }
+            
+                  button[type="reset"] {
+                        background: #ccc;
+                        width:15%;
+                        margin-left:100%;
+                    }
+                  #updateNotificationBtn {
+                        background: rgb(58, 134, 204);;
+                        color: white;
+                        border: none;
+                        width:8%;
+                        margin-left:60%;
+                    }
+              </style>
+               <h2 style="margin-left: 21%; margin-top: -48%;"  style="font-family: 'Inter', sans-serif; ">Notification Settings</h2>
+               <form id="notification-form">
+                   <label class="label4"   style="margin-left: 21%;"><input type="checkbox" id="notifCheck1"  style="font-family: 'Inter', sans-serif; "> Lorem ipsum dolor sit amet consectetur adipiscing elit.</label>
+                   <label class="label4"  style="margin-left: 21%;" > <input type="checkbox" id="notifCheck2"  style="font-family: 'Inter', sans-serif; "> Hic nesciunt repellat perferendis voluptatem totam porro eligendi.</label>
+                   <label class="label4"  style="margin-left: 21%;" ><input type="checkbox" id="notifCheck3"  style="font-family: 'Inter', sans-serif; "> Commodi fugiat molestiae tempora corporis. Sed dignissimos suscipit.</label>
+                   <button type="button" id="updateNotificationBtn">Update</button>
+                   <button type="reset" style=" width:8%; margin-left:60%;">Cancel</button>
+               </form>
+           
+       <script>
+           function navigateTo(page) {
+               window.location.href = page;
+           }
+   
+           document.getElementById("updateNotificationBtn").addEventListener("click", function() {
+               const notifCheck1 = document.getElementById("notifCheck1").checked;
+               const notifCheck2 = document.getElementById("notifCheck2").checked;
+               const notifCheck3 = document.getElementById("notifCheck3").checked;
+   
+               const notificationData = {
+                   notifCheck1,
+                   notifCheck2,
+                   notifCheck3
+               };
+               localStorage.setItem("notificationSettings", JSON.stringify(notificationData));
+               alert("Notification settings updated successfully!");
+           });
+   
+           window.onload = function () {
+               const savedData = localStorage.getItem("notificationSettings");
+               if (savedData) {
+                   const notificationData = JSON.parse(savedData);
+                   document.getElementById("notifCheck1").checked = notificationData.notifCheck1 || false;
+                   document.getElementById("notifCheck2").checked = notificationData.notifCheck2 || false;
+                   document.getElementById("notifCheck3").checked = notificationData.notifCheck3 || false;
+               }
+           };
+       </script>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+<style>
+  
+.container {
+    display: flex;
+    width: 100%;
+    
+}
+.sidebar {
+    width: 250px;
+            height: 100vh;
+            background:  rgb(134, 160, 184);
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+     
+            flex-direction: column;
+        
+   
+    
+   
+    
+}
+.sidebar .profile {
+    text-align: center;
+    margin-bottom: 20px;
+}
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+    
+}
+.sidebar ul li {
+    padding: 10px;
+    cursor: pointer;
+    
+}
+.sidebar ul .active {
+    background: rgb(58, 134, 204);;
+    color: #fff;
+}
+.content {
+    flex-grow: 1;
+    padding: 20px;
+    
+   
+}
+.section {
+    display: none; 
+    /* Hide all sections */
+   
+}
+.section.active {
+    display: block; /* Show only the active section */
+}
+
+</style>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+    const menuItems = document.querySelectorAll("#menu li");
+    const sections = document.querySelectorAll(".section");
+
+    menuItems.forEach(item => {
+        item.addEventListener("click", function () {
+            // Remove active class from all menu items
+            menuItems.forEach(li => li.classList.remove("active"));
+            this.classList.add("active");
+
+            // Hide all sections
+            sections.forEach(section => section.classList.remove("active"));
+
+            // Show the selected section
+            const sectionId = this.dataset.section;
+            document.getElementById(sectionId).classList.add("active");
+        });
+    });
+
+    // Security Form Functionality
+    document.getElementById("updateSecurityBtn").addEventListener("click", function () {
+        const login = document.getElementById("login").value;
+        const twoFactor = document.getElementById("twoFactor").value;
+        const recovery = document.getElementById("recovery").checked;
+
+        if (!login || !twoFactor) {
+            alert("All fields are required.");
+            return;
+        }
+
+        const securityData = { login, twoFactor, recovery };
+        localStorage.setItem("securitySettings", JSON.stringify(securityData));
+        alert("Security settings updated successfully!");
+    });
+});
+
+</script>

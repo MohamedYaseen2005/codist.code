@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CookDCode Navbar</title>
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="script.js"></script>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo-section">
+            <a href="home page.HTML"> <img src="logout.png" alt="Logo" class="logo"> </a>
+          <a href="home page.HTML"> <button class="brand-name">cookDcode</button></a>
+        </div>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    
+        <div class="nav-links">
+
+ 
+
+        <!-- Mobile Menu Button -->
+         
+        <div class="menu-icon" onclick="toggleMenu()">
+            ☰
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu">
+        <a href="#">CTC</a>
+        <a href="#">TryCTC</a>
+        <a href="#">Signin</a>
+        <button class="login-btn">Login</button>
+    </div>
+
+</body>
+</html>
+<style>
+    body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+}
+
+/* Navbar Styling */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(58, 134, 204); /* Blue background */
+    padding: 10px 20px;
+    color: white;
+}
+
+/* Logo Section */
+.logo-section {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 8px;
+}
+
+.brand-name {
+    font-size: 18px;
+    top: -16%;
+    font-weight: solid;
+    color: #ffffff;
+              background-color:  rgb(58, 134, 204);
+              border: #f4f4f4;
+    font-size:xx-large; font-family:'Times New Roman', Times, serif;
+}
+
+/* Desktop Navigation Links */
+.nav-links {
+    display: flex;
+    align-items: center;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    margin-right: 15px;
+    font-size: 16px;
+}
+
+/* Login Button */
+.login-btn {
+    background-color: white;
+    color: black;
+    border: none;
+    padding: 5px 10px;
+    font-size: 14px;
+    border-radius: 5px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+/* Toggle Circle */
+.toggle-circle {
+    width: 20px;
+    height: 20px;
+    background-color: white;
+    border-radius: 50%;
+}
+
+/* Mobile Menu Button */
+.menu-icon {
+    display: none;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+/* Mobile Menu (Hidden by Default) */
+.mobile-menu {
+    display: none;
+    flex-direction: column;
+    background-color: rgb(58, 134, 204);
+    position: absolute;
+    top: 60px;
+    right: 0;
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+}
+
+.mobile-menu a, .mobile-menu button {
+    padding: 10px;
+    text-decoration: none;
+    color: white;
+    border: none;
+    background: none;
+    font-size: 18px;
+    width: 100%;
+}
+
+.mobile-menu button {
+    background-color: white;
+    color: black;
+    border-radius: 5px;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .nav-links {
+        display: none; /* Hide Desktop Menu */
+    }
+
+    .menu-icon {
+        display: block; /* Show Mobile Menu Button */
+    }
+   
+    .user-pic{
+        margin-left: -20%;
+    }
+}
+</style>
+<script>
+    function toggleMenu() {
+    const mobileMenu = document.querySelector(".mobile-menu");
+    mobileMenu.style.display = mobileMenu.style.display === "flex" ? "none" : "flex";
+}
+</script>
+            <br>
+
+            <CENTER>
+             
+                <H1><P style="font-family: 'Inter', sans-serif; font-size:110%; color: rgb(11, 76, 22);">Privacy Policy
+                    <br></P></H1><BR>
+         
+              
+            </CENTER>

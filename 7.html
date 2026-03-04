@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CookDCode Navbar</title>
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="script.js"></script>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo-section">
+            <a href="home page.HTML"> <img src="logout.png" alt="Logo" class="logo"> </a>
+          <a href="home page.HTML"> <button class="brand-name">cookDcode</button></a>
+        </div>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    
+        <div class="nav-links">
+
+ 
+
+        <!-- Mobile Menu Button -->
+         
+        <div class="menu-icon" onclick="toggleMenu()">
+            ☰
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu">
+        <a href="#">CTC</a>
+        <a href="#">TryCTC</a>
+        <a href="#">Signin</a>
+        <button class="login-btn">Login</button>
+    </div>
+
+</body>
+</html>
+<style>
+    body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+}
+
+/* Navbar Styling */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(58, 134, 204); /* Blue background */
+    padding: 10px 20px;
+    color: white;
+}
+
+/* Logo Section */
+.logo-section {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 8px;
+}
+
+.brand-name {
+    font-size: 18px;
+    top: -16%;
+    font-weight: solid;
+    color: #ffffff;
+              background-color:  rgb(58, 134, 204);
+              border: #f4f4f4;
+    font-size:xx-large; font-family:'Times New Roman', Times, serif;
+}
+
+/* Desktop Navigation Links */
+.nav-links {
+    display: flex;
+    align-items: center;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    margin-right: 15px;
+    font-size: 16px;
+}
+
+/* Login Button */
+.login-btn {
+    background-color: white;
+    color: black;
+    border: none;
+    padding: 5px 10px;
+    font-size: 14px;
+    border-radius: 5px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+/* Toggle Circle */
+.toggle-circle {
+    width: 20px;
+    height: 20px;
+    background-color: white;
+    border-radius: 50%;
+}
+
+/* Mobile Menu Button */
+.menu-icon {
+    display: none;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+/* Mobile Menu (Hidden by Default) */
+.mobile-menu {
+    display: none;
+    flex-direction: column;
+    background-color: rgb(58, 134, 204);
+    position: absolute;
+    top: 60px;
+    right: 0;
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+}
+
+.mobile-menu a, .mobile-menu button {
+    padding: 10px;
+    text-decoration: none;
+    color: white;
+    border: none;
+    background: none;
+    font-size: 18px;
+    width: 100%;
+}
+
+.mobile-menu button {
+    background-color: white;
+    color: black;
+    border-radius: 5px;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .nav-links {
+        display: none; /* Hide Desktop Menu */
+    }
+
+    .menu-icon {
+        display: block; /* Show Mobile Menu Button */
+    }
+   
+    .user-pic{
+        margin-left: -20%;
+    }
+}
+</style>
+<script>
+    function toggleMenu() {
+    const mobileMenu = document.querySelector(".mobile-menu");
+    mobileMenu.style.display = mobileMenu.style.display === "flex" ? "none" : "flex";
+}
+</script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+    <style>
+       
+       
+        .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 80%;
+            margin-top: 20px;
+        }
+        .about-section {
+            font-size: 24px;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        .content {
+            width: 60%;
+            font-size: 18px;
+            line-height: 1.6;
+            text-align: justify;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .image-container {
+            width: 30%;
+        }
+        .image-container img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            background-color:linear-gradient(to right, #ff7e5f, #feb47b); ;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .content, .image-container {
+            animation: fadeIn 1.5s ease-in-out;
+        }
+    </style>
+</head>
+<body>
+    <body>
+  
+    
+         <br>
+         <br>
+         <!DOCTYPE html>
+         <html lang="en">
+         <head>
+             <meta charset="UTF-8">
+             <meta name="viewport" content="width=device-width, initial-scale=1.0">
+             <title>About Us</title>
+             <style>
+                
+                 .container {
+                     display: flex;
+                     align-items: center;
+                     justify-content: space-between;
+                     width: 80%;
+                     margin-top: 20px;
+                     flex-wrap: wrap;
+                     margin-left: 10%;
+                 }
+                 .about-section {
+                    margin-left: 5%;
+                     font-size: 24px;
+                     font-weight: bold;
+                     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+                 }
+                 .content {
+                     width: 60%;
+                     font-size: 18px;
+                     line-height: 1.6;
+                     text-align: justify;
+                     background: rgba(255, 255, 255, 0.1);
+                     padding: 20px;
+                     border-radius: 10px;
+                     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+                 }
+                 .image-container {
+                     width: 30%;
+                 }
+                 .image-container img {
+                     width: 100%;
+                     border-radius: 10px;
+                     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+                 }
+                 @keyframes fadeIn {
+                     from { opacity: 0; transform: translateY(20px); }
+                     to { opacity: 1; transform: translateY(0); }
+                 }
+                 .content, .image-container {
+                     animation: fadeIn 1.5s ease-in-out;
+                 }
+                 @media (max-width: 768px) {
+                     .container {
+                         flex-direction: column;
+                         align-items: center;
+                         text-align: center;
+                     }
+                     .content, .image-container {
+                         width: 100%;
+                         margin-bottom: 20px;
+                     }
+                 }
+             </style>
+         </head>
+         <body>
+             <div class="about-section">About Us</div>
+             <div class="container">
+                 <div class="content" id="content">Loading content...</div>
+                 <div class="image-container">
+                     <img src="WhatsApp Image 2025-02-06 at 17.04.50_74937d6e.jpg" alt="Person Image">
+                 </div>
+             </div>
+             <script>
+                 document.addEventListener("DOMContentLoaded", function() {
+                     let aboutContent = "We are a company dedicated to providing the best services for our customers. Our team works tirelessly to ensure top-quality solutions and customer satisfaction. With years of experience, we bring innovation and reliability to every project we undertake. We believe in transparency, integrity, and delivering value beyond expectations.Since our inception, we've been driven by a singular mission: to empower individuals and organizations to achieve their full potential through technology. We believe that by working together, we can create a brighter, more connected future for all. Our values of integrity, creativity, and collaboration guide everything we do, from the way we work with clients to the way we innovate and improve our services.Today, we're proud to serve a diverse range of clients across various industries, from startups to established enterprises. Our expertise spans multiple areas, including web development, mobile app development, artificial intelligence, and more. Whether you're looking to launch a new product, improve your online presence, or solve a complex business challenge, we're here to help.";
+                     document.getElementById("content").innerText = aboutContent;
+                 });
+             </script>
+         </body>
+         </html>
+         

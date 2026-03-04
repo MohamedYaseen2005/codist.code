@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leaderboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="script.js"></script>
+    <style>
+       
+        .leaderboard {
+            width: 80%;
+            margin: 20px auto;
+            background: white;
+            padding: 40px;
+            margin-left: 10%;
+            border-radius: 10px;
+   
+
+        }
+      
+        .player {
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+            border: 1px solid #ddd;
+            padding: 18px;
+            margin: 8px 0;
+            border-radius: 10px;
+            background: #fff;
+            flex-wrap: wrap;
+            color:#444;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .profile-pic {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: 1px solid #444;
+            margin-right: 5px;
+            box-shadow: 0 5px 10px rgba(0,0,0,.2);
+        }
+        .info {
+            flex: 1;
+            text-align: center;
+        }
+        .rank {
+            display: block;
+            font-weight: bold;
+            text-align: center;
+            margin: 2px 0;
+            font-size: 20px;
+            color: #00b4d8;
+          
+        }
+       
+        .achievements1 {
+            flex: 1;
+            text-align: center;
+            
+        }
+        .achievements1 span {
+            display: block;
+            margin-bottom: 3px;
+            font-size: 12px;
+            
+        }
+        .achievements1 div {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 3px;
+            
+        }
+        .badge {
+            background: #00b4d8;
+            color: white;
+            padding: 2px 4px;
+            border-radius: 2px;
+            font-size: 8px;
+            animation: shine 1.5s infinite alternate;
+            box-shadow: 0 5px 10px rgba(0,0,0,.2);
+        }
+        @keyframes shine {
+            from { background: #00b4d8; }
+            to { background: #0090b0; }
+        }
+        .program-container {
+            flex: 1;
+            text-align: center;
+            font-weight: bold;
+            font-size: 15px;
+            
+        }
+        .medal-container {
+            text-align: center;
+            
+        }
+        .medal {
+            width: 48px;
+            height: 68px;
+            
+        }
+        .hidden {
+            display: none;
+        }
+        .buttons2 {
+    margin-bottom: 20px;
+    
+}
+
+.buttons2 button {
+    background: white;
+    color: #00b4d8;
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 25px;
+cursor: pointer;
+    box-shadow: 0 5px 10px rgba(0,0,0,.2);
+    border: 1px solid #00b4d8;
+    margin: 5px;
+    
+}
+
+.buttons2 button:hover {
+    background: #00b4d8;
+    color:white;
+    box-shadow: 0px 4px 15px rgb(1, 215, 253);
+    transform: scale(1.03);
+}
+
+.buttons2 button:focus {
+    outline: 1px solid #00b4d8;
+    background-color: #00b4d8;
+    color: white;
+    
+}
+
+.buttons2 button.active {
+    background: #00b4d8;
+    box-shadow: 0 5px 10px rgba(0,0,0,.2);
+}
+
+    </style>
+</head>
+<body>
+    <div class="leaderboard">
+        <h1>LEADERBOARD</h1>
+        <div class="buttons2">
+            <button  onclick="showLeaderboard('weekly')">Weekly</button>
+            <button onclick="showLeaderboard('overall')">Overall</button>
+        </div>
+        <div id="weekly" class="leaderboard-list"></div>
+        <div id="overall" class="leaderboard-list hidden"></div>
+    </div>
+    
+    <script>
+        const playersWeekly = [
+        { rank: 1, name: "Alice", programs: 1000, img: "https://randomuser.me/api/portraits/men/1.jpg",medal: "goldmedal.png" },
+                { rank: 2, name: "Bob", programs: 900, img: "https://randomuser.me/api/portraits/men/2.jpg" ,medal: "goldmedal.png" },
+                { rank: 3, name: "Charlie", programs: 800, img: "https://randomuser.me/api/portraits/men/3.jpg" ,medal: "goldmedal.png" },
+                { rank: 4, name: "David", programs: 700, img: "https://randomuser.me/api/portraits/men/4.jpg" ,medal: "goldmedal.png" },
+                { rank: 5, name: "Eve", programs: 600, img: "https://randomuser.me/api/portraits/men/1.jpg" ,medal: "goldmedal.png" },
+                { rank: 6, name: "Frank", programs: 500, img: "https://randomuser.me/api/portraits/men/2.jpg" ,medal: "goldmedal.png" },
+                { rank: 7, name: "Grace", programs: 400, img: "https://randomuser.me/api/portraits/men/2.jpg",medal: "goldmedal.png"  },
+                { rank: 8, name: "Hank", programs: 300, img: "https://randomuser.me/api/portraits/men/4.jpg" ,medal: "goldmedal.png" },
+                { rank: 9, name: "Ivy", programs: 200, img: "https://randomuser.me/api/portraits/men/5.jpg" ,medal: "goldmedal.png" },
+                { rank: 10, name: "Jack", programs: 100, img: "https://randomuser.me/api/portraits/men/6.jpg" ,medal: "goldmedal.png" }
+        ];
+
+        const playersOverall = [
+        { rank: 1, name: "Zoe Lee", programs: 2000, img: "https://randomuser.me/api/portraits/men/6.jpg",medal: "goldmedal.png" },
+                { rank: 2, name: "Mike Tyson", programs: 1800, img: "https://randomuser.me/api/portraits/men/5.jpg",medal: "goldmedal.png" },
+                { rank: 3, name: "Laura Keen", programs: 1600, img: "https://randomuser.me/api/portraits/men/4.jpg" ,medal: "goldmedal.png"},
+                { rank: 4, name: "Nathan Drake", programs: 1400, img: "https://randomuser.me/api/portraits/men/2.jpg",medal: "goldmedal.png" },
+                { rank: 5, name: "Olivia Stone", programs: 1200, img: "https://randomuser.me/api/portraits/men/2.jpg" ,medal: "goldmedal.png"},
+                { rank: 6, name: "Zoe Lee", programs: 2000, img: "https://randomuser.me/api/portraits/men/1.jpg" ,medal: "goldmedal.png"},
+                { rank: 7, name: "Mike Tyson", programs: 1800, img: "https://randomuser.me/api/portraits/men/4.jpg",medal: "goldmedal.png" },
+                { rank: 8, name: "Laura Keen", programs: 1600, img: "https://randomuser.me/api/portraits/men/2.jpg" ,medal: "goldmedal.png"},
+                { rank: 9, name: "Nathan Drake", programs: 1400, img: "https://randomuser.me/api/portraits/men/1.jpg" ,medal: "goldmedal.png"},
+                { rank: 10, name: "Nathan Drake", programs: 1400, img: "https://randomuser.me/api/portraits/men/5.jpg" ,medal: "goldmedal.png"}
+
+        ];
+
+        function generatePlayers(players, containerId) {
+            const container = document.getElementById(containerId);
+            container.innerHTML = "";
+            players.forEach(player => {
+                const playerElement = document.createElement("div");
+                playerElement.classList.add("player");
+                playerElement.innerHTML = `
+                    <img src="${player.img}" alt="Profile Picture" class="profile-pic">
+                    <div class="info">
+                        <span class="rank">RANK #${player.rank}</span>
+                        <span class="name">${player.name}</span>
+                    </div>
+                    <div class="achievements">
+                        <span><b>ACHIEVEMENTS</b></span>
+                        <div>
+                            <span class="badge"><i>CODER</i></span>
+                            <span class="badge"><i>DEBUGGER</i></span>
+                            <span class="badge"><i>INNOVATOR</i></span>
+                        </div>
+                    </div>
+                    <div class="program-container">PROGRAMS: #${player.programs}</div>
+                    <div class="medal-container"><img src="images/${player.medal}" alt="Medal" class="medal"></div>
+                `;
+                container.appendChild(playerElement);
+            });
+        }
+
+        function showLeaderboard(type) {
+            document.getElementById("weekly").classList.add("hidden");
+            document.getElementById("overall").classList.add("hidden");
+            if (type === 'weekly') {
+                generatePlayers(playersWeekly, "weekly");
+                document.getElementById("weekly").classList.remove("hidden");
+            } else {
+                generatePlayers(playersOverall, "overall");
+                document.getElementById("overall").classList.remove("hidden");
+            }
+        }
+        showLeaderboard('weekly');
+    </script>
+</body>
+</html>

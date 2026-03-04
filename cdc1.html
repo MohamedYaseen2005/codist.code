@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CookDCode Navbar</title>
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="script.js"></script>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo-section">
+            <a href="home page.HTML"> <img src="logout.png" alt="Logo" class="logo"> </a>
+          <a href="home page.HTML"> <button class="brand-name">cookDcode</button></a>
+        </div>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    
+        <div class="nav-links">
+
+ 
+
+        <!-- Mobile Menu Button -->
+         
+        <div class="menu-icon" onclick="toggleMenu()">
+            ☰
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu">
+        <a href="#">CTC</a>
+        <a href="#">TryCTC</a>
+        <a href="#">Signin</a>
+        <button class="login-btn">Login</button>
+    </div>
+
+</body>
+</html>
+<style>
+    body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+}
+
+/* Navbar Styling */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(58, 134, 204); /* Blue background */
+    padding: 10px 20px;
+    color: white;
+}
+
+/* Logo Section */
+.logo-section {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 8px;
+}
+
+.brand-name {
+    font-size: 18px;
+    top: -16%;
+    font-weight: solid;
+    color: #ffffff;
+              background-color:  rgb(58, 134, 204);
+              border: #f4f4f4;
+    font-size:xx-large; font-family:'Times New Roman', Times, serif;
+}
+
+/* Desktop Navigation Links */
+.nav-links {
+    display: flex;
+    align-items: center;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    margin-right: 15px;
+    font-size: 16px;
+}
+
+/* Login Button */
+.login-btn {
+    background-color: white;
+    color: black;
+    border: none;
+    padding: 5px 10px;
+    font-size: 14px;
+    border-radius: 5px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+/* Toggle Circle */
+.toggle-circle {
+    width: 20px;
+    height: 20px;
+    background-color: white;
+    border-radius: 50%;
+}
+
+/* Mobile Menu Button */
+.menu-icon {
+    display: none;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+/* Mobile Menu (Hidden by Default) */
+.mobile-menu {
+    display: none;
+    flex-direction: column;
+    background-color: rgb(58, 134, 204);
+    position: absolute;
+    top: 60px;
+    right: 0;
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+}
+
+.mobile-menu a, .mobile-menu button {
+    padding: 10px;
+    text-decoration: none;
+    color: white;
+    border: none;
+    background: none;
+    font-size: 18px;
+    width: 100%;
+}
+
+.mobile-menu button {
+    background-color: white;
+    color: black;
+    border-radius: 5px;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .nav-links {
+        display: none; /* Hide Desktop Menu */
+    }
+
+    .menu-icon {
+        display: block; /* Show Mobile Menu Button */
+    }
+   
+    .user-pic{
+        margin-left: -20%;
+    }
+}
+</style>
+<script>
+    function toggleMenu() {
+    const mobileMenu = document.querySelector(".mobile-menu");
+    mobileMenu.style.display = mobileMenu.style.display === "flex" ? "none" : "flex";
+}
+</script>
+    <body>
+      <div class="container">
+        <h1 style="font-family: 'Inter', sans-serif;">Write a program to the sum of n natural numbers.</h1>
+        <div class="concept-box">
+          <h2>Concept:</h2>
+          <p style="color: #666;font-family: 'Inter', sans-serif;font-size:medium;">
+              Here is a 10-line definition of the problem:
+  
+              Write a program to calculate the sum of the first n natural numbers.
+              The program should take an integer input n from the user.
+              The input n should be a positive integer.
+              The program should calculate the sum of all natural numbers from 1 to n.
+              The sum should be calculated using a loop or a formula.
+            
+             
+          </p>
+        </div>
+    
+      </div>
+      <script src="script.js"></script>
+    </body>
+    <style>
+       body {
+        font-family: 'Inter', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f4f8;
+    color: #333;
+    margin-left: 0%;
+  }
+  
+  .container {
+
+    max-width: 1790px;
+    margin-top: 2%;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+   
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
+  }
+  
+  h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #2c3e50;
+  }
+  
+  .concept-box {
+    background-color: #eaf7ff;
+    padding: 20px;
+    border-radius: 8px;
+    border-left: 5px solid #3498db;
+  }
+  
+  h2 {
+    margin-top: 0;
+    color: #2980b9;
+  }
+  
+  p {
+    line-height: 1.6;
+  }
+
+
+    </style>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>CookDCode Sections</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #edf3f9;
+      margin: 0;
+      padding: 20px;
+    }
+
+    .container1 {
+      max-width: 1000px;
+      margin: 2% auto;
+      padding: 20px;
+      background-color: #ffffff;
+      border-radius: 10px;
+      box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
+    }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .section-title {
+      color: #666;
+      margin: 0;
+    }
+
+    .button-group {
+      display: flex;
+      gap: 10px;
+    }
+
+    .help-button,
+    .write-btn {
+      background-color: rgb(58, 134, 204); ;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      padding: 10px 20px;
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      cursor: pointer;
+      width: 100px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .help-button:hover,
+    .write-btn:hover {
+      background-color: white;
+      color: rgb(58, 134, 204);
+    }
+
+   .content-box {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  max-width: 500px;
+  background-color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  border-radius: 5px;
+  text-align: left;
+  z-index: 1000;
+  box-sizing: border-box;
+}
+
+
+   .header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 3px solid rgb(58, 134, 204);
+  font-weight: bold;
+  font-size: 1rem;
+  padding: 10px 0;
+  flex-wrap: wrap;
+}
+
+.audio-icon {
+  font-size: 1.2rem;
+}
+
+.close-btn {
+  cursor: pointer;
+  font-size: 24px;
+  margin-left: 15px;
+  color: red;
+}
+
+    .textarea-container {
+      margin-left: -1%;
+      width: 100%;
+      background-color: #fff;
+      border-radius: 5px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      margin-top: 15px;
+    }
+
+    .textarea-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px;
+      width: 100%;
+      background-color: rgb(58, 134, 204);
+      border-top-left-radius: 5px;
+      border-top-right-radius: 5px;
+      color: white;
+      font-weight: bold;
+    }
+
+    .close-icon {
+      cursor: pointer;
+    }
+
+    .close-icon:hover {
+      color: red;
+    }
+
+    .text-area {
+      
+      width: 100%;
+      height: 150px;
+      padding: 10px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      font-size: 16px;
+      display: block;
+    }
+
+    .text-area:focus {
+      outline: none;
+      border-color: #4CAF50;
+    }
+@media (max-width: 480px) {
+  .content-box {
+    width: 95%;
+    padding: 15px;
+  }
+
+  .header {
+    font-size: 0.9rem;
+  }
+
+  .audio-icon, .close-btn {
+    font-size: 1.2rem;
+  }
+}
+
+  </style>
+</head>
+<body>
+
+<!-- Section: Logic -->
+<div class="container1">
+  <div class="section-header">
+    <h2 class="section-title">Logic</h2>
+    <div class="button-group">
+      <button class="help-button" onclick="openBox('logicBox')">Get Help</button>
+      <button class="write-btn" onclick="toggleTextarea('textarea-container1')">Write</button>
+    </div>
+  </div>
+
+  <div id="logicBox" class="content-box">
+    <div class="header">
+      <span>Logic Help</span>
+      <div>
+        <span class="audio-icon" onclick="playHelpAudio('This is the logic help content.')">🔊</span>
+        <span class="close-btn" onclick="closeBox('logicBox')">&times;</span>
+      </div>
+    </div>
+    <p>This is the logic help content. It is read-only and cannot be edited.</p>
+  </div>
+
+  <div id="textarea-container1" class="textarea-container" style="display: none;">
+    <div class="textarea-header">
+      <span>Logic</span>
+      <span class="close-icon" onclick="closeTextarea('textarea-container1')">&#x2715;</span>
+    </div>
+    <textarea class="text-area" placeholder="Write something here..."></textarea>
+  </div>
+</div>
+
+<!-- Section: Recipe -->
+<div class="container1">
+  <div class="section-header">
+    <h2 class="section-title">Recipe</h2>
+    <div class="button-group">
+      <button class="help-button" onclick="openBox('recipeBox')">Get Help</button>
+      <button class="write-btn" onclick="toggleTextarea('textarea-container2')">Write</button>
+    </div>
+  </div>
+
+  <div id="recipeBox" class="content-box">
+    <div class="header">
+      <span>Recipe Help</span>
+      <div>
+        <span class="audio-icon" onclick="playHelpAudio('This is the recipe help content.')">🔊</span>
+        <span class="close-btn" onclick="closeBox('recipeBox')">&times;</span>
+      </div>
+    </div>
+    <p>This is the recipe help content. It is read-only and cannot be edited.</p>
+  </div>
+
+  <div id="textarea-container2" class="textarea-container" style="display: none;">
+    <div class="textarea-header">
+      <span>Recipe</span>
+      <span class="close-icon" onclick="closeTextarea('textarea-container2')">&#x2715;</span>
+    </div>
+    <textarea class="text-area" placeholder="Write something here..."></textarea>
+  </div>
+</div>
+
+<!-- Section: Ingredients -->
+<div class="container1">
+  <div class="section-header">
+    <h2 class="section-title">Ingredients</h2>
+    <div class="button-group">
+      <button class="help-button" onclick="openBox('ingredientsBox')">Get Help</button>
+      <button class="write-btn" onclick="toggleTextarea('textarea-container3')">Write</button>
+    </div>
+  </div>
+
+  <div id="ingredientsBox" class="content-box">
+    <div class="header">
+      <span>Ingredients Help</span>
+      <div>
+        <span class="audio-icon" onclick="playHelpAudio('This is the ingredients help content.')">🔊</span>
+        <span class="close-btn" onclick="closeBox('ingredientsBox')">&times;</span>
+      </div>
+    </div>
+    <p>This is the ingredients help content. It is read-only and cannot be edited.</p>
+  </div>
+
+  <div id="textarea-container3" class="textarea-container" style="display: none;">
+    <div class="textarea-header">
+      <span>Ingredients</span>
+      <span class="close-icon" onclick="closeTextarea('textarea-container3')">&#x2715;</span>
+    </div>
+    <textarea class="text-area" placeholder="Write something here..."></textarea>
+  </div>
+</div>
+
+<!-- Section: Samplecode -->
+<div class="container1">
+  <div class="section-header">
+    <h2 class="section-title">Samplecode</h2>
+    <div class="button-group">
+      <button class="help-button" onclick="openBox('samplecodeBox')">Get Help</button>
+      <button class="write-btn" onclick="toggleTextarea('textarea-container4')">Write</button>
+    </div>
+  </div>
+
+  <div id="samplecodeBox" class="content-box">
+    <div class="header">
+      <span>Samplecode Help</span>
+      <div>
+        <span class="audio-icon" onclick="playHelpAudio('This is the samplecode help content.')">🔊</span>
+        <span class="close-btn" onclick="closeBox('samplecodeBox')">&times;</span>
+      </div>
+    </div>
+    <p>This is the samplecode help content. It is read-only and cannot be edited.</p>
+  </div>
+
+  <div id="textarea-container4" class="textarea-container" style="display: none;">
+    <div class="textarea-header">
+      <span>Samplecode</span>
+      <span class="close-icon" onclick="closeTextarea('textarea-container4')">&#x2715;</span>
+    </div>
+    <textarea class="text-area" placeholder="Write something here..."></textarea>
+  </div>
+</div>
+
+<script>
+function openBox(id) {
+  // Close any open help boxes
+  const boxes = document.querySelectorAll('.content-box');
+  boxes.forEach(box => {
+    box.style.display = 'none';
+  });
+
+  // Open the requested help box
+  document.getElementById(id).style.display = 'block';
+}
+
+  function closeBox(id) {
+    document.getElementById(id).style.display = 'none';
+  }
+
+  function toggleTextarea(id) {
+    const el = document.getElementById(id);
+    el.style.display = (el.style.display === 'block') ? 'none' : 'block';
+  }
+
+  function closeTextarea(id) {
+    document.getElementById(id).style.display = 'none';
+  }
+
+  function playHelpAudio(text) {
+    const speech = new SpeechSynthesisUtterance(text);
+    speech.lang = "en-US";
+    window.speechSynthesis.speak(speech);
+  }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Programs</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap" rel="stylesheet"/>
+
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
+    import { getDatabase, ref, get, child } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-database.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyBoAb7b3DJDMRmNwOSAHTnscM_-JuVnILI",
+      authDomain: "cookdcode-4ce23.firebaseapp.com",
+      databaseURL: "https://cookdcode-4ce23-default-rtdb.firebaseio.com",
+      projectId: "cookdcode-4ce23",
+      storageBucket: "cookdcode-4ce23.appspot.com",
+      messagingSenderId: "419836764054",
+
+
+      
+      appId: "1:419836764054:web:63e6752e821a79a29f07b7"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const db = getDatabase(app);
+
+    document.addEventListener("DOMContentLoaded", async () => {
+      const container = document.getElementById("programContainer");
+      const bundleName = localStorage.getItem("selectedBundle");
+
+      if (!bundleName) {
+        container.innerHTML = "<p>No bundle selected.</p>";
+        return;
+      }
+
+      try {
+        const snap = await get(child(ref(db), `bundlecreation`));
+        if (snap.exists()) {
+          let bundles = snap.val();
+          let selected = Object.values(bundles).find(b => b.name === bundleName);
+
+          if (!selected || !selected.programs) {
+            container.innerHTML = "<p>No programs found.</p>";
+            return;
+          }
+
+          // programs is already an array of objects {id, name}
+          let programList = Object.values(selected.programs);
+          renderPrograms(programList);
+        } else {
+          container.innerHTML = "<p>No bundles found.</p>";
+        }
+      } catch (err) {
+        console.error(err);
+        container.innerHTML = "<p>Error loading programs.</p>";
+      }
+    });
+
+    function renderPrograms(programs) {
+      const container = document.getElementById("programContainer");
+      container.innerHTML = "";
+
+      programs.forEach((p, index) => {
+        const card = document.createElement("div");
+        card.className = "box";
+
+        const progressId = `progress-${index}`;
+        const valueId = `value-${index}`;
+
+        card.innerHTML = `
+          <!-- Program name instead of ID -->
+          <h3>${p.name || p.id}</h3>
+
+          <!-- Progress circle -->
+          <div class="circular-progress" id="${progressId}">
+            <span class="progress-value" id="${valueId}">0%</span>
+          </div>
+
+          <!-- Button -->
+          ${
+            index === 0 
+            ? `<button class="btn">Enter</button>` 
+            : `<button class="btn" disabled style="background:#ccc;cursor:not-allowed;">Locked 🔒</button>`
+          }
+        `;
+
+        container.appendChild(card);
+
+        // Example: animate progress to 75%
+        animateProgress(progressId, valueId, 0);
+      });
+    }
+
+    // Function to animate progress bar
+    function animateProgress(progressId, valueId, targetPercent) {
+      let progress = 0;
+      const interval = setInterval(() => {
+        if (progress >= targetPercent) clearInterval(interval);
+        else {
+          progress++;
+          updateProgress(progressId, valueId, progress);
+        }
+      }, 20);
+    }
+
+    // Update the circular progress with a % value
+    function updateProgress(progressId, valueId, percent) {
+      const progressBar = document.getElementById(progressId);
+      const progressValue = document.getElementById(valueId);
+
+      const degrees = (percent / 100) * 360;
+
+      progressBar.style.background = `conic-gradient(
+        rgb(58, 134, 204) ${degrees}deg, 
+        #ededed ${degrees}deg
+      )`;
+
+      progressValue.textContent = `${percent}%`;
+    }
+  </script>
+
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f7f7f7;
+    }
+    h1 {
+      text-align: center;
+      margin-top: 20px;
+      color: #2b7dc1;
+    }
+
+    /* Container styles */
+    .container .box-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+      gap: 5%;
+      padding: 5px 10%;
+    }
+    .container .box-container .box {
+      box-shadow: 0 5px 10px rgba(0,0,0,.2);
+      border-radius: 5px;
+      background: #fff;
+      text-align: center;
+      padding: 30px 20px;
+      transition: all 0.3s ease;
+    }
+    .container .box-container .box h3 {
+      color: #666;
+      font-size: 22px;
+      padding: 10px 0;
+    }
+    .container .box-container .box .btn {
+      margin-top: 10px;
+      display: inline-block;
+      background: rgb(58, 134, 204);
+      border: none;
+      color: white;
+      font-size: 17px;
+      border-radius: 5px;
+      padding: 8px 25px;
+      box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
+      transition: 0.3s;
+    }
+    .container .box-container .box .btn:hover:enabled {
+      background-color: #ffffff;
+      color: rgb(58, 134, 204);
+    }
+    .container .box-container .box:hover {
+      box-shadow: 0 10px 15px rgba(0,0,0,.3);
+      transform: scale(1.03);
+    }
+
+    /* Fixed Circular Progress */
+    .circular-progress {
+      position: relative;
+      height: 250px;
+      width: 250px;
+      border-radius: 50%;
+      background: conic-gradient(rgb(58, 134, 204) 0deg, #ededed 0deg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 20px auto;
+      transition: background 0.3s linear;
+    }
+    .circular-progress::before {
+      content: "";
+      position: absolute;
+      height: 210px;
+      width: 210px;
+      border-radius: 50%;
+      background-color: #fff;
+    }
+    .progress-value {
+      position: relative;
+      font-size: 40px;
+      font-weight: 600;
+      color: rgb(58, 134, 204);
+    }
+  </style>
+</head>
+<body>
+  <h1>Programs</h1>
+  <div class="container">
+    <div id="programContainer" class="box-container"></div>
+  </div>
+</body>
+</html>

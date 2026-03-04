@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Send OTP</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f1f1f1;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .container {
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      width: 300px;
+    }
+
+    input, button {
+      padding: 10px;
+      margin-top: 10px;
+      width: 100%;
+      font-size: 16px;
+    }
+
+    #otpBox {
+      margin-top: 20px;
+      color: green;
+    }
+
+    /* Top notification banner */
+    #topNotification {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background-color: #4CAF50;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      font-size: 18px;
+      display: none;
+      z-index: 9999;
+    }
+
+    #topNotification.error {
+      background-color: #f44336;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="topNotification"></div>
+
+  <div class="container">
+    <h2>Enter Phone Number</h2>
+    <input type="text" id="phone" placeholder="e.g. 9087654311" maxlength="10" />
+    <button onclick="sendOTP()">Send OTP</button>
+
+    <div id="otpBox"></div>
+  </div>
+
+  <script>
+    function showTopNotification(message, isError = false) {
+      const notification = document.getElementById("topNotification");
+      notification.textContent = message;
+      notification.className = isError ? "error" : "";
+      notification.style.display = "block";
+
+      // Auto-hide after 4 seconds
+      setTimeout(() => {
+        notification.style.display = "none";
+      }, 4000);
+    }
+
+    async function sendOTP() {
+      const phoneInput = document.getElementById("phone");
+      const phone = phoneInput.value.trim();
+      const otpBox = document.getElementById("otpBox");
+
+      if (!/^\d{10}$/.test(phone)) {
+        showTopNotification("❌ Please enter a valid 10-digit number.", true);
+        return;
+      }
+
+      try {
+        const response = await fetch("http://192.168.29.182:5000/api/profile", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ mobileNumber: phone }),
+        });
+
+        const data = await response.json();
+
+        if (response.ok) {
+          otpBox.innerHTML = `✅ OTP stored in DB: <strong>${data.otp}</strong>`;
+          showTopNotification(`✅ OTP Sent: ${data.otp}`);
+        } else {
+          otpBox.innerHTML = `❌ Error: ${data.message}`;
+          showTopNotification(`❌ ${data.message}`, true);
+        }
+      } catch (err) {
+        otpBox.innerHTML = "❌ Could not connect to server.";
+        showTopNotification("❌ Could not connect to server.", true);
+        console.error(err);
+      }
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Achievement Tracker</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f8f8;
+            padding: 20px;
+        }
+        .course-container {
+            display: flex;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-bottom: 20px;
+            align-items: center;
+        }
+        .course-image img {
+            width: 280px;
+            height: 200px;
+            border-radius: 8px;
+            margin-right: 20px;
+        }
+       
+        
+        .course-info {
+            flex-grow: 1;
+        }
+       
+        
+        .progress-bar {
+            height: 10px;
+            background: #ddd;
+            border-radius: 5px;
+            overflow: hidden;
+            margin-top: 10px;
+            width: 100%;
+        }
+        .progress {
+            height: 100%;
+            background:rgb(58, 134, 204);;
+            width: 100%; /* Set progress value */
+        }
+        .info-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 10px;
+            width: 100%;
+        }
+        .info-container span {
+            display: flex;
+            align-items: center;
+        }
+        .info-container i {
+            margin-right: 5px;
+        }
+        .view-btn {
+            background: rgb(58, 134, 204);
+    color: white;
+    border: none;
+    padding: 10px 13px;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 13px;
+    margin-left:95%;
+        }
+        .view-btn:hover{
+            background-color: #ffffff;
+            color:  rgb(58, 134, 204);
+
+        }
+        .left, .center, .right {
+            flex: 1;
+            text-align: center;
+        }
+        .left {
+            text-align: left;
+        }
+        .right {
+            text-align: right;
+        }
+        button {
+    background-color: green;
+    color: white;
+    font-size: 18px;
+    padding: 6px 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+   
+}
+
+button:hover {
+    background-color: darkgreen;
+}
+
+button:disabled {
+    background-color: gray;
+    cursor: not-allowed;
+}
+@media (max-width: 768px) {
+            .course-container {
+                flex-direction: column;
+                text-align: center;
+            }
+            .info-container {
+                flex-direction: row;
+                align-items: center;
+                font-size: 0.9rem;
+            }
+            .view-btn {
+               padding: 10px 13px;
+                margin: 10px 0;
+                margin-right: -74%;
+            }
+        }
+
+
+    </style>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <h1 style="margin-left: 40%;">Completed programs</h1>
+    <div class="course-container">
+        <div class="course-image">
+            <img src="c:\Users\sakth\OneDrive\Documents\WhatsApp Image 2025-01-05 at 20.00.35_fb5be1bc.jpg" alt="Course Image">
+            
+
+        </div>
+        <div class="course-info">
+            <h3>Array bundle </h3>
+            <button id="completeBtn" onclick="markAsCompleted()">Completed</button>
+            <p style="color:#666;">Insert a brief description of what a member will learn from completing this section.</p>
+            <div class="progress-bar">
+                <div class="progress"></div>
+            </div>
+            <div class="info-container">
+                <span class="left" style="color:#666;"><i class="fas fa-calendar-alt" style="color:black;"></i> 20/03/2025 - 20/04/2025</span>
+                <span class="center" style="color:#666;"><i class="fas fa-layer-group" style="color:black;"></i> 5 Programs</span>
+                <span class="right" style="color:#666;"><i class="fas fa-clock" style="color:black;"></i> 10 Hours</span>
+            </div>
+           <a href="4.html"> <button class="view-btn">View</button></a>
+        </div>
+    </div>
+    
+    <div class="course-container">
+        <div class="course-image">
+            <img src="c:\Users\sakth\OneDrive\Documents\WhatsApp Image 2025-01-05 at 19.57.41_b695d3af.jpg" alt="Course Image">
+           
+
+        </div>
+        <div class="course-info">
+            <h3>Operator bundle </h3>
+            <button id="completeBtn" onclick="markAsCompleted()">Completed</button>
+            <p style="color:#666;">Insert a brief description of what a member will learn from completing this section.</p>
+            <div class="progress-bar">
+                <div class="progress"></div>
+            </div>
+            <div class="info-container">
+                <span class="left" style="color:#666;"><i class="fas fa-calendar-alt" style="color:black;"></i> 20/03/2025 - 20/04/2025</span>
+                <span class="center" style="color:#666;"><i class="fas fa-layer-group" style="color:black;"></i> 5 Programs</span>
+                <span class="right" style="color:#666;"><i class="fas fa-clock" style="color:black;"></i> 10 Hours</span>
+            </div>
+            <a href="4.html"> <button class="view-btn">View</button></a>
+        </div>
+    </div>
+    <div class="course-container">
+        <div class="course-image">
+            <img src="c:\Users\sakth\OneDrive\Documents\WhatsApp Image 2025-01-05 at 19.57.41_7b8710b2.jpg" alt="Course Image">
+           
+
+        </div>
+        <div class="course-info">
+            <h3>String bundle </h3>
+            <button id="completeBtn" onclick="markAsCompleted()">Completed</button>
+            <p style="color:#666;">Insert a brief description of what a member will learn from completing this section.</p>
+            <div class="progress-bar">
+                <div class="progress"></div>
+            </div>
+            <div class="info-container">
+                <span class="left" style="color:#666;"><i class="fas fa-calendar-alt"style="color:black;"></i> 20/03/2025 - 20/04/2025</span>
+                <span class="center" style="color:#666;"><i class="fas fa-layer-group" style="color:black;"></i> 5 Programs</span>
+                <span class="right" style="color:#666;"><i class="fas fa-clock" style="color:black;"></i> 10 Hours</span>
+            </div>
+            <a href="4.html"> <button class="view-btn">View</button></a>
+        </div>
+    </div>
+    <script>
+    
+    document.addEventListener("DOMContentLoaded", function () {
+        let courseContainers = document.querySelectorAll(".course-container");
+
+        courseContainers.forEach((container) => {
+            let progressBar = container.querySelector(".progress");
+            let checkmark = container.querySelector(".checkmark");
+
+            let progressValue = parseInt(progressBar.style.width); // Get progress % from the element
+            
+            if (progressValue >= 100) {
+                checkmark.style.display = "inline-block";
+            }
+        });
+    });
+</script>
+
+
+
+    
+</body>
+</html>
+

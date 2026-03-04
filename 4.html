@@ -1,0 +1,262 @@
+
+    <div class="topic"  style="font-family: 'Inter', sans-serif; "><h1>Number Bundle</h1></div>
+    
+<div class="container">
+
+    
+
+    <div class="box-container">
+
+        <div class="box">
+          
+            <h3>Armstrong Number</h3>
+             <div class="circular-progress">
+                <span class="progress-value">0%</span>
+            </div>
+
+            
+        
+            <br>
+            <br>
+        <!-- JavaScript -->
+        <script src="js/script.js"></script>
+        <a href="55.html" class="bt">Enter</a>
+        </div>
+
+        <div class="box">
+           
+            <h3>Peterson Number</h3>
+            <div class="circular-progress">
+                <span class="progress-value">0%</span>
+            </div>
+
+            <br>
+            <br>
+        
+
+        <!-- JavaScript -->
+        <script src="js/script.js"></script>
+        <a href="55.html" class="bt">Enter</a>
+        </div>
+
+        <div class="box">
+           
+            <h3>Prime Number</h3>
+            <div class="circular-progress">
+                <span class="progress-value">0%</span>
+            </div>
+
+            <br>
+            <br>
+        
+    
+        <!-- JavaScript -->
+        <script src="js/script.js"></script>
+        <a href="55.html" class="bt">Enter</a>
+        </div>
+    
+        <div class="box">
+           
+            <h3>Lcm</h3>
+            <div class="circular-progress">
+                <span class="progress-value">0%</span>
+            </div>
+
+            <br>
+            <br>
+        
+
+        <!-- JavaScript -->
+        <script src="js/script.js"></script>
+        <a href="55.html" class="bt">Enter</a>
+        </div>
+        <div class="box">
+          
+            <h3>String</h3>
+            <div class="circular-progress">
+                <span class="progress-value">0%</span>
+            </div>
+
+            <br>
+            <br>
+        
+
+        <!-- JavaScript -->
+        <script src="js/script.js"></script>
+        <a href="55.html" class="bt">Enter</a>
+        </div>
+     
+        <div class="box">
+          
+            <h3>Sorting</h3>
+            <div class="circular-progress">
+                <span class="progress-value " >0%</span>
+            </div>
+
+            
+        <br>
+        <br>
+        <!-- JavaScript -->
+        <script src="js/script.js"></script>
+        <a href="55.html" class="bt">Enter</a>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap');
+
+*{
+    font-family: 'Inter', sans-serif; 
+    margin:0; padding:0;
+    box-sizing: border-box;
+    outline: none; border:none;
+    text-decoration: none;
+    text-transform: capitalize;
+    transition: .2s linear;
+}
+
+.body{
+    padding: 0%;
+    margin: 0;
+}
+.bt{
+    padding: 10px 15px;
+
+  font-size: 1rem;
+  cursor: pointer;
+  border: none;
+  background-color:  rgb(58, 134, 204);
+  color: #fff;
+  margin-left: 0%;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);  
+}
+.bt:hover{
+    background-color: #ffffff;
+    color:  rgb(58, 134, 204);
+}
+.topic{ font-family: 'Poppins', sans-serif;
+    text-align: center;
+    color: rgb(58, 134, 204);
+    padding: 10px;
+
+}
+
+.container .box-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+    gap:5%;
+   padding: 5px 10%;
+ 
+
+}
+
+.container .box-container .box{
+    box-shadow: 0 5px 10px rgba(0,0,0,.2);
+    border-radius: 5px;
+    background: #fff;
+    text-align: center;
+    padding:30px 20px;
+
+}
+
+.container .box-container .box img{
+    height: 80px;
+}
+
+.container .box-container .box h3{
+    color:#444;
+    font-size: 22px;
+    padding:10px 0;
+}
+
+.container .box-container .box p{
+    color:#777;
+    font-size: 15px;
+    line-height: 1.8;
+}
+
+.container .box-container .box .btn{
+    margin-top: 10px;
+    display: inline-block;
+    background: rgb(58, 134, 204);;
+    border: 1px solid rgb(58, 134, 204); 
+    color:white;
+    font-size: 17px;
+    border-radius: 5px;
+    padding: 8px 25px;
+}
+
+.container .box-container .box .btn:hover{
+    box-shadow: 0 2px 10px rgb(47, 160, 236); 
+}
+
+.container .box-container .box:hover{
+    box-shadow: 0 10px 15px rgba(0,0,0,.3);
+    transform: scale(1.03);
+}
+
+@media (max-width:768px){
+    .container{
+        padding:10px;
+    }
+}
+.circular-progress{
+    position: relative;
+    height: 250px;
+    width: 250px;
+    border-radius: 100%;
+    background: conic-gradient( rgb(58, 134, 204) 3.6deg, #ededed 0deg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+margin-left: 15%;
+
+}
+.circular-progress::before{
+    content: "";
+    position: absolute;
+    height: 210px;
+    width: 210px;
+    border-radius: 100%;
+    background-color: #fff;
+    padding-left: 9px;
+  
+}
+.progress-value{
+    position: relative;
+    font-size: 40px;
+    font-weight: 600;
+    color:  rgb(58, 134, 204); 
+    
+}
+</style>
+<script>
+let circularProgressElements = document.querySelectorAll(".circular-progress");
+
+circularProgressElements.forEach((circularProgress) => {
+    let progressValue = circularProgress.querySelector(".progress-value");
+
+    let progressStartValue = 0,
+        progressEndValue = 100,  // Set to 100% progress
+        speed = 10;
+
+    let progress = setInterval(() => {
+        progressStartValue++;
+
+        progressValue.textContent = `${progressStartValue}%`;  // Fix template literal
+        circularProgress.style.background = `conic-gradient(rgb(58, 134, 204) ${progressStartValue * 3.6}deg, #ededed 0deg)`;
+
+        if (progressStartValue === progressEndValue) {
+            clearInterval(progress);
+        }
+    }, speed);
+});
+
+    </script>

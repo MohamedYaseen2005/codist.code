@@ -1,0 +1,15 @@
+{
+    "question": "Find whether a number is odd or even",
+    "hints": [
+      "Check if number divisible by 2 without remainder",
+      "Use modulo operator to test for evenness",
+      "Even numbers leave zero remainder when divided by 2",
+      "Odd numbers leave one as remainder with modulo 2",
+      "Use if-else with num % 2 to find result",
+      "Even number: num % 2 == 0 condition true",
+      "Odd number: num % 2 != 0 condition true",
+      "Don't forget to convert input to integer",
+      "Use elif only if checking multiple conditions",
+      "Print 'Even' if true, else print 'Odd'"
+    ]
+  }

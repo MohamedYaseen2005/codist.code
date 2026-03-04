@@ -1,0 +1,124 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sidebar Navigation</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+
+        /* Header */
+       
+
+       
+
+     
+
+        /* Sidebar Menu */
+        .main-container {
+            display: flex;
+            flex: 1;
+        }
+
+        .main-menu {
+            background: rgb(255, 255, 255);
+            width: 33px;
+            height: 100vh;
+            position: fixed;
+            left: 0;
+            top: 0px;
+            transition: width 0.2s;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .main-menu:hover {
+            width: 200px;
+        }
+
+        .main-menu ul {
+            list-style: none;
+            padding: 10px 0;
+        }
+
+        .main-menu li {
+            padding: 10px;
+        }
+
+        .main-menu a {
+            display: flex;
+            align-items: center;
+            color: rgb(58, 134, 204);
+            text-decoration: none;
+            font-size: 16px;
+        }
+
+        .main-menu i {
+            margin-right: 10px;
+        }
+
+        /* Content Area */
+        .content {
+            margin-left: 60px;
+            width: calc(100% - 60px);
+            height: calc(100vh - 60px);
+        }
+
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        .but1{
+              padding: 5px 0px;
+              font-size: X-large;
+                
+              color: #ffffff;
+              background-color: rgb(58, 134, 204);
+              border: #f4f4f4;
+            }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+  
+
+    <div class="main-container">
+        <!-- Sidebar -->
+        <nav class="main-menu">
+            <ul>
+                <li><a href="admin3.html" onclick="loadPage(event, 'admin3.html')"><i class="fa fa-user"></i> Home</a></li>
+                <li><a href="dashboard.html" onclick="loadPage(event, 'dashboard.html')"><i class="fa fa-ranking-star"></i> Leaderboard</a></li>
+                <li><a href="admin1.html" onclick="loadPage(event, 'admin1.html')"><i class="fa fa-person-running"></i> Forums</a></li>
+              
+            </ul>
+        </nav>
+
+        <!-- Content Area -->
+        <div class="content">
+            <iframe id="contentFrame" src="admin3.html"></iframe>
+        </div>
+    </div>
+
+    <script>
+        function loadPage(event, url) {
+            event.preventDefault();
+            document.getElementById("contentFrame").src = url;
+        }
+    </script>
+
+</body>
+</html>

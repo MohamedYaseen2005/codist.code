@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Achievement Tracker</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f8f8f8;
+      padding: 20px;
+    }
+    h1 {
+      margin-left: 40%;
+    }
+    .course-container {
+      display: flex;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      margin-bottom: 20px;
+      align-items: center;
+      justify-content: space-between;
+      position: relative;
+    }
+    .course-image img {
+      width: 280px;
+      height: 200px;
+      border-radius: 8px;
+      margin-right: 20px;
+    }
+    .course-info {
+      flex-grow: 1;
+    }
+    .progress-bar {
+      height: 10px;
+      background: #ddd;
+      border-radius: 5px;
+      overflow: hidden;
+      margin-top: 10px;
+      width: 100%;
+    }
+    .progress {
+      height: 100%;
+      background: rgb(58, 134, 204);
+      width: 40%;
+    }
+    .info-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 10px;
+      width: 100%;
+    }
+    .info-container span {
+      display: flex;
+      align-items: center;
+    }
+    .info-container i {
+      margin-right: 5px;
+    }
+    .view-btn {
+      background: rgb(58, 134, 204);
+      color: white;
+      border: none;
+      padding: 10px 13px;
+      font-size: 14px;
+      cursor: pointer;
+      border-radius: 13px;
+      margin-left: 95%;
+    }
+    .view-btn:hover {
+      background-color: #ffffff;
+      color: rgb(58, 134, 204);
+    }
+    .left, .center, .right {
+      flex: 1;
+      text-align: center;
+    }
+    .left {
+      text-align: left;
+    }
+    .right {
+      text-align: right;
+      font-size: 18px;
+      font-weight: bold;
+    }
+    button {
+      background-color: orange;
+      color: white;
+      font-size: 18px;
+      padding: 6px 12px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    button:hover {
+      background-color: darkorange;
+    }
+    button:disabled {
+      background-color: gray;
+      cursor: not-allowed;
+    }
+    .timer-container {
+      position: absolute;
+      top: 10px;
+      right: 20px;
+      background: white;
+      padding: 10px 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      font-size: 20px;
+      font-weight: bold;
+      color: #007bff;
+    }
+    
+    /* Responsive Media Queries */
+    @media (max-width: 768px) {
+      h1 {
+        margin-left: 0;
+        text-align: center;
+      }
+      .course-container {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 15px;
+      }
+      .course-image img {
+        width: 100%;
+        height: auto;
+        margin-right: 0;
+        margin-bottom: 10px;
+      }
+      .timer-container {
+        position: static;
+        margin-bottom: 10px;
+        align-self: flex-end;
+      }
+      .info-container {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .view-btn {
+        margin-left: 0;
+        width: 100%;
+        margin-top: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>Pending Programs</h1>
+
+  <div class="course-container">
+    <div class="timer-container">
+      <span class="timer">00:00:00</span>
+    </div>
+    <div class="course-image">
+      <img src="c:\Users\sakth\OneDrive\Documents\WhatsApp Image 2025-01-05 at 19.57.41_b695d3af.jpg" alt="Course Image" />
+    </div>
+    <div class="course-info">
+      <h3>Array Bundle</h3>
+      <button id="activeBtn" onclick="toggleActive()">Active</button>
+      <p style="color:#666;">
+        Insert a brief description of what a member will learn from completing this section.
+      </p>
+      <div class="progress-bar">
+        <div class="progress"></div>
+      </div>
+      <div class="info-container">
+        <span class="left"><i class="fas fa-calendar-alt"></i> Remaining Days: <span>30</span></span>
+        <span class="center"><i class="fas fa-layer-group"></i> Pending Programs: <span>5</span></span>
+      </div>
+      <a href="5.html"><button class="view-btn">View</button></a>
+    </div>
+  </div>
+
+  <div class="course-container">
+    <div class="timer-container">
+      <span class="timer">00:00:00</span>
+    </div>
+    <div class="course-image">
+      <img src="c:\Users\sakth\OneDrive\Documents\WhatsApp Image 2025-01-05 at 20.00.35_fb5be1bc.jpg" alt="Course Image" />
+    </div>
+    <div class="course-info">
+      <h3>Stack Bundle</h3>
+      <button id="activeBtn" onclick="toggleActive()">Active</button>
+      <p style="color:#666;">
+        Insert a brief description of what a member will learn from completing this section.
+      </p>
+      <div class="progress-bar">
+        <div class="progress"></div>
+      </div>
+      <div class="info-container">
+        <span class="left"><i class="fas fa-calendar-alt"></i> Remaining Days: <span>20</span></span>
+        <span class="center"><i class="fas fa-layer-group"></i> Pending Programs: <span>4</span></span>
+      </div>
+      <a href="5.html"><button class="view-btn">View</button></a>
+    </div>
+  </div>
+
+  <script>
+    function updateTimers() {
+      let timers = document.querySelectorAll('.timer');
+      timers.forEach(timer => {
+        let now = new Date();
+        let hours = String(now.getHours()).padStart(2, '0');
+        let minutes = String(now.getMinutes()).padStart(2, '0');
+        let seconds = String(now.getSeconds()).padStart(2, '0');
+        timer.innerText = `${hours}:${minutes}:${seconds}`;
+      });
+    }
+    setInterval(updateTimers, 1000);
+    updateTimers(); // Run immediately to avoid 1-second delay
+
+    function toggleActive() {
+      // You can add additional functionality here if needed.
+      alert('Course status toggled!');
+    }
+  </script>
+</body>
+</html>
